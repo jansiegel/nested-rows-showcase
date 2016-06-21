@@ -6664,8 +6664,10 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     }
     parent.__children.push(element);
     this.refreshLevelCache();
-    this.hot.render();
+    var newRowIndex = this.getRowIndex(element);
+    this.hot.runHooks('afterCreateRow', newRowIndex, 1);
     this.hot.runHooks('afterAddChild', parent, element);
+    this.hot.render();
   },
   detachFromParent: function(element) {
     var indexWithinParent = this.getRowIndexWithinParent(element);
@@ -6713,13 +6715,13 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     if (newRowParent) {
       newRowParent.__children.splice(indexWithinParent, amount, element);
     } else {
-      this.sourceData.splice(indexWithinParent, amount, element);
+      this.data.splice(indexWithinParent, amount, element);
     }
   },
   refreshLevelCache: function() {
     var $__3 = this;
     this.levelCache = [];
-    rangeEach(0, this.hot.countRows(), (function(i) {
+    rangeEach(0, this.countAllRows(), (function(i) {
       $__3.levelCache[i] = $__3.getRowLevel(i);
     }));
   }
@@ -6737,12 +6739,14 @@ Object.defineProperties(exports, {
 });
 var $__handsontable_47_plugins_47__95_base__,
     $__handsontable_47_plugins__,
+    $__handsontable_47_helpers_47_number__,
     $__data_47_dataManager__,
     $__ui_47_collapsing__,
     $__ui_47_headers__,
     $__ui_47_contextMenu__;
 var BasePlugin = ($__handsontable_47_plugins_47__95_base__ = _dereq_("../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base"), $__handsontable_47_plugins_47__95_base__ && $__handsontable_47_plugins_47__95_base__.__esModule && $__handsontable_47_plugins_47__95_base__ || {default: $__handsontable_47_plugins_47__95_base__}).default;
 var registerPlugin = ($__handsontable_47_plugins__ = _dereq_("../../../node_modules/hot-builder/node_modules/handsontable/src/plugins"), $__handsontable_47_plugins__ && $__handsontable_47_plugins__.__esModule && $__handsontable_47_plugins__ || {default: $__handsontable_47_plugins__}).registerPlugin;
+var rangeEach = ($__handsontable_47_helpers_47_number__ = _dereq_("../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number"), $__handsontable_47_helpers_47_number__ && $__handsontable_47_helpers_47_number__.__esModule && $__handsontable_47_helpers_47_number__ || {default: $__handsontable_47_helpers_47_number__}).rangeEach;
 var DataManager = ($__data_47_dataManager__ = _dereq_("data/dataManager"), $__data_47_dataManager__ && $__data_47_dataManager__.__esModule && $__data_47_dataManager__ || {default: $__data_47_dataManager__}).DataManager;
 var CollapsingUI = ($__ui_47_collapsing__ = _dereq_("ui/collapsing"), $__ui_47_collapsing__ && $__ui_47_collapsing__.__esModule && $__ui_47_collapsing__ || {default: $__ui_47_collapsing__}).CollapsingUI;
 var HeadersUI = ($__ui_47_headers__ = _dereq_("ui/headers"), $__ui_47_headers__ && $__ui_47_headers__.__esModule && $__ui_47_headers__ || {default: $__ui_47_headers__}).HeadersUI;
@@ -6750,6 +6754,7 @@ var ContextMenuUI = ($__ui_47_contextMenu__ = _dereq_("ui/contextMenu"), $__ui_4
 var NestedRows = function NestedRows(hotInstance) {
   this.sourceData = null;
   this.trimRowsPlugin = null;
+  this.bindRowsWithHeadersPlugin = null;
   this.dataManager = null;
   this.headersUI = null;
   $traceurRuntime.superConstructor($NestedRows).call(this, hotInstance);
@@ -6760,45 +6765,52 @@ var $NestedRows = NestedRows;
     return !!this.hot.getSettings().nestedRows;
   },
   enablePlugin: function() {
-    var $__6 = this;
+    var $__7 = this;
     this.sourceData = this.hot.getSourceData();
     this.trimRowsPlugin = this.hot.getPlugin('trimRows');
+    this.bindRowsWithHeadersPlugin = this.hot.getPlugin('bindRowsWithHeaders');
     this.dataManager = new DataManager(this, this.hot, this.sourceData);
     this.collapsingUI = new CollapsingUI(this, this.hot, this.trimRowsPlugin);
     this.headersUI = new HeadersUI(this, this.hot);
     this.contextMenuUI = new ContextMenuUI(this, this.hot);
     this.addHook('modifyRowData', (function(row) {
-      return $__6.onModifyRowData(row);
+      return $__7.onModifyRowData(row);
     }));
     this.addHook('modifySourceLength', (function() {
-      return $__6.onModifySourceLength();
+      return $__7.onModifySourceLength();
     }));
     this.addHook('beforeDataSplice', (function(index, amount, element) {
-      return $__6.onBeforeDataSplice(index, amount, element);
+      return $__7.onBeforeDataSplice(index, amount, element);
     }));
     this.addHook('beforeDataFilter', (function(index, amount, logicRows) {
-      return $__6.onBeforeDataFilter(index, amount, logicRows);
+      return $__7.onBeforeDataFilter(index, amount, logicRows);
     }));
     this.addHook('afterContextMenuDefaultOptions', (function(defaultOptions) {
-      return $__6.onAfterContextMenuDefaultOptions(defaultOptions);
+      return $__7.onAfterContextMenuDefaultOptions(defaultOptions);
     }));
     this.addHook('afterGetRowHeader', (function(row, th) {
-      return $__6.onAfterGetRowHeader(row, th);
+      return $__7.onAfterGetRowHeader(row, th);
     }));
     this.addHook('beforeOnCellMouseDown', (function(event, coords, TD) {
-      return $__6.onBeforeOnCellMouseDown(event, coords, TD);
+      return $__7.onBeforeOnCellMouseDown(event, coords, TD);
+    }));
+    this.addHook('beforeRemoveRow', (function(index, amount) {
+      return $__7.onBeforeRemoveRow(index, amount);
+    }));
+    this.addHook('afterRemoveRow', (function(index, amount) {
+      return $__7.headersUI.updateRowHeaderWidth();
     }));
     this.addHook('afterInit', (function() {
-      return $__6.onAfterInit();
+      return $__7.onAfterInit();
     }));
     this.addHook('afterAddChild', (function() {
-      return $__6.headersUI.updateRowHeaderWidth();
+      return $__7.headersUI.updateRowHeaderWidth();
     }));
     this.addHook('afterDetachChild', (function() {
-      return $__6.headersUI.updateRowHeaderWidth();
+      return $__7.headersUI.updateRowHeaderWidth();
     }));
     this.addHook('modifyRowHeaderWidth', (function(rowHeaderWidth) {
-      return $__6.onModifyRowHeaderWidth(rowHeaderWidth);
+      return $__7.onModifyRowHeaderWidth(rowHeaderWidth);
     }));
     if (!this.trimRowsPlugin.isEnabled()) {
       this.trimRowsPlugin.enablePlugin();
@@ -6841,10 +6853,20 @@ var $NestedRows = NestedRows;
   onModifyRowHeaderWidth: function(rowHeaderWidth) {
     return this.headersUI.rowHeaderWidthCache || rowHeaderWidth;
   },
+  onBeforeRemoveRow: function(index, amount) {
+    var rowsToRemove = [];
+    rangeEach(index, index + amount - 1, (function(i) {
+      rowsToRemove.push(i);
+    }));
+    this.collapsingUI.showRows(rowsToRemove);
+  },
   onAfterInit: function() {
-    var $__8;
+    var $__9;
     this.dataManager.refreshLevelCache();
-    var deepestLevel = ($__8 = Math).max.apply($__8, $traceurRuntime.spread(this.dataManager.levelCache));
+    if (this.bindRowsWithHeadersPlugin.bindStrategy.strategy) {
+      this.bindRowsWithHeadersPlugin.bindStrategy.createMap(this.hot.countSourceRows());
+    }
+    var deepestLevel = ($__9 = Math).max.apply($__9, $traceurRuntime.spread(this.dataManager.levelCache));
     if (deepestLevel > 0) {
       this.headersUI.updateRowHeaderWidth(deepestLevel);
     }
@@ -6854,7 +6876,7 @@ var $NestedRows = NestedRows;
 registerPlugin('nestedRows', NestedRows);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"data/dataManager":63,"ui/collapsing":66,"ui/contextMenu":67,"ui/headers":68}],65:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"data/dataManager":63,"ui/collapsing":66,"ui/contextMenu":67,"ui/headers":68}],65:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BaseUI: {get: function() {
@@ -6919,6 +6941,13 @@ var $CollapsingUI = CollapsingUI;
         $__5.hideNode(elem);
       }));
     }
+  },
+  showRows: function(rows) {
+    var $__5 = this;
+    arrayEach(rows, (function(elem, i) {
+      var rowObj = $__5.dataManager.getDataObject(elem);
+      $__5.showNode(rowObj);
+    }));
   },
   showChildren: function(row) {
     var $__5 = this;
@@ -7019,7 +7048,7 @@ var $ContextMenuUI = ContextMenuUI;
     }, {
       key: 'detach_from_parent',
       name: (function() {
-        return 'Detach from parent.';
+        return 'Detach from parent';
       }),
       callback: (function() {
         var parent = $__3.dataManager.getDataObject($__3.hot.getSelected()[0]);
@@ -7052,9 +7081,11 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var $___95_base__,
+    $__handsontable_47_helpers_47_array__,
     $__handsontable_47_helpers_47_number__,
     $__handsontable_47_helpers_47_dom_47_element__;
 var BaseUI = ($___95_base__ = _dereq_("_base"), $___95_base__ && $___95_base__.__esModule && $___95_base__ || {default: $___95_base__}).BaseUI;
+var arrayEach = ($__handsontable_47_helpers_47_array__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array"), $__handsontable_47_helpers_47_array__ && $__handsontable_47_helpers_47_array__.__esModule && $__handsontable_47_helpers_47_array__ || {default: $__handsontable_47_helpers_47_array__}).arrayEach;
 var rangeEach = ($__handsontable_47_helpers_47_number__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number"), $__handsontable_47_helpers_47_number__ && $__handsontable_47_helpers_47_number__.__esModule && $__handsontable_47_helpers_47_number__ || {default: $__handsontable_47_helpers_47_number__}).rangeEach;
 var addClass = ($__handsontable_47_helpers_47_dom_47_element__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element"), $__handsontable_47_helpers_47_dom_47_element__ && $__handsontable_47_helpers_47_dom_47_element__.__esModule && $__handsontable_47_helpers_47_dom_47_element__ || {default: $__handsontable_47_helpers_47_dom_47_element__}).addClass;
 var HeadersUI = function HeadersUI(nestedRowsPlugin, hotInstance) {
@@ -7072,27 +7103,23 @@ var $HeadersUI = HeadersUI;
     var rowLevel = this.levelCache ? this.levelCache[row] : this.dataManager.getRowLevel(row);
     var rowObject = this.dataManager.getDataObject(row);
     var innerDiv = TH.getElementsByTagName('DIV')[0];
-    var previousIndicators = innerDiv.querySelector('.' + $HeadersUI.CSS_CLASSES.indicatorContainer);
-    var previousButtons = innerDiv.querySelector('.' + $HeadersUI.CSS_CLASSES.button);
-    if (previousIndicators) {
-      innerDiv.removeChild(previousIndicators);
-    }
-    if (previousButtons) {
-      innerDiv.removeChild(previousButtons);
-    }
+    var innerSpan = innerDiv.querySelector('span.rowHeader');
+    var previousIndicators = innerDiv.querySelectorAll('[class^="ht_nesting"]');
+    arrayEach(previousIndicators, (function(elem, i) {
+      if (elem) {
+        innerDiv.removeChild(elem);
+      }
+    }));
     addClass(TH, $HeadersUI.CSS_CLASSES.indicatorContainer);
     if (rowLevel) {
-      var indicatorsContainer = document.createElement('DIV');
-      addClass(indicatorsContainer, $HeadersUI.CSS_CLASSES.indicatorContainer);
-      rangeEach(0, rowLevel - 2, (function(i) {
+      var initialContent = innerSpan.cloneNode(true);
+      innerDiv.innerHTML = '';
+      rangeEach(0, rowLevel - 1, (function(i) {
         var levelIndicator = document.createElement('SPAN');
         addClass(levelIndicator, $HeadersUI.CSS_CLASSES.emptyIndicator);
-        indicatorsContainer.appendChild(levelIndicator);
+        innerDiv.appendChild(levelIndicator);
       }));
-      var levelIndicator = document.createElement('SPAN');
-      addClass(levelIndicator, $HeadersUI.CSS_CLASSES.indicator);
-      indicatorsContainer.appendChild(levelIndicator);
-      innerDiv.appendChild(indicatorsContainer);
+      innerDiv.appendChild(initialContent);
     }
     if (this.dataManager.hasChildren(rowObject)) {
       var buttonsContainer = document.createElement('DIV');
@@ -7105,11 +7132,11 @@ var $HeadersUI = HeadersUI;
     }
   },
   updateRowHeaderWidth: function(deepestLevel) {
-    var $__4;
+    var $__5;
     if (!deepestLevel) {
-      deepestLevel = ($__4 = Math).max.apply($__4, $traceurRuntime.spread(this.dataManager.levelCache));
+      deepestLevel = ($__5 = Math).max.apply($__5, $traceurRuntime.spread(this.dataManager.levelCache));
     }
-    this.rowHeaderWidthCache = Math.max(50, 20 + 20 * deepestLevel);
+    this.rowHeaderWidthCache = Math.max(50, 11 + 10 * deepestLevel + 20);
     this.hot.render();
   }
 }, {get CSS_CLASSES() {
@@ -7125,7 +7152,7 @@ var $HeadersUI = HeadersUI;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"_base":65}],69:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"_base":65}],69:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   RowsMapper: {get: function() {
@@ -11497,7 +11524,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Fri Jun 10 2016 15:08:13 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Tue Jun 21 2016 10:36:30 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';
