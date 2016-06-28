@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="./dist/handsontable.full.js"></script>
+  <link href="./dist/handsontable.full.min.css" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <title>Nested Rows feature showcase.</title>
+</head>
+<body>
+<header>
+  <h3>
+    <span>"Nested Rows" feature showcase</span>
+  </h3>
+</header>
+
+<div id="example"></div>
+
+<h3>
+  <span>API</span>
+</h3>
+
+<section>
+  <div class="third">
+    <label for="row-to-collapse">Enter parent row:</label>
+    <input id="row-to-collapse" type="number" value="1">
+    <a id="toggle-section" href="javascript:void(0)" class="btn">Collapse/Expand section</a>
+  </div>
+  <div class="third">
+  <a id="collapse-all" href="javascript:void(0)" class="btn">Collapse all sections</a>
+    </div>
+  <div class="third">
+  <a id="expand-all" href="javascript:void(0)" class="btn">Expand all sections</a>
+    </div>
+</section>
+
+
+
+<script src="./js/main.js"></script>
+</body>
+</html>

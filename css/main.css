@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", "Open Sans",Helvetica,Arial,sans-serif;
+}
+
+.handsontable {
+    font-family: Verdana, Helvetica, Arial, FreeSans, sans-serif;
+    font-size: 12px;
+}
+
+h3 {
+    border-bottom: 1px solid #E3E3E3;
+    margin: 70px auto 70px;
+    width: 70%;
+    position: relative;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+h3 > span {
+    background: #fff;
+    margin: auto;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0 30px 0 30px;
+    text-align: center;
+}
+
+span.special {
+    font-style: italic;
+    font-size: 20px;
+}
+
+a.btn {
+    color: #FFF;
+    background: #53b673;
+    height: 37px;
+    line-height: 35px;
+    vertical-align: middle;
+    width: auto;
+    padding: 0 14px;
+    margin-right: 10px;
+    display: inline-block;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+a.btn.disabled {
+    background: #afb1b6;
+    cursor: default;
+}
+
+input[type='number'] {
+    height: 37px;
+    line-height: 35px;
+    width: 56px;
+    font-size: 17px;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+#row-to-collapse {
+    margin-left: 15px;
+}
+
+section {
+    margin: 0 auto;
+    width: 70%;
+}
+
+#example {
+    /*width: 690px;*/
+    width: 895px;
+    height: 364px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.handsontable .ht_nestingParent ~ TD {
+    background: #f7f5f5;
+}
+
+div.third {
+    width: calc(100%/3);
+    float: left;
+    display: inline;
+    text-align: center;
+    /*border-left: 1px solid #E3E3E3;*/
+}
+
+/*div.third:first-child {*/
+    /*border-left: 0;*/
+/*}*/
