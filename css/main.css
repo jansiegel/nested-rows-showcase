@@ -14,7 +14,7 @@ body {
 h3 {
     border-bottom: 1px solid #E3E3E3;
     margin: 70px auto 70px;
-    width: 70%;
+    width: 80%;
     position: relative;
     line-height: 1;
     text-transform: uppercase;
@@ -74,7 +74,7 @@ input[type='number'] {
 
 section {
     margin: 0 auto;
-    width: 70%;
+    width: 90%;
 }
 
 #example {
