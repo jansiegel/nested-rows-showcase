@@ -22,7 +22,7 @@ YOU SHALL OBTAIN A COMMERCIAL LICENSE FOR THIS SOFTWARE AT HANDSONTABLE.COM.
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Handsontable = f()}})(function(){var define,module,exports;return (function outer (modules, cache, entry) {
   // Save the require from previous bundle to this closure if any
   var previousRequire = typeof require == "function" && require;
-  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","pikaday":"Pikaday"}') || {};
+  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","numbro":"numbro","pikaday":"Pikaday"}') || {};
 
   function newRequire(name, jumped){
     if(!cache[name]) {
@@ -6650,7 +6650,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     if (!isNaN(row)) {
       row = this.getDataObject(row);
     }
-    return (row.__children && row.__children.length);
+    return !!(row.__children && row.__children.length);
   },
   addChild: function(parent, element) {
     if (!parent.__children) {
@@ -6702,6 +6702,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     }));
   },
   spliceData: function(index, amount, element) {
+    index = this.translateTrimmedRow(index);
     var previousElement = this.getDataObject(index - 1);
     var newRowParent = null;
     var indexWithinParent = null;
@@ -6724,6 +6725,13 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     rangeEach(0, this.countAllRows(), (function(i) {
       $__3.levelCache[i] = $__3.getRowLevel(i);
     }));
+  },
+  translateTrimmedRow: function(row) {
+    if (this.plugin.collapsingUI) {
+      return this.plugin.collapsingUI.translateTrimmedRow(row);
+    } else {
+      return row;
+    }
   }
 }, {});
 ;
@@ -6797,8 +6805,8 @@ var $NestedRows = NestedRows;
     this.addHook('beforeRemoveRow', (function(index, amount) {
       return $__7.onBeforeRemoveRow(index, amount);
     }));
-    this.addHook('afterRemoveRow', (function(index, amount) {
-      return $__7.headersUI.updateRowHeaderWidth();
+    this.addHook('modifyRemovedAmount', (function(amount, index) {
+      return $__7.onModifyRemovedAmount(amount, index);
     }));
     this.addHook('afterInit', (function() {
       return $__7.onAfterInit();
@@ -6814,6 +6822,7 @@ var $NestedRows = NestedRows;
     }));
     if (!this.trimRowsPlugin.isEnabled()) {
       this.trimRowsPlugin.enablePlugin();
+      this.hot.getSettings().trimRows = true;
     }
     $traceurRuntime.superGet(this, $NestedRows.prototype, "enablePlugin").call(this);
   },
@@ -6854,11 +6863,22 @@ var $NestedRows = NestedRows;
     return this.headersUI.rowHeaderWidthCache || rowHeaderWidth;
   },
   onBeforeRemoveRow: function(index, amount) {
-    var rowsToRemove = [];
+    index = this.collapsingUI.translateTrimmedRow(index);
+    if (index != null) {
+      var rowsToRemove = [];
+      rangeEach(index, index + amount - 1, (function(i) {
+        rowsToRemove.push(i);
+      }));
+      this.collapsingUI.showRows(rowsToRemove);
+    }
+  },
+  onModifyRemovedAmount: function(amount, index) {
+    var $__7 = this;
+    var childrenCount = 0;
     rangeEach(index, index + amount - 1, (function(i) {
-      rowsToRemove.push(i);
+      childrenCount += $__7.dataManager.countChildren($__7.collapsingUI.translateTrimmedRow(i));
     }));
-    this.collapsingUI.showRows(rowsToRemove);
+    return amount + childrenCount;
   },
   onAfterInit: function() {
     var $__9;
@@ -6903,11 +6923,13 @@ Object.defineProperties(exports, {
 var $___95_base__,
     $__handsontable_47_helpers_47_dom_47_event__,
     $__handsontable_47_helpers_47_array__,
+    $__handsontable_47_helpers_47_number__,
     $__handsontable_47_helpers_47_dom_47_element__,
     $__headers__;
 var BaseUI = ($___95_base__ = _dereq_("_base"), $___95_base__ && $___95_base__.__esModule && $___95_base__ || {default: $___95_base__}).BaseUI;
 var stopImmediatePropagation = ($__handsontable_47_helpers_47_dom_47_event__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event"), $__handsontable_47_helpers_47_dom_47_event__ && $__handsontable_47_helpers_47_dom_47_event__.__esModule && $__handsontable_47_helpers_47_dom_47_event__ || {default: $__handsontable_47_helpers_47_dom_47_event__}).stopImmediatePropagation;
 var arrayEach = ($__handsontable_47_helpers_47_array__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array"), $__handsontable_47_helpers_47_array__ && $__handsontable_47_helpers_47_array__.__esModule && $__handsontable_47_helpers_47_array__ || {default: $__handsontable_47_helpers_47_array__}).arrayEach;
+var rangeEach = ($__handsontable_47_helpers_47_number__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number"), $__handsontable_47_helpers_47_number__ && $__handsontable_47_helpers_47_number__.__esModule && $__handsontable_47_helpers_47_number__ || {default: $__handsontable_47_helpers_47_number__}).rangeEach;
 var hasClass = ($__handsontable_47_helpers_47_dom_47_element__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element"), $__handsontable_47_helpers_47_dom_47_element__ && $__handsontable_47_helpers_47_dom_47_element__.__esModule && $__handsontable_47_helpers_47_dom_47_element__ || {default: $__handsontable_47_helpers_47_dom_47_element__}).hasClass;
 var HeadersUI = ($__headers__ = _dereq_("headers"), $__headers__ && $__headers__.__esModule && $__headers__ || {default: $__headers__}).HeadersUI;
 var CollapsingUI = function CollapsingUI(nestedRowsPlugin, hotInstance) {
@@ -6918,7 +6940,8 @@ var CollapsingUI = function CollapsingUI(nestedRowsPlugin, hotInstance) {
 var $CollapsingUI = CollapsingUI;
 ($traceurRuntime.createClass)(CollapsingUI, {
   hideChildren: function(row) {
-    var $__5 = this;
+    var forceRender = arguments[1] !== (void 0) ? arguments[1] : true;
+    var $__6 = this;
     var rowObject = null;
     if (isNaN(row)) {
       rowObject = row;
@@ -6927,30 +6950,33 @@ var $CollapsingUI = CollapsingUI;
     }
     if (this.dataManager.hasChildren(rowObject)) {
       arrayEach(rowObject.__children, (function(elem, i) {
-        $__5.hideNode(elem);
+        $__6.hideNode(elem);
       }));
     }
-    this.hot.render();
+    if (forceRender) {
+      this.renderAndAdjust();
+    }
   },
   hideNode: function(rowObj) {
-    var $__5 = this;
+    var $__6 = this;
     var rowIndex = this.dataManager.getRowIndex(rowObj);
     this.trimRowsPlugin.trimRow(rowIndex);
     if (this.dataManager.hasChildren(rowObj)) {
       arrayEach(rowObj.__children, (function(elem, i) {
-        $__5.hideNode(elem);
+        $__6.hideNode(elem);
       }));
     }
   },
   showRows: function(rows) {
-    var $__5 = this;
+    var $__6 = this;
     arrayEach(rows, (function(elem, i) {
-      var rowObj = $__5.dataManager.getDataObject(elem);
-      $__5.showNode(rowObj);
+      var rowObj = $__6.dataManager.getDataObject(elem);
+      $__6.showNode(rowObj);
     }));
   },
   showChildren: function(row) {
-    var $__5 = this;
+    var forceRender = arguments[1] !== (void 0) ? arguments[1] : true;
+    var $__6 = this;
     var rowObject = null;
     if (isNaN(row)) {
       rowObject = row;
@@ -6959,23 +6985,45 @@ var $CollapsingUI = CollapsingUI;
     }
     if (this.dataManager.hasChildren(rowObject)) {
       arrayEach(rowObject.__children, (function(elem, i) {
-        $__5.showNode(elem);
+        $__6.showNode(elem);
       }));
     }
-    this.hot.render();
+    if (forceRender) {
+      this.renderAndAdjust();
+    }
+  },
+  hideAll: function() {
+    var $__6 = this;
+    var sourceData = this.hot.getSourceData();
+    arrayEach(sourceData, (function(elem, i) {
+      if ($__6.dataManager.hasChildren(elem)) {
+        $__6.hideChildren(elem, false);
+      }
+    }));
+    this.renderAndAdjust();
+  },
+  showAll: function() {
+    var $__6 = this;
+    var sourceData = this.hot.getSourceData();
+    arrayEach(sourceData, (function(elem, i) {
+      if ($__6.dataManager.hasChildren(elem)) {
+        $__6.showChildren(elem, false);
+      }
+    }));
+    this.renderAndAdjust();
   },
   showNode: function(rowObj) {
-    var $__5 = this;
+    var $__6 = this;
     var rowIndex = this.dataManager.getRowIndex(rowObj);
     this.trimRowsPlugin.untrimRow(rowIndex);
     if (this.dataManager.hasChildren(rowObj)) {
       arrayEach(rowObj.__children, (function(elem, i) {
-        $__5.showNode(elem);
+        $__6.showNode(elem);
       }));
     }
   },
   areChildrenHidden: function(row) {
-    var $__5 = this;
+    var $__6 = this;
     var rowObj = null;
     var allHidden = true;
     if (isNaN(row)) {
@@ -6985,8 +7033,8 @@ var $CollapsingUI = CollapsingUI;
     }
     if (this.dataManager.hasChildren(rowObj)) {
       arrayEach(rowObj.__children, (function(elem, i) {
-        var rowIndex = $__5.dataManager.getRowIndex(elem);
-        if (!$__5.trimRowsPlugin.isTrimmed(rowIndex)) {
+        var rowIndex = $__6.dataManager.getRowIndex(elem);
+        if (!$__6.trimRowsPlugin.isTrimmed(rowIndex)) {
           allHidden = false;
           return false;
         }
@@ -7010,12 +7058,16 @@ var $CollapsingUI = CollapsingUI;
   },
   translateTrimmedRow: function(row) {
     return this.trimRowsPlugin.rowsMapper.getValueByIndex(row);
+  },
+  renderAndAdjust: function() {
+    this.hot.render();
+    this.hot.view.wt.wtOverlays.adjustElementsSize();
   }
 }, {}, BaseUI);
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"_base":65,"headers":68}],67:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"_base":65,"headers":68}],67:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ContextMenuUI: {get: function() {
@@ -7123,6 +7175,7 @@ var $HeadersUI = HeadersUI;
     }
     if (this.dataManager.hasChildren(rowObject)) {
       var buttonsContainer = document.createElement('DIV');
+      addClass(TH, $HeadersUI.CSS_CLASSES.parent);
       if (this.collapsingUI.areChildrenHidden(row)) {
         addClass(buttonsContainer, $HeadersUI.CSS_CLASSES.button + ' ' + $HeadersUI.CSS_CLASSES.expandButton);
       } else {
@@ -7142,6 +7195,7 @@ var $HeadersUI = HeadersUI;
 }, {get CSS_CLASSES() {
     return {
       indicatorContainer: 'ht_nestingLevels',
+      parent: 'ht_nestingParent',
       indicator: 'ht_nestingLevel',
       emptyIndicator: 'ht_nestingLevel_empty',
       button: 'ht_nestingButton',
@@ -8548,7 +8602,7 @@ var $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__,
     $___46__46__47__46__46__47__46__46__47_helpers_47_browser__,
     $___46__46__47__46__46__47__46__46__47_eventManager__;
 var $__0 = ($___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__ && $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__}),
-    closest = $__0.closest,
+    closestDown = $__0.closestDown,
     hasClass = $__0.hasClass,
     isChildOf = $__0.isChildOf;
 var isMobileBrowser = ($___46__46__47__46__46__47__46__46__47_helpers_47_browser__ = _dereq_("helpers/browser"), $___46__46__47__46__46__47__46__46__47_helpers_47_browser__ && $___46__46__47__46__46__47__46__46__47_helpers_47_browser__.__esModule && $___46__46__47__46__46__47__46__46__47_helpers_47_browser__ || {default: $___46__46__47__46__46__47__46__46__47_helpers_47_browser__}).isMobileBrowser;
@@ -8601,7 +8655,7 @@ function WalkontableEvent(instance) {
         mainWOT;
     if (that.instance.hasSetting('onCellMouseOver')) {
       table = that.instance.wtTable.TABLE;
-      td = closest(event.realTarget, ['TD', 'TH'], table);
+      td = closestDown(event.realTarget, ['TD', 'TH'], table);
       mainWOT = that.instance.cloneSource || that.instance;
       if (td && td !== mainWOT.lastMouseOver && isChildOf(td, table)) {
         mainWOT.lastMouseOver = td;
@@ -8682,9 +8736,8 @@ function WalkontableEvent(instance) {
 WalkontableEvent.prototype.parentCell = function(elem) {
   var cell = {};
   var TABLE = this.instance.wtTable.TABLE;
-  var TD = closest(elem, ['TD', 'TH'], TABLE);
-  var referenceTABLE = closest(TD, ['TABLE']);
-  if (TD && isChildOf(TD, TABLE) && referenceTABLE == TABLE) {
+  var TD = closestDown(elem, ['TD', 'TH'], TABLE);
+  if (TD) {
     cell.coords = this.instance.wtTable.getCoords(TD);
     cell.TD = TD;
   } else if (hasClass(elem, 'wtBorder') && hasClass(elem, 'current')) {
@@ -9110,6 +9163,12 @@ var $WalkontableLeftOverlay = WalkontableLeftOverlay;
     var masterParent = this.wot.wtTable.holder.parentNode;
     var rowHeaders = this.wot.getSetting('rowHeaders');
     var fixedColumnsLeft = this.wot.getSetting('fixedColumnsLeft');
+    var totalRows = this.wot.getSetting('totalRows');
+    if (totalRows) {
+      removeClass(masterParent, 'emptyRows');
+    } else {
+      addClass(masterParent, 'emptyRows');
+    }
     if (fixedColumnsLeft && !rowHeaders.length) {
       addClass(masterParent, 'innerBorderLeft');
     } else if (!fixedColumnsLeft && rowHeaders.length) {
@@ -9305,8 +9364,14 @@ var $WalkontableTopOverlay = WalkontableTopOverlay;
     return getScrollTop(this.mainTableScrollableElement);
   },
   adjustHeaderBordersPosition: function(position) {
+    var masterParent = this.wot.wtTable.holder.parentNode;
+    var totalColumns = this.wot.getSetting('totalColumns');
+    if (totalColumns) {
+      removeClass(masterParent, 'emptyColumns');
+    } else {
+      addClass(masterParent, 'emptyColumns');
+    }
     if (this.wot.getSetting('fixedRowsTop') === 0 && this.wot.getSetting('columnHeaders').length > 0) {
-      var masterParent = this.wot.wtTable.holder.parentNode;
       var previousState = hasClass(masterParent, 'innerBorderTop');
       if (position || this.wot.getSetting('totalRows') === 0) {
         addClass(masterParent, 'innerBorderTop');
@@ -9933,10 +9998,10 @@ var WalkontableScroll = function WalkontableScroll(wotInstance) {
         fixedRowsTop = $__3.fixedRowsTop,
         fixedRowsBottom = $__3.fixedRowsBottom,
         fixedColumnsLeft = $__3.fixedColumnsLeft;
-    if (coords.row < 0 || coords.row > totalRows - 1) {
+    if (coords.row < 0 || coords.row > Math.max(totalRows - 1, 0)) {
       throw new Error(("row " + coords.row + " does not exist"));
     }
-    if (coords.col < 0 || coords.col > totalColumns - 1) {
+    if (coords.col < 0 || coords.col > Math.max(totalColumns - 1, 0)) {
       throw new Error(("column " + coords.col + " does not exist"));
     }
     if (coords.row >= fixedRowsTop && coords.row < this.getFirstVisibleRow()) {
@@ -10782,7 +10847,7 @@ var WalkontableTableRenderer = function WalkontableTableRenderer(wtTable) {
       this.columnHeaders = [];
       this.columnHeaderCount = 0;
     }
-    if (totalColumns > 0) {
+    if (totalColumns >= 0) {
       this.adjustAvailableNodes();
       adjusted = true;
       this.renderColumnHeaders();
@@ -11061,7 +11126,6 @@ var WalkontableTableRenderer = function WalkontableTableRenderer(wtTable) {
     this.adjustThead();
   },
   renderColumnHeaders: function() {
-    var overlayName = this.wot.getOverlayName();
     if (!this.columnHeaderCount) {
       return;
     }
@@ -11471,6 +11535,8 @@ window.WalkontableViewport = WalkontableViewport;
 var $__shims_47_runtime__,
     $__es6collections__,
     $__pluginHooks__,
+    $__numbro__,
+    $__moment__,
     $__core__,
     $__renderers_47__95_cellDecorator__,
     $__cellTypes__,
@@ -11500,6 +11566,16 @@ Handsontable.utils = {};
 ($__shims_47_runtime__ = _dereq_("shims/runtime"), $__shims_47_runtime__ && $__shims_47_runtime__.__esModule && $__shims_47_runtime__ || {default: $__shims_47_runtime__});
 ($__es6collections__ = _dereq_("es6collections"), $__es6collections__ && $__es6collections__.__esModule && $__es6collections__ || {default: $__es6collections__});
 var Hooks = ($__pluginHooks__ = _dereq_("pluginHooks"), $__pluginHooks__ && $__pluginHooks__.__esModule && $__pluginHooks__ || {default: $__pluginHooks__}).Hooks;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
+var moment = ($__moment__ = _dereq_("moment"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
+if (typeof window === 'object') {
+  if (typeof window.numbro === 'undefined') {
+    window.numbro = numbro;
+  }
+  if (typeof window.moment === 'undefined') {
+    window.moment = moment;
+  }
+}
 if (!Handsontable.hooks) {
   Handsontable.hooks = new Hooks();
 }
@@ -11524,7 +11600,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Tue Jun 21 2016 10:36:30 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Tue Jun 28 2016 10:31:34 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';
@@ -11553,7 +11629,7 @@ arrayHelpers.arrayEach(DOM, (function(helper) {
 }));
 
 //# 
-},{"cellTypes":94,"core":95,"es6collections":"es6collections","helpers/array":112,"helpers/browser":113,"helpers/data":114,"helpers/date":115,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/feature":118,"helpers/function":119,"helpers/mixed":120,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"helpers/string":124,"helpers/unicode":125,"pluginHooks":130,"plugins":131,"plugins/jqueryHandsontable":71,"renderers/_cellDecorator":165,"shims/runtime":172}],94:[function(_dereq_,module,exports){
+},{"cellTypes":94,"core":95,"es6collections":"es6collections","helpers/array":112,"helpers/browser":113,"helpers/data":114,"helpers/date":115,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/feature":118,"helpers/function":119,"helpers/mixed":120,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"helpers/string":124,"helpers/unicode":125,"moment":undefined,"numbro":undefined,"pluginHooks":130,"plugins":131,"plugins/jqueryHandsontable":71,"renderers/_cellDecorator":177,"shims/runtime":184}],94:[function(_dereq_,module,exports){
 "use strict";
 var $__helpers_47_browser__,
     $__editors__,
@@ -11663,10 +11739,10 @@ Handsontable.cellLookup = {validator: {
   }};
 
 //# 
-},{"browser":93,"editors":99,"editors/autocompleteEditor":101,"editors/checkboxEditor":102,"editors/dateEditor":103,"editors/dropdownEditor":104,"editors/handsontableEditor":105,"editors/mobileTextEditor":106,"editors/numericEditor":107,"editors/passwordEditor":108,"editors/selectEditor":109,"editors/textEditor":110,"helpers/browser":113,"renderers":164,"renderers/autocompleteRenderer":166,"renderers/checkboxRenderer":167,"renderers/htmlRenderer":168,"renderers/numericRenderer":169,"renderers/passwordRenderer":170,"renderers/textRenderer":171,"validators/autocompleteValidator":177,"validators/dateValidator":178,"validators/numericValidator":179,"validators/timeValidator":180}],95:[function(_dereq_,module,exports){
+},{"browser":93,"editors":99,"editors/autocompleteEditor":101,"editors/checkboxEditor":102,"editors/dateEditor":103,"editors/dropdownEditor":104,"editors/handsontableEditor":105,"editors/mobileTextEditor":106,"editors/numericEditor":107,"editors/passwordEditor":108,"editors/selectEditor":109,"editors/textEditor":110,"helpers/browser":113,"renderers":176,"renderers/autocompleteRenderer":178,"renderers/checkboxRenderer":179,"renderers/htmlRenderer":180,"renderers/numericRenderer":181,"renderers/passwordRenderer":182,"renderers/textRenderer":183,"validators/autocompleteValidator":189,"validators/dateValidator":190,"validators/numericValidator":191,"validators/timeValidator":192}],95:[function(_dereq_,module,exports){
 "use strict";
 var $__browser__,
-    $__numeral__,
+    $__numbro__,
     $__helpers_47_dom_47_element__,
     $__helpers_47_setting__,
     $__helpers_47_browser__,
@@ -11687,7 +11763,7 @@ var $__browser__,
     $__3rdparty_47_walkontable_47_src_47_selection__,
     $__3rdparty_47_walkontable_47_src_47_calculator_47_viewportColumns__;
 var Handsontable = ($__browser__ = _dereq_("browser"), $__browser__ && $__browser__.__esModule && $__browser__ || {default: $__browser__}).default;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var $__2 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__helpers_47_dom_47_element__ && $__helpers_47_dom_47_element__.__esModule && $__helpers_47_dom_47_element__ || {default: $__helpers_47_dom_47_element__}),
     addClass = $__2.addClass,
     empty = $__2.empty,
@@ -11831,10 +11907,10 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         case 'remove_col':
           var logicalColumnIndex = translateColIndex(index);
           datamap.removeCol(index, amount);
-          for (var row$__22 = 0,
-              len$__23 = instance.countSourceRows(); row$__22 < len$__23; row$__22++) {
-            if (priv.cellSettings[row$__22]) {
-              priv.cellSettings[row$__22].splice(logicalColumnIndex, amount);
+          for (var row$__23 = 0,
+              len$__24 = instance.countSourceRows(); row$__23 < len$__24; row$__23++) {
+            if (priv.cellSettings[row$__23]) {
+              priv.cellSettings[row$__23].splice(logicalColumnIndex, amount);
             }
           }
           var fixedColumnsLeft = instance.getSettings().fixedColumnsLeft;
@@ -12099,9 +12175,13 @@ Handsontable.Core = function Core(rootElement, userSettings) {
       cols: false,
       rows: false
     },
-    setSelectedHeaders: function(rows, cols) {
+    setSelectedHeaders: function() {
+      var rows = arguments[0] !== (void 0) ? arguments[0] : false;
+      var cols = arguments[1] !== (void 0) ? arguments[1] : false;
+      var corner = arguments[2] !== (void 0) ? arguments[2] : false;
       instance.selection.selectedHeader.rows = rows;
       instance.selection.selectedHeader.cols = cols;
+      instance.selection.selectedHeader.corner = corner;
     },
     begin: function() {
       instance.selection.inProgress = true;
@@ -12381,15 +12461,19 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
           if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|\,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
             var len = changes[i][3].length;
-            if (typeof cellProperties.language == 'undefined') {
-              numeral.language('en');
+            if (typeof cellProperties.language === 'undefined') {
+              numbro.culture('en-US');
             } else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              numeral.language('en');
+              numbro.culture('en-US');
             } else {
-              numeral.language(cellProperties.language);
+              numbro.culture(cellProperties.language);
             }
-            if (numeral.validate(changes[i][3])) {
-              changes[i][3] = numeral().unformat(changes[i][3]);
+            var delimiters = numbro.cultureData(numbro.culture()).delimiters;
+            if (new RegExp('^\\' + delimiters.decimal + '[0-9]+$').test(changes[i][3] + '')) {
+              changes[i][3] = '0' + changes[i][3];
+            }
+            if (numbro.validate(changes[i][3]) || !isNaN(parseFloat(changes[i][3]))) {
+              changes[i][3] = numbro().unformat(changes[i][3]);
             }
           }
         }
@@ -12729,9 +12813,9 @@ Handsontable.Core = function Core(rootElement, userSettings) {
       }
     }
     if (height === null) {
-      var initialStyle$__24 = instance.rootElement.getAttribute('data-initialstyle');
-      if (initialStyle$__24 && (initialStyle$__24.indexOf('height') > -1 || initialStyle$__24.indexOf('overflow') > -1)) {
-        instance.rootElement.setAttribute('style', initialStyle$__24);
+      var initialStyle$__25 = instance.rootElement.getAttribute('data-initialstyle');
+      if (initialStyle$__25 && (initialStyle$__25.indexOf('height') > -1 || initialStyle$__25.indexOf('overflow') > -1)) {
+        instance.rootElement.setAttribute('style', initialStyle$__25);
       } else {
         instance.rootElement.style.height = '';
         instance.rootElement.style.overflow = '';
@@ -13477,7 +13561,7 @@ DefaultSettings.prototype = {
 Handsontable.DefaultSettings = DefaultSettings;
 
 //# 
-},{"3rdparty/walkontable/src/calculator/viewportColumns":73,"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/selection":88,"browser":93,"dataMap":96,"dataSource":97,"editorManager":98,"eventManager":111,"helpers/array":112,"helpers/browser":113,"helpers/data":114,"helpers/dom/element":116,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"helpers/string":124,"numeral":"numeral","plugins":131,"renderers":164,"tableView":173}],96:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/calculator/viewportColumns":73,"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/selection":88,"browser":93,"dataMap":96,"dataSource":97,"editorManager":98,"eventManager":111,"helpers/array":112,"helpers/browser":113,"helpers/data":114,"helpers/dom/element":116,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"helpers/string":124,"numbro":undefined,"plugins":131,"renderers":176,"tableView":185}],96:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataMap: {get: function() {
@@ -13663,11 +13747,15 @@ DataMap.prototype.createCol = function(index, amount, createdAutomatically) {
   while (numberOfCreatedCols < amount && this.instance.countCols() < maxCols) {
     constructor = columnFactory(this.GridSettings, this.priv.columnsSettingConflicts);
     if (typeof index !== 'number' || index >= this.instance.countCols()) {
-      for (var r = 0; r < rlen; r++) {
-        if (typeof data[r] === 'undefined') {
-          data[r] = [];
+      if (rlen > 0) {
+        for (var r = 0; r < rlen; r++) {
+          if (typeof data[r] === 'undefined') {
+            data[r] = [];
+          }
+          data[r].push(null);
         }
-        data[r].push(null);
+      } else {
+        data.push([null]);
       }
       this.priv.columnSettings.push(constructor);
     } else {
@@ -13690,11 +13778,9 @@ DataMap.prototype.removeRow = function(index, amount) {
   if (typeof index !== 'number') {
     index = -amount;
   }
+  amount = Handsontable.hooks.run(this.instance, 'modifyRemovedAmount', amount, index);
   index = (this.instance.countSourceRows() + index) % this.instance.countSourceRows();
   var logicRows = this.physicalRowsToLogical(index, amount);
-  var descendingLogicRows = logicRows.slice(0).sort(function(a, b) {
-    return b - a;
-  });
   var actionWasNotCancelled = Handsontable.hooks.run(this.instance, 'beforeRemoveRow', index, amount, logicRows);
   if (actionWasNotCancelled === false) {
     return;
@@ -13980,7 +14066,7 @@ DataMap.prototype.destroy = function() {
 ;
 
 //# 
-},{"SheetClip":"SheetClip","browser":93,"helpers/array":112,"helpers/data":114,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"multiMap":129,"utils/interval":175}],97:[function(_dereq_,module,exports){
+},{"SheetClip":"SheetClip","browser":93,"helpers/array":112,"helpers/data":114,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"multiMap":129,"utils/interval":187}],97:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataSource: {get: function() {
@@ -15687,10 +15773,10 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__numeral__,
+var $__numbro__,
     $___46__46__47_editors__,
     $__textEditor__;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var registerEditor = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editors__ && $___46__46__47_editors__.__esModule && $___46__46__47_editors__ || {default: $___46__46__47_editors__}).registerEditor;
 var TextEditor = ($__textEditor__ = _dereq_("textEditor"), $__textEditor__ && $__textEditor__.__esModule && $__textEditor__ || {default: $__textEditor__}).TextEditor;
 var NumericEditor = function NumericEditor() {
@@ -15700,9 +15786,9 @@ var $NumericEditor = NumericEditor;
 ($traceurRuntime.createClass)(NumericEditor, {beginEditing: function(initialValue) {
     if (typeof initialValue === 'undefined' && this.originalValue) {
       if (typeof this.cellProperties.language !== 'undefined') {
-        numeral.language(this.cellProperties.language);
+        numbro.culture(this.cellProperties.language);
       }
-      var decimalDelimiter = numeral.languageData().delimiters.decimal;
+      var decimalDelimiter = numbro.cultureData().delimiters.decimal;
       initialValue = ('' + this.originalValue).replace('.', decimalDelimiter);
     }
     $traceurRuntime.superGet(this, $NumericEditor.prototype, "beginEditing").call(this, initialValue);
@@ -15711,7 +15797,7 @@ var $NumericEditor = NumericEditor;
 registerEditor('numeric', NumericEditor);
 
 //# 
-},{"editors":99,"numeral":"numeral","textEditor":110}],108:[function(_dereq_,module,exports){
+},{"editors":99,"numbro":undefined,"textEditor":110}],108:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   PasswordEditor: {get: function() {
@@ -16840,6 +16926,9 @@ Object.defineProperties(exports, {
   closest: {get: function() {
       return closest;
     }},
+  closestDown: {get: function() {
+      return closestDown;
+    }},
   isChildOf: {get: function() {
       return isChildOf;
     }},
@@ -16987,6 +17076,23 @@ function closest(element, nodes, until) {
     }
   }
   return null;
+}
+function closestDown(element, nodes, until) {
+  var matched = [];
+  while (element) {
+    element = closest(element, nodes, until);
+    if (!element || (until && !until.contains(element))) {
+      break;
+    }
+    matched.push(element);
+    if (element.host && element.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+      element = element.host;
+    } else {
+      element = element.parentNode;
+    }
+  }
+  var length = matched.length;
+  return length ? matched[length - 1] : null;
 }
 function isChildOf(child, parent) {
   var node = child.parentNode;
@@ -17533,6 +17639,12 @@ Object.defineProperties(exports, {
   pageY: {get: function() {
       return pageY;
     }},
+  isRightClick: {get: function() {
+      return isRightClick;
+    }},
+  isLeftClick: {get: function() {
+      return isLeftClick;
+    }},
   __esModule: {value: true}
 });
 var $__element__;
@@ -17564,6 +17676,12 @@ function pageY(event) {
     return event.pageY;
   }
   return event.clientY + getWindowScrollTop();
+}
+function isRightClick(event) {
+  return event.button === 2;
+}
+function isLeftClick(event) {
+  return event.button === 0;
 }
 
 //# 
@@ -19301,7 +19419,7 @@ var $AutoColumnSize = AutoColumnSize;
 registerPlugin('autoColumnSize', AutoColumnSize);
 
 //# 
-},{"3rdparty/walkontable/src/calculator/viewportColumns":73,"_base":132,"helpers/array":112,"helpers/dom/element":116,"helpers/feature":118,"helpers/number":121,"helpers/object":122,"helpers/string":124,"plugins":131,"utils/ghostTable":174,"utils/samplesGenerator":176}],134:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/calculator/viewportColumns":73,"_base":132,"helpers/array":112,"helpers/dom/element":116,"helpers/feature":118,"helpers/number":121,"helpers/object":122,"helpers/string":124,"plugins":131,"utils/ghostTable":186,"utils/samplesGenerator":188}],134:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   AutoRowSize: {get: function() {
@@ -19637,7 +19755,7 @@ var $AutoRowSize = AutoRowSize;
 registerPlugin('autoRowSize', AutoRowSize);
 
 //# 
-},{"_base":132,"helpers/array":112,"helpers/dom/element":116,"helpers/feature":118,"helpers/number":121,"helpers/object":122,"helpers/string":124,"plugins":131,"utils/ghostTable":174,"utils/samplesGenerator":176}],135:[function(_dereq_,module,exports){
+},{"_base":132,"helpers/array":112,"helpers/dom/element":116,"helpers/feature":118,"helpers/number":121,"helpers/object":122,"helpers/string":124,"plugins":131,"utils/ghostTable":186,"utils/samplesGenerator":188}],135:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Autofill: {get: function() {
@@ -20144,6 +20262,9 @@ var $ColumnSorting = ColumnSorting;
         return sortOrder ? 1 : -1;
       } else if (!isNaN(a[1]) && isNaN(b[1])) {
         return sortOrder ? -1 : 1;
+      } else if (!(isNaN(a[1]) || isNaN(b[1]))) {
+        a[1] = parseFloat(a[1]);
+        b[1] = parseFloat(b[1]);
       }
       if (a[1] < b[1]) {
         return sortOrder ? -1 : 1;
@@ -20254,6 +20375,9 @@ var $ColumnSorting = ColumnSorting;
     }
   },
   getColHeader: function(col, TH) {
+    if (col < 0 || !TH.parentNode) {
+      return false;
+    }
     var headerLink = TH.querySelector('.colHeader');
     var colspan = TH.getAttribute('colspan');
     var TRs = TH.parentNode.parentNode.childNodes;
@@ -20437,9 +20561,7 @@ var $__1 = ($___46__46__47__46__46__47_helpers_47_dom_47_element__ = _dereq_("he
     offset = $__1.offset;
 var EventManager = ($___46__46__47__46__46__47_eventManager__ = _dereq_("eventManager"), $___46__46__47__46__46__47_eventManager__ && $___46__46__47__46__46__47_eventManager__.__esModule && $___46__46__47__46__46__47_eventManager__ || {default: $___46__46__47__46__46__47_eventManager__}).EventManager;
 var WalkontableCellCoords = ($___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__ = _dereq_("3rdparty/walkontable/src/cell/coords"), $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__ && $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__.__esModule && $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__ || {default: $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__}).WalkontableCellCoords;
-var $__4 = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}),
-    registerPlugin = $__4.registerPlugin,
-    getPlugin = $__4.getPlugin;
+var registerPlugin = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}).registerPlugin;
 var BasePlugin = ($___46__46__47__95_base__ = _dereq_("_base"), $___46__46__47__95_base__ && $___46__46__47__95_base__.__esModule && $___46__46__47__95_base__ || {default: $___46__46__47__95_base__}).default;
 var CommentEditor = ($__commentEditor__ = _dereq_("commentEditor"), $__commentEditor__ && $__commentEditor__.__esModule && $__commentEditor__ || {default: $__commentEditor__}).CommentEditor;
 var Comments = function Comments(hotInstance) {
@@ -20645,6 +20767,7 @@ var $Comments = Comments;
   },
   checkSelectionCommentsConsistency: function() {
     var selected = this.hot.getSelectedRange();
+    console.log('selected', selected);
     if (!selected) {
       return false;
     }
@@ -20683,7 +20806,7 @@ var $Comments = Comments;
         return $__7.onContextMenuAddComment();
       }),
       disabled: function() {
-        return this.getSelected() ? false : true;
+        return this.getSelected() && !this.selection.selectedHeader.corner ? false : true;
       }
     }, {
       key: 'commentsRemove',
@@ -20694,7 +20817,7 @@ var $Comments = Comments;
         return $__7.onContextMenuRemoveComment(key, selection);
       }),
       disabled: (function() {
-        return !$__7.checkSelectionCommentsConsistency();
+        return $__7.hot.selection.selectedHeader.corner || !$__7.checkSelectionCommentsConsistency();
       })
     });
   },
@@ -20937,11 +21060,6 @@ var $ContextMenu = ContextMenu;
     stopPropagation(event);
     if (!(showRowHeaders || showColHeaders)) {
       if (!isValidElement(element) && !(hasClass(element, 'current') && hasClass(element, 'wtBorder'))) {
-        return;
-      }
-    } else if (showRowHeaders && showColHeaders) {
-      var containsCornerHeader = element.parentNode.querySelectorAll('.cornerHeader').length > 0;
-      if (containsCornerHeader) {
         return;
       }
     }
@@ -21376,11 +21494,15 @@ var $Menu = Menu;
     }
     var selRange = this.hot.getSelectedRange();
     var normalizedSelection = selRange ? normalizeSelection(selRange) : {};
+    var autoClose = true;
+    if (selectedItem.disabled === true || (typeof selectedItem.disabled === 'function' && selectedItem.disabled.call(this.hot) === true) || selectedItem.submenu) {
+      autoClose = false;
+    }
     this.runLocalHooks('executeCommand', selectedItem.key, normalizedSelection, event);
     if (this.isSubMenu()) {
       this.parentMenu.runLocalHooks('executeCommand', selectedItem.key, normalizedSelection, event);
     }
-    if (!(selectedItem.disabled === true || typeof selectedItem.disabled === 'function' && selectedItem.disabled.call(this.hot) === true || selectedItem.submenu)) {
+    if (autoClose) {
       this.close(true);
     }
   },
@@ -21520,7 +21642,7 @@ var $Menu = Menu;
         }));
       } else {
         this.eventManager.addEventListener(TD, 'mouseenter', (function() {
-          return hot.selectCell(row, col, void 0, void 0, void 0, false);
+          return hot.selectCell(row, col, void 0, void 0, false, false);
         }));
       }
     } else {
@@ -21532,7 +21654,7 @@ var $Menu = Menu;
         }));
       } else {
         this.eventManager.addEventListener(TD, 'mouseenter', (function() {
-          return hot.selectCell(row, col, void 0, void 0, void 0, false);
+          return hot.selectCell(row, col, void 0, void 0, false, false);
         }));
       }
     }
@@ -21658,45 +21780,45 @@ mixin(Menu, localHooks);
 ;
 
 //# 
-},{"browser":93,"cursor":141,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/object":122,"helpers/unicode":125,"mixins/localHooks":127,"predefinedItems":144,"utils":145}],144:[function(_dereq_,module,exports){
+},{"browser":93,"cursor":141,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/object":122,"helpers/unicode":125,"mixins/localHooks":127,"predefinedItems":144,"utils":157}],144:[function(_dereq_,module,exports){
 "use strict";
-var $__4;
+var $__13;
 Object.defineProperties(exports, {
-  ROW_ABOVE: {get: function() {
-      return ROW_ABOVE;
-    }},
-  ROW_BELOW: {get: function() {
-      return ROW_BELOW;
-    }},
-  COLUMN_LEFT: {get: function() {
-      return COLUMN_LEFT;
-    }},
-  COLUMN_RIGHT: {get: function() {
-      return COLUMN_RIGHT;
+  ALIGNMENT: {get: function() {
+      return $__predefinedItems_47_alignment__.KEY;
     }},
   CLEAR_COLUMN: {get: function() {
-      return CLEAR_COLUMN;
+      return $__predefinedItems_47_clearColumn__.KEY;
     }},
-  REMOVE_ROW: {get: function() {
-      return REMOVE_ROW;
+  COLUMN_LEFT: {get: function() {
+      return $__predefinedItems_47_columnLeft__.KEY;
     }},
-  REMOVE_COLUMN: {get: function() {
-      return REMOVE_COLUMN;
-    }},
-  UNDO: {get: function() {
-      return UNDO;
-    }},
-  REDO: {get: function() {
-      return REDO;
+  COLUMN_RIGHT: {get: function() {
+      return $__predefinedItems_47_columnRight__.KEY;
     }},
   READ_ONLY: {get: function() {
-      return READ_ONLY;
+      return $__predefinedItems_47_readOnly__.KEY;
     }},
-  ALIGNMENT: {get: function() {
-      return ALIGNMENT;
+  REDO: {get: function() {
+      return $__predefinedItems_47_redo__.KEY;
+    }},
+  REMOVE_COLUMN: {get: function() {
+      return $__predefinedItems_47_removeColumn__.KEY;
+    }},
+  REMOVE_ROW: {get: function() {
+      return $__predefinedItems_47_removeRow__.KEY;
+    }},
+  ROW_ABOVE: {get: function() {
+      return $__predefinedItems_47_rowAbove__.KEY;
+    }},
+  ROW_BELOW: {get: function() {
+      return $__predefinedItems_47_rowBelow__.KEY;
     }},
   SEPARATOR: {get: function() {
-      return SEPARATOR;
+      return $__predefinedItems_47_separator__.KEY;
+    }},
+  UNDO: {get: function() {
+      return $__predefinedItems_47_undo__.KEY;
     }},
   ITEMS: {get: function() {
       return ITEMS;
@@ -21710,35 +21832,145 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var $___46__46__47__46__46__47_helpers_47_object__,
-    $___46__46__47__46__46__47_helpers_47_number__,
-    $__utils__;
-var $__0 = ($___46__46__47__46__46__47_helpers_47_object__ = _dereq_("helpers/object"), $___46__46__47__46__46__47_helpers_47_object__ && $___46__46__47__46__46__47_helpers_47_object__.__esModule && $___46__46__47__46__46__47_helpers_47_object__ || {default: $___46__46__47__46__46__47_helpers_47_object__}),
-    objectEach = $__0.objectEach,
-    clone = $__0.clone;
-var rangeEach = ($___46__46__47__46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47__46__46__47_helpers_47_number__ && $___46__46__47__46__46__47_helpers_47_number__.__esModule && $___46__46__47__46__46__47_helpers_47_number__ || {default: $___46__46__47__46__46__47_helpers_47_number__}).rangeEach;
-var $__2 = ($__utils__ = _dereq_("utils"), $__utils__ && $__utils__.__esModule && $__utils__ || {default: $__utils__}),
-    align = $__2.align,
-    getAlignmentClasses = $__2.getAlignmentClasses,
-    getValidSelection = $__2.getValidSelection,
-    checkSelectionConsistency = $__2.checkSelectionConsistency,
-    markLabelAsSelected = $__2.markLabelAsSelected;
-var ROW_ABOVE = 'row_above';
-var ROW_BELOW = 'row_below';
-var COLUMN_LEFT = 'col_left';
-var COLUMN_RIGHT = 'col_right';
-var CLEAR_COLUMN = 'clear_column';
-var REMOVE_ROW = 'remove_row';
-var REMOVE_COLUMN = 'remove_col';
-var UNDO = 'undo';
-var REDO = 'redo';
-var READ_ONLY = 'make_read_only';
-var ALIGNMENT = 'alignment';
-var SEPARATOR = '---------';
+    $__predefinedItems_47_alignment__,
+    $__predefinedItems_47_clearColumn__,
+    $__predefinedItems_47_columnLeft__,
+    $__predefinedItems_47_columnRight__,
+    $__predefinedItems_47_readOnly__,
+    $__predefinedItems_47_redo__,
+    $__predefinedItems_47_removeColumn__,
+    $__predefinedItems_47_removeRow__,
+    $__predefinedItems_47_rowAbove__,
+    $__predefinedItems_47_rowBelow__,
+    $__predefinedItems_47_separator__,
+    $__predefinedItems_47_undo__,
+    $__predefinedItems_47_alignment__,
+    $__predefinedItems_47_clearColumn__,
+    $__predefinedItems_47_columnLeft__,
+    $__predefinedItems_47_columnRight__,
+    $__predefinedItems_47_readOnly__,
+    $__predefinedItems_47_redo__,
+    $__predefinedItems_47_removeColumn__,
+    $__predefinedItems_47_removeRow__,
+    $__predefinedItems_47_rowAbove__,
+    $__predefinedItems_47_rowBelow__,
+    $__predefinedItems_47_separator__,
+    $__predefinedItems_47_undo__;
+var objectEach = ($___46__46__47__46__46__47_helpers_47_object__ = _dereq_("helpers/object"), $___46__46__47__46__46__47_helpers_47_object__ && $___46__46__47__46__46__47_helpers_47_object__.__esModule && $___46__46__47__46__46__47_helpers_47_object__ || {default: $___46__46__47__46__46__47_helpers_47_object__}).objectEach;
+var $__1 = ($__predefinedItems_47_alignment__ = _dereq_("predefinedItems/alignment"), $__predefinedItems_47_alignment__ && $__predefinedItems_47_alignment__.__esModule && $__predefinedItems_47_alignment__ || {default: $__predefinedItems_47_alignment__}),
+    alignmentItem = $__1.alignmentItem,
+    ALIGNMENT = $__1.KEY;
+var $__2 = ($__predefinedItems_47_clearColumn__ = _dereq_("predefinedItems/clearColumn"), $__predefinedItems_47_clearColumn__ && $__predefinedItems_47_clearColumn__.__esModule && $__predefinedItems_47_clearColumn__ || {default: $__predefinedItems_47_clearColumn__}),
+    clearColumnItem = $__2.clearColumnItem,
+    CLEAR_COLUMN = $__2.KEY;
+var $__3 = ($__predefinedItems_47_columnLeft__ = _dereq_("predefinedItems/columnLeft"), $__predefinedItems_47_columnLeft__ && $__predefinedItems_47_columnLeft__.__esModule && $__predefinedItems_47_columnLeft__ || {default: $__predefinedItems_47_columnLeft__}),
+    columnLeftItem = $__3.columnLeftItem,
+    COLUMN_LEFT = $__3.KEY;
+var $__4 = ($__predefinedItems_47_columnRight__ = _dereq_("predefinedItems/columnRight"), $__predefinedItems_47_columnRight__ && $__predefinedItems_47_columnRight__.__esModule && $__predefinedItems_47_columnRight__ || {default: $__predefinedItems_47_columnRight__}),
+    columnRightItem = $__4.columnRightItem,
+    COLUMN_RIGHT = $__4.KEY;
+var $__5 = ($__predefinedItems_47_readOnly__ = _dereq_("predefinedItems/readOnly"), $__predefinedItems_47_readOnly__ && $__predefinedItems_47_readOnly__.__esModule && $__predefinedItems_47_readOnly__ || {default: $__predefinedItems_47_readOnly__}),
+    readOnlyItem = $__5.readOnlyItem,
+    READ_ONLY = $__5.KEY;
+var $__6 = ($__predefinedItems_47_redo__ = _dereq_("predefinedItems/redo"), $__predefinedItems_47_redo__ && $__predefinedItems_47_redo__.__esModule && $__predefinedItems_47_redo__ || {default: $__predefinedItems_47_redo__}),
+    redoItem = $__6.redoItem,
+    REDO = $__6.KEY;
+var $__7 = ($__predefinedItems_47_removeColumn__ = _dereq_("predefinedItems/removeColumn"), $__predefinedItems_47_removeColumn__ && $__predefinedItems_47_removeColumn__.__esModule && $__predefinedItems_47_removeColumn__ || {default: $__predefinedItems_47_removeColumn__}),
+    removeColumnItem = $__7.removeColumnItem,
+    REMOVE_COLUMN = $__7.KEY;
+var $__8 = ($__predefinedItems_47_removeRow__ = _dereq_("predefinedItems/removeRow"), $__predefinedItems_47_removeRow__ && $__predefinedItems_47_removeRow__.__esModule && $__predefinedItems_47_removeRow__ || {default: $__predefinedItems_47_removeRow__}),
+    removeRowItem = $__8.removeRowItem,
+    REMOVE_ROW = $__8.KEY;
+var $__9 = ($__predefinedItems_47_rowAbove__ = _dereq_("predefinedItems/rowAbove"), $__predefinedItems_47_rowAbove__ && $__predefinedItems_47_rowAbove__.__esModule && $__predefinedItems_47_rowAbove__ || {default: $__predefinedItems_47_rowAbove__}),
+    rowAboveItem = $__9.rowAboveItem,
+    ROW_ABOVE = $__9.KEY;
+var $__10 = ($__predefinedItems_47_rowBelow__ = _dereq_("predefinedItems/rowBelow"), $__predefinedItems_47_rowBelow__ && $__predefinedItems_47_rowBelow__.__esModule && $__predefinedItems_47_rowBelow__ || {default: $__predefinedItems_47_rowBelow__}),
+    rowBelowItem = $__10.rowBelowItem,
+    ROW_BELOW = $__10.KEY;
+var $__11 = ($__predefinedItems_47_separator__ = _dereq_("predefinedItems/separator"), $__predefinedItems_47_separator__ && $__predefinedItems_47_separator__.__esModule && $__predefinedItems_47_separator__ || {default: $__predefinedItems_47_separator__}),
+    separatorItem = $__11.separatorItem,
+    SEPARATOR = $__11.KEY;
+var $__12 = ($__predefinedItems_47_undo__ = _dereq_("predefinedItems/undo"), $__predefinedItems_47_undo__ && $__predefinedItems_47_undo__.__esModule && $__predefinedItems_47_undo__ || {default: $__predefinedItems_47_undo__}),
+    undoItem = $__12.undoItem,
+    UNDO = $__12.KEY;
+var $__predefinedItems_47_alignment__ = ($__predefinedItems_47_alignment__ = _dereq_("predefinedItems/alignment"), $__predefinedItems_47_alignment__ && $__predefinedItems_47_alignment__.__esModule && $__predefinedItems_47_alignment__ || {default: $__predefinedItems_47_alignment__});
+var $__predefinedItems_47_clearColumn__ = ($__predefinedItems_47_clearColumn__ = _dereq_("predefinedItems/clearColumn"), $__predefinedItems_47_clearColumn__ && $__predefinedItems_47_clearColumn__.__esModule && $__predefinedItems_47_clearColumn__ || {default: $__predefinedItems_47_clearColumn__});
+var $__predefinedItems_47_columnLeft__ = ($__predefinedItems_47_columnLeft__ = _dereq_("predefinedItems/columnLeft"), $__predefinedItems_47_columnLeft__ && $__predefinedItems_47_columnLeft__.__esModule && $__predefinedItems_47_columnLeft__ || {default: $__predefinedItems_47_columnLeft__});
+var $__predefinedItems_47_columnRight__ = ($__predefinedItems_47_columnRight__ = _dereq_("predefinedItems/columnRight"), $__predefinedItems_47_columnRight__ && $__predefinedItems_47_columnRight__.__esModule && $__predefinedItems_47_columnRight__ || {default: $__predefinedItems_47_columnRight__});
+var $__predefinedItems_47_readOnly__ = ($__predefinedItems_47_readOnly__ = _dereq_("predefinedItems/readOnly"), $__predefinedItems_47_readOnly__ && $__predefinedItems_47_readOnly__.__esModule && $__predefinedItems_47_readOnly__ || {default: $__predefinedItems_47_readOnly__});
+var $__predefinedItems_47_redo__ = ($__predefinedItems_47_redo__ = _dereq_("predefinedItems/redo"), $__predefinedItems_47_redo__ && $__predefinedItems_47_redo__.__esModule && $__predefinedItems_47_redo__ || {default: $__predefinedItems_47_redo__});
+var $__predefinedItems_47_removeColumn__ = ($__predefinedItems_47_removeColumn__ = _dereq_("predefinedItems/removeColumn"), $__predefinedItems_47_removeColumn__ && $__predefinedItems_47_removeColumn__.__esModule && $__predefinedItems_47_removeColumn__ || {default: $__predefinedItems_47_removeColumn__});
+var $__predefinedItems_47_removeRow__ = ($__predefinedItems_47_removeRow__ = _dereq_("predefinedItems/removeRow"), $__predefinedItems_47_removeRow__ && $__predefinedItems_47_removeRow__.__esModule && $__predefinedItems_47_removeRow__ || {default: $__predefinedItems_47_removeRow__});
+var $__predefinedItems_47_rowAbove__ = ($__predefinedItems_47_rowAbove__ = _dereq_("predefinedItems/rowAbove"), $__predefinedItems_47_rowAbove__ && $__predefinedItems_47_rowAbove__.__esModule && $__predefinedItems_47_rowAbove__ || {default: $__predefinedItems_47_rowAbove__});
+var $__predefinedItems_47_rowBelow__ = ($__predefinedItems_47_rowBelow__ = _dereq_("predefinedItems/rowBelow"), $__predefinedItems_47_rowBelow__ && $__predefinedItems_47_rowBelow__.__esModule && $__predefinedItems_47_rowBelow__ || {default: $__predefinedItems_47_rowBelow__});
+var $__predefinedItems_47_separator__ = ($__predefinedItems_47_separator__ = _dereq_("predefinedItems/separator"), $__predefinedItems_47_separator__ && $__predefinedItems_47_separator__.__esModule && $__predefinedItems_47_separator__ || {default: $__predefinedItems_47_separator__});
+var $__predefinedItems_47_undo__ = ($__predefinedItems_47_undo__ = _dereq_("predefinedItems/undo"), $__predefinedItems_47_undo__ && $__predefinedItems_47_undo__.__esModule && $__predefinedItems_47_undo__ || {default: $__predefinedItems_47_undo__});
 var ITEMS = [ROW_ABOVE, ROW_BELOW, COLUMN_LEFT, COLUMN_RIGHT, CLEAR_COLUMN, REMOVE_ROW, REMOVE_COLUMN, UNDO, REDO, READ_ONLY, ALIGNMENT, SEPARATOR];
+var _predefinedItems = ($__13 = {}, Object.defineProperty($__13, SEPARATOR, {
+  value: separatorItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, ROW_ABOVE, {
+  value: rowAboveItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, ROW_BELOW, {
+  value: rowBelowItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, COLUMN_LEFT, {
+  value: columnLeftItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, COLUMN_RIGHT, {
+  value: columnRightItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, CLEAR_COLUMN, {
+  value: clearColumnItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, REMOVE_ROW, {
+  value: removeRowItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, REMOVE_COLUMN, {
+  value: removeColumnItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, UNDO, {
+  value: undoItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, REDO, {
+  value: redoItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, READ_ONLY, {
+  value: readOnlyItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, ALIGNMENT, {
+  value: alignmentItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), $__13);
 function predefinedItems() {
   var items = {};
-  objectEach(_predefinedItems, (function(value, key) {
-    return items[key] = clone(value);
+  objectEach(_predefinedItems, (function(itemFactory, key) {
+    return items[key] = itemFactory();
   }));
   return items;
 }
@@ -21747,114 +21979,274 @@ function addItem(key, item) {
     _predefinedItems[key] = item;
   }
 }
-var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
-  value: {name: SEPARATOR},
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, ROW_ABOVE, {
-  value: {
-    key: ROW_ABOVE,
-    name: 'Insert row above',
-    callback: function(key, selection) {
-      this.alter('insert_row', selection.start.row);
-    },
+
+//# 
+},{"helpers/object":122,"predefinedItems/alignment":145,"predefinedItems/clearColumn":146,"predefinedItems/columnLeft":147,"predefinedItems/columnRight":148,"predefinedItems/readOnly":149,"predefinedItems/redo":150,"predefinedItems/removeColumn":151,"predefinedItems/removeRow":152,"predefinedItems/rowAbove":153,"predefinedItems/rowBelow":154,"predefinedItems/separator":155,"predefinedItems/undo":156}],145:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  alignmentItem: {get: function() {
+      return alignmentItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__,
+    $__separator__;
+var $__0 = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}),
+    align = $__0.align,
+    getAlignmentClasses = $__0.getAlignmentClasses,
+    checkSelectionConsistency = $__0.checkSelectionConsistency,
+    markLabelAsSelected = $__0.markLabelAsSelected;
+var SEPARATOR = ($__separator__ = _dereq_("separator"), $__separator__ && $__separator__.__esModule && $__separator__ || {default: $__separator__}).KEY;
+var KEY = 'alignment';
+function alignmentItem() {
+  return {
+    key: KEY,
+    name: 'Alignment',
     disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected || this.countRows() >= this.getSettings().maxRows) {
-        return true;
-      }
-      var rowCount = this.countRows();
-      var entireColumnSelection = [0, selected[1], rowCount - 1, selected[1]];
-      return (entireColumnSelection.join(',') === selected.join(',')) && rowCount > 1;
+      return this.getSelectedRange() && !this.selection.selectedHeader.corner ? false : true;
     },
-    hidden: function() {
-      return !this.getSettings().allowInsertRow;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, ROW_BELOW, {
-  value: {
-    key: ROW_BELOW,
-    name: 'Insert row below',
-    callback: function(key, selection) {
-      this.alter('insert_row', selection.end.row + 1);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected || this.countRows() >= this.getSettings().maxRows) {
-        return true;
-      }
-      var rowCount = this.countRows();
-      var entireColumnSelection = [0, selected[1], rowCount - 1, selected[1]];
-      return (entireColumnSelection.join(',') === selected.join(',')) && rowCount > 1;
-    },
-    hidden: function() {
-      return !this.getSettings().allowInsertRow;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, COLUMN_LEFT, {
-  value: {
-    key: COLUMN_LEFT,
-    name: 'Insert column on the left',
-    callback: function(key, selection) {
-      this.alter('insert_col', selection.start.col);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected) {
-        return true;
-      }
-      if (!this.isColumnModificationAllowed()) {
-        return true;
-      }
-      var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
-      var rowSelected = entireRowSelection.join(',') == selected.join(',');
-      var onlyOneColumn = this.countCols() == 1;
-      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
-    },
-    hidden: function() {
-      return !this.getSettings().allowInsertColumn;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, COLUMN_RIGHT, {
-  value: {
-    key: COLUMN_RIGHT,
-    name: 'Insert column on the right',
-    callback: function(key, selection) {
-      this.alter('insert_col', selection.end.col + 1);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected) {
-        return true;
-      }
-      if (!this.isColumnModificationAllowed()) {
-        return true;
-      }
-      var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
-      var rowSelected = entireRowSelection.join(',') == selected.join(',');
-      var onlyOneColumn = this.countCols() == 1;
-      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
-    },
-    hidden: function() {
-      return !this.getSettings().allowInsertColumn;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, CLEAR_COLUMN, {
-  value: {
-    key: CLEAR_COLUMN,
+    submenu: {items: [{
+        key: (KEY + ":left"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Left';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htLeft') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htLeft';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":center"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Center';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htCenter') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htCenter';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":right"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Right';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htRight') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htRight';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":justify"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Justify';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htJustify') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htJustify';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {name: SEPARATOR}, {
+        key: (KEY + ":top"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Top';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htTop') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'vertical';
+          var alignment = 'htTop';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":middle"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Middle';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htMiddle') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'vertical';
+          var alignment = 'htMiddle';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":bottom"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Bottom';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htBottom') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'vertical';
+          var alignment = 'htBottom';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }]}
+  };
+}
+
+//# 
+},{"separator":155,"utils":157}],146:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  clearColumnItem: {get: function() {
+      return clearColumnItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'clear_column';
+function clearColumnItem() {
+  return {
+    key: KEY,
     name: 'Clear column',
     callback: function(key, selection) {
       var column = selection.start.col;
@@ -21871,44 +22263,34 @@ var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
       var rowSelected = entireRowSelection.join(',') == selected.join(',');
       return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || rowSelected;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, REMOVE_ROW, {
-  value: {
-    key: REMOVE_ROW,
-    name: 'Remove row',
+  };
+}
+
+//# 
+},{"utils":157}],147:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  columnLeftItem: {get: function() {
+      return columnLeftItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'col_left';
+function columnLeftItem() {
+  return {
+    key: KEY,
+    name: 'Insert column on the left',
     callback: function(key, selection) {
-      var amount = selection.end.row - selection.start.row + 1;
-      this.alter('remove_row', selection.start.row, amount);
+      this.alter('insert_col', selection.start.col);
     },
     disabled: function() {
       var selected = getValidSelection(this);
-      if (!selected || this.selection.selectedHeader.cols) {
-        return true;
-      }
-      var entireColumnSelection = [0, selected[1], this.countRows() - 1, selected[1]];
-      return entireColumnSelection.join(',') === selected.join(',');
-    },
-    hidden: function() {
-      return !this.getSettings().allowRemoveRow;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, REMOVE_COLUMN, {
-  value: {
-    key: REMOVE_COLUMN,
-    name: 'Remove column',
-    callback: function(key, selection) {
-      var amount = selection.end.col - selection.start.col + 1;
-      this.alter('remove_col', selection.start.col, amount);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected || this.selection.selectedHeader.rows) {
+      if (!selected) {
         return true;
       }
       if (!this.isColumnModificationAllowed()) {
@@ -21916,51 +22298,81 @@ var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
       }
       var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
       var rowSelected = entireRowSelection.join(',') == selected.join(',');
-      return (selected[1] < 0 || rowSelected);
+      var onlyOneColumn = this.countCols() === 1;
+      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
     },
     hidden: function() {
-      return !this.getSettings().allowRemoveColumn;
+      return !this.getSettings().allowInsertColumn;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, UNDO, {
-  value: {
-    key: UNDO,
-    name: 'Undo',
-    callback: function() {
-      this.undo();
+  };
+}
+
+//# 
+},{"utils":157}],148:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  columnRightItem: {get: function() {
+      return columnRightItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'col_right';
+function columnRightItem() {
+  return {
+    key: KEY,
+    name: 'Insert column on the right',
+    callback: function(key, selection) {
+      this.alter('insert_col', selection.end.col + 1);
     },
     disabled: function() {
-      return this.undoRedo && !this.undoRedo.isUndoAvailable();
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, REDO, {
-  value: {
-    key: REDO,
-    name: 'Redo',
-    callback: function() {
-      this.redo();
+      var selected = getValidSelection(this);
+      if (!selected) {
+        return true;
+      }
+      if (!this.isColumnModificationAllowed()) {
+        return true;
+      }
+      var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
+      var rowSelected = entireRowSelection.join(',') == selected.join(',');
+      var onlyOneColumn = this.countCols() === 1;
+      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
     },
-    disabled: function() {
-      return this.undoRedo && !this.undoRedo.isRedoAvailable();
+    hidden: function() {
+      return !this.getSettings().allowInsertColumn;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, READ_ONLY, {
-  value: {
-    key: READ_ONLY,
+  };
+}
+
+//# 
+},{"utils":157}],149:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  readOnlyItem: {get: function() {
+      return readOnlyItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var $__0 = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}),
+    checkSelectionConsistency = $__0.checkSelectionConsistency,
+    markLabelAsSelected = $__0.markLabelAsSelected;
+var KEY = 'make_read_only';
+function readOnlyItem() {
+  return {
+    key: KEY,
     name: function() {
-      var $__3 = this;
+      var $__1 = this;
       var label = 'Read only';
       var atLeastOneReadOnly = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-        return $__3.getCellMeta(row, col).readOnly;
+        return $__1.getCellMeta(row, col).readOnly;
       }));
       if (atLeastOneReadOnly) {
         label = markLabelAsSelected(label);
@@ -21968,256 +22380,225 @@ var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
       return label;
     },
     callback: function() {
-      var $__3 = this;
+      var $__1 = this;
       var range = this.getSelectedRange();
       var atLeastOneReadOnly = checkSelectionConsistency(range, (function(row, col) {
-        return $__3.getCellMeta(row, col).readOnly;
+        return $__1.getCellMeta(row, col).readOnly;
       }));
       range.forAll((function(row, col) {
-        $__3.getCellMeta(row, col).readOnly = atLeastOneReadOnly ? false : true;
+        $__1.getCellMeta(row, col).readOnly = atLeastOneReadOnly ? false : true;
       }));
       this.render();
     },
     disabled: function() {
-      return this.getSelectedRange() ? false : true;
+      return this.getSelectedRange() && !this.selection.selectedHeader.corner ? false : true;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, ALIGNMENT, {
-  value: {
-    key: ALIGNMENT,
-    name: 'Alignment',
-    disabled: function() {
-      return this.getSelectedRange() ? false : true;
-    },
-    submenu: {items: [{
-        key: (ALIGNMENT + ":left"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Left';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htLeft') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htLeft';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":center"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Center';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htCenter') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htCenter';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":right"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Right';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htRight') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htRight';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":justify"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Justify';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htJustify') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htJustify';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {name: SEPARATOR}, {
-        key: (ALIGNMENT + ":top"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Top';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htTop') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'vertical';
-          var alignment = 'htTop';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":middle"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Middle';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htMiddle') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'vertical';
-          var alignment = 'htMiddle';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":bottom"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Bottom';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htBottom') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'vertical';
-          var alignment = 'htBottom';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }]}
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), $__4);
+  };
+}
 
 //# 
-},{"helpers/number":121,"helpers/object":122,"utils":145}],145:[function(_dereq_,module,exports){
+},{"utils":157}],150:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  redoItem: {get: function() {
+      return redoItem;
+    }},
+  __esModule: {value: true}
+});
+var KEY = 'redo';
+function redoItem() {
+  return {
+    key: KEY,
+    name: 'Redo',
+    callback: function() {
+      this.redo();
+    },
+    disabled: function() {
+      return this.undoRedo && !this.undoRedo.isRedoAvailable();
+    }
+  };
+}
+
+//# 
+},{}],151:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  removeColumnItem: {get: function() {
+      return removeColumnItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'remove_col';
+function removeColumnItem() {
+  return {
+    key: KEY,
+    name: 'Remove column',
+    callback: function(key, selection) {
+      var amount = selection.end.col - selection.start.col + 1;
+      this.alter('remove_col', selection.start.col, amount);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      var totalColumns = this.countCols();
+      return !selected || this.selection.selectedHeader.rows || this.selection.selectedHeader.corner || !this.isColumnModificationAllowed() || !totalColumns;
+    },
+    hidden: function() {
+      return !this.getSettings().allowRemoveColumn;
+    }
+  };
+}
+
+//# 
+},{"utils":157}],152:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  removeRowItem: {get: function() {
+      return removeRowItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'remove_row';
+function removeRowItem() {
+  return {
+    key: KEY,
+    name: 'Remove row',
+    callback: function(key, selection) {
+      var amount = selection.end.row - selection.start.row + 1;
+      this.alter('remove_row', selection.start.row, amount);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      var totalRows = this.countRows();
+      return !selected || this.selection.selectedHeader.cols || this.selection.selectedHeader.corner || !totalRows;
+    },
+    hidden: function() {
+      return !this.getSettings().allowRemoveRow;
+    }
+  };
+}
+
+//# 
+},{"utils":157}],153:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  rowAboveItem: {get: function() {
+      return rowAboveItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'row_above';
+function rowAboveItem() {
+  return {
+    key: KEY,
+    name: 'Insert row above',
+    callback: function(key, selection) {
+      this.alter('insert_row', selection.start.row);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      return !selected || this.selection.selectedHeader.cols || this.countRows() >= this.getSettings().maxRows;
+    },
+    hidden: function() {
+      return !this.getSettings().allowInsertRow;
+    }
+  };
+}
+
+//# 
+},{"utils":157}],154:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  rowBelowItem: {get: function() {
+      return rowBelowItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'row_below';
+function rowBelowItem() {
+  return {
+    key: KEY,
+    name: 'Insert row below',
+    callback: function(key, selection) {
+      this.alter('insert_row', selection.end.row + 1);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      return !selected || this.selection.selectedHeader.cols || this.countRows() >= this.getSettings().maxRows;
+    },
+    hidden: function() {
+      return !this.getSettings().allowInsertRow;
+    }
+  };
+}
+
+//# 
+},{"utils":157}],155:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  separatorItem: {get: function() {
+      return separatorItem;
+    }},
+  __esModule: {value: true}
+});
+var KEY = '---------';
+function separatorItem() {
+  return {name: KEY};
+}
+
+//# 
+},{}],156:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  undoItem: {get: function() {
+      return undoItem;
+    }},
+  __esModule: {value: true}
+});
+var KEY = 'undo';
+function undoItem() {
+  return {
+    key: KEY,
+    name: 'Undo',
+    callback: function() {
+      this.undo();
+    },
+    disabled: function() {
+      return this.undoRedo && !this.undoRedo.isUndoAvailable();
+    }
+  };
+}
+
+//# 
+},{}],157:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   normalizeSelection: {get: function() {
@@ -22266,10 +22647,10 @@ Object.defineProperties(exports, {
 });
 var $___46__46__47__46__46__47_helpers_47_array__,
     $___46__46__47__46__46__47_helpers_47_dom_47_element__,
-    $__predefinedItems__;
+    $__predefinedItems_47_separator__;
 var arrayEach = ($___46__46__47__46__46__47_helpers_47_array__ = _dereq_("helpers/array"), $___46__46__47__46__46__47_helpers_47_array__ && $___46__46__47__46__46__47_helpers_47_array__.__esModule && $___46__46__47__46__46__47_helpers_47_array__ || {default: $___46__46__47__46__46__47_helpers_47_array__}).arrayEach;
 var hasClass = ($___46__46__47__46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47__46__46__47_helpers_47_dom_47_element__ && $___46__46__47__46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_element__}).hasClass;
-var SEPARATOR = ($__predefinedItems__ = _dereq_("predefinedItems"), $__predefinedItems__ && $__predefinedItems__.__esModule && $__predefinedItems__ || {default: $__predefinedItems__}).SEPARATOR;
+var SEPARATOR = ($__predefinedItems_47_separator__ = _dereq_("predefinedItems/separator"), $__predefinedItems_47_separator__ && $__predefinedItems_47_separator__.__esModule && $__predefinedItems_47_separator__ || {default: $__predefinedItems_47_separator__}).KEY;
 function normalizeSelection(selRange) {
   return {
     start: selRange.getTopLeftCorner(),
@@ -22408,7 +22789,7 @@ function filterSeparators(items) {
 }
 
 //# 
-},{"helpers/array":112,"helpers/dom/element":116,"predefinedItems":144}],146:[function(_dereq_,module,exports){
+},{"helpers/array":112,"helpers/dom/element":116,"predefinedItems/separator":155}],158:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ContextMenuCopyPaste: {get: function() {
@@ -22490,12 +22871,18 @@ var $ContextMenuCopyPaste = ContextMenuCopyPaste;
   onAfterContextMenuDefaultOptions: function(defaultOptions) {
     defaultOptions.items.unshift({
       key: 'copy',
-      name: 'Copy'
+      name: 'Copy',
+      disabled: function() {
+        return this.selection.selectedHeader.corner;
+      }
     }, {
       key: 'paste',
       name: 'Paste',
       callback: function() {
         this.copyPaste.triggerPaste();
+      },
+      disabled: function() {
+        return this.selection.selectedHeader.corner;
       }
     }, Handsontable.plugins.ContextMenu.SEPARATOR);
   },
@@ -22542,7 +22929,7 @@ var $ContextMenuCopyPaste = ContextMenuCopyPaste;
 registerPlugin('contextMenuCopyPaste', ContextMenuCopyPaste);
 
 //# 
-},{"_base":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"plugins":131,"zeroclipboard":undefined}],147:[function(_dereq_,module,exports){
+},{"_base":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"plugins":131,"zeroclipboard":undefined}],159:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   CopyPastePlugin: {get: function() {
@@ -22747,7 +23134,7 @@ Handsontable.hooks.register('modifyCopyableRange');
 ;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"SheetClip":"SheetClip","browser":93,"copyPaste":"copyPaste","helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/number":121,"helpers/unicode":125,"plugins":131}],148:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"SheetClip":"SheetClip","browser":93,"copyPaste":"copyPaste","helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/number":121,"helpers/unicode":125,"plugins":131}],160:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47__46__46__47_browser__,
     $___46__46__47__46__46__47_plugins__,
@@ -22995,6 +23382,9 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
   defaultOptions.items.push({
     key: 'borders',
     name: 'Borders',
+    disabled: function() {
+      return this.selection.selectedHeader.corner;
+    },
     submenu: {items: [{
         key: 'borders:top',
         name: function() {
@@ -23008,8 +23398,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'top');
           prepareBorder.call(this, this.getSelectedRange(), 'top', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:right',
         name: function() {
@@ -23023,8 +23412,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'right');
           prepareBorder.call(this, this.getSelectedRange(), 'right', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:bottom',
         name: function() {
@@ -23038,8 +23426,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'bottom');
           prepareBorder.call(this, this.getSelectedRange(), 'bottom', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:left',
         name: function() {
@@ -23053,8 +23440,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'left');
           prepareBorder.call(this, this.getSelectedRange(), 'left', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:no_borders',
         name: 'Remove border(s)',
@@ -23086,7 +23472,7 @@ Handsontable.hooks.add('afterInit', function() {
 Handsontable.CustomBorders = CustomBorders;
 
 //# 
-},{"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/selection":88,"browser":93,"plugins":131}],149:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/selection":88,"browser":93,"plugins":131}],161:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DragToScroll: {get: function() {
@@ -23176,7 +23562,7 @@ Handsontable.hooks.add('afterOnCellCornerMouseDown', function() {
 Handsontable.plugins.DragToScroll = DragToScroll;
 
 //# 
-},{"browser":93,"eventManager":111,"plugins":131}],150:[function(_dereq_,module,exports){
+},{"browser":93,"eventManager":111,"plugins":131}],162:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualColumnFreeze: {get: function() {
@@ -23320,7 +23706,7 @@ var $ManualColumnFreeze = ManualColumnFreeze;
 registerPlugin('manualColumnFreeze', ManualColumnFreeze);
 
 //# 
-},{"_base":132,"browser":93,"plugins":131}],151:[function(_dereq_,module,exports){
+},{"_base":132,"browser":93,"plugins":131}],163:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualColumnMove: {get: function() {
@@ -23348,9 +23734,7 @@ var $__3 = ($___46__46__47__46__46__47_helpers_47_array__ = _dereq_("helpers/arr
     arrayMap = $__3.arrayMap;
 var rangeEach = ($___46__46__47__46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47__46__46__47_helpers_47_number__ && $___46__46__47__46__46__47_helpers_47_number__.__esModule && $___46__46__47__46__46__47_helpers_47_number__ || {default: $___46__46__47__46__46__47_helpers_47_number__}).rangeEach;
 var eventManagerObject = ($___46__46__47__46__46__47_eventManager__ = _dereq_("eventManager"), $___46__46__47__46__46__47_eventManager__ && $___46__46__47__46__46__47_eventManager__.__esModule && $___46__46__47__46__46__47_eventManager__ || {default: $___46__46__47__46__46__47_eventManager__}).eventManager;
-var $__6 = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}),
-    pageX = $__6.pageX,
-    pageY = $__6.pageY;
+var pageX = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}).pageX;
 var registerPlugin = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}).registerPlugin;
 var privatePool = new WeakMap();
 var ManualColumnMove = function ManualColumnMove(hotInstance) {
@@ -23545,10 +23929,8 @@ var $ManualColumnMove = ManualColumnMove;
     this.columnPositions.splice(destinationIndex, 0, this.columnPositions.splice(columnIndex, 1)[0]);
   },
   getVisibleColumnIndex: function(column) {
-    if (column > this.columnPositions.length - 1) {
-      this.createPositionData(column);
-    }
-    return this.columnPositions.indexOf(column);
+    var position = this.columnPositions.indexOf(column);
+    return position === -1 ? void 0 : position;
   },
   getLogicalColumnIndex: function(column) {
     return this.columnPositions[column];
@@ -23602,15 +23984,9 @@ var $ManualColumnMove = ManualColumnMove;
     }
   },
   onModifyCol: function(col) {
-    if (typeof this.getVisibleColumnIndex(col) == -1) {
-      this.createPositionData(col + 1);
-    }
     return this.getLogicalColumnIndex(col);
   },
   onUnmodifyCol: function(col) {
-    if (typeof this.getVisibleColumnIndex(col) == -1) {
-      this.createPositionData(col + 1);
-    }
     return this.getVisibleColumnIndex(col);
   },
   onAfterRemoveCol: function(index, amount) {
@@ -23645,7 +24021,7 @@ var $ManualColumnMove = ManualColumnMove;
       addindx.push(index + i);
     }));
     if (index >= colpos.length) {
-      colpos.concat(addindx);
+      colpos = colpos.concat(addindx);
     } else {
       colpos = arrayMap(colpos, function(value, ind) {
         return (value >= index) ? (value + amount) : value;
@@ -23665,7 +24041,7 @@ Handsontable.hooks.register('afterColumnMove');
 Handsontable.hooks.register('unmodifyCol');
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],152:[function(_dereq_,module,exports){
+},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],164:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualColumnResize: {get: function() {
@@ -24012,7 +24388,7 @@ var $ManualColumnResize = ManualColumnResize;
 registerPlugin('manualColumnResize', ManualColumnResize);
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],153:[function(_dereq_,module,exports){
+},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],165:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualRowMove: {get: function() {
@@ -24040,9 +24416,7 @@ var $__3 = ($___46__46__47__46__46__47_helpers_47_array__ = _dereq_("helpers/arr
     arrayMap = $__3.arrayMap;
 var rangeEach = ($___46__46__47__46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47__46__46__47_helpers_47_number__ && $___46__46__47__46__46__47_helpers_47_number__.__esModule && $___46__46__47__46__46__47_helpers_47_number__ || {default: $___46__46__47__46__46__47_helpers_47_number__}).rangeEach;
 var eventManagerObject = ($___46__46__47__46__46__47_eventManager__ = _dereq_("eventManager"), $___46__46__47__46__46__47_eventManager__ && $___46__46__47__46__46__47_eventManager__.__esModule && $___46__46__47__46__46__47_eventManager__ || {default: $___46__46__47__46__46__47_eventManager__}).eventManager;
-var $__6 = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}),
-    pageX = $__6.pageX,
-    pageY = $__6.pageY;
+var pageY = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}).pageY;
 var registerPlugin = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}).registerPlugin;
 var privatePool = new WeakMap();
 var ManualRowMove = function ManualRowMove(hotInstance) {
@@ -24233,10 +24607,8 @@ var $ManualRowMove = ManualRowMove;
     this.rowPositions.splice(destinationIndex, 0, this.rowPositions.splice(rowIndex, 1)[0]);
   },
   getVisibleRowIndex: function(row) {
-    if (row > this.rowPositions.length - 1) {
-      this.createPositionData(row);
-    }
-    return this.rowPositions.indexOf(row);
+    var position = this.rowPositions.indexOf(row);
+    return position === -1 ? void 0 : position;
   },
   getLogicalRowIndex: function(row) {
     return this.rowPositions[row];
@@ -24287,9 +24659,6 @@ var $ManualRowMove = ManualRowMove;
     }
   },
   onModifyRow: function(row) {
-    if (typeof this.getVisibleRowIndex(row) === 'undefined') {
-      this.createPositionData(row + 1);
-    }
     return this.getLogicalRowIndex(row);
   },
   onAfterRemoveRow: function(index, amount) {
@@ -24323,7 +24692,7 @@ var $ManualRowMove = ManualRowMove;
       addindx.push(index + i);
     }
     if (index >= rowpos.length) {
-      rowpos.concat(addindx);
+      rowpos = rowpos.concat(addindx);
     } else {
       rowpos = arrayMap(rowpos, function(value, ind) {
         return (value >= index) ? (value + amount) : value;
@@ -24342,7 +24711,7 @@ Handsontable.hooks.register('beforeRowMove');
 Handsontable.hooks.register('afterRowMove');
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],154:[function(_dereq_,module,exports){
+},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],166:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualRowResize: {get: function() {
@@ -24659,7 +25028,7 @@ var $ManualRowResize = ManualRowResize;
 registerPlugin('manualRowResize', ManualRowResize);
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],155:[function(_dereq_,module,exports){
+},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],167:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MergeCells: {get: function() {
@@ -24993,7 +25362,7 @@ var addMergeActionsToContextMenu = function(defaultOptions) {
       this.render();
     },
     disabled: function() {
-      return false;
+      return this.selection.selectedHeader.corner;
     }
   });
 };
@@ -25199,7 +25568,7 @@ Handsontable.hooks.add('afterRemoveRow', onAfterRemoveRow);
 Handsontable.MergeCells = MergeCells;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/table":90,"browser":93,"helpers/dom/event":117,"plugins":131}],156:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/table":90,"browser":93,"helpers/dom/event":117,"plugins":131}],168:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MultipleSelectionHandles: {get: function() {
@@ -25490,7 +25859,7 @@ var $MultipleSelectionHandles = MultipleSelectionHandles;
 registerPlugin('multipleSelectionHandles', MultipleSelectionHandles);
 
 //# 
-},{"_base":132,"browser":93,"eventManager":111,"helpers/browser":113,"helpers/dom/element":116,"plugins":131}],157:[function(_dereq_,module,exports){
+},{"_base":132,"browser":93,"eventManager":111,"helpers/browser":113,"helpers/dom/element":116,"plugins":131}],169:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataObserver: {get: function() {
@@ -25545,7 +25914,7 @@ mixin(DataObserver, localHooks);
 ;
 
 //# 
-},{"../../helpers/object":122,"../../mixins/localHooks":127,"jsonpatch":"jsonpatch","utils":159}],158:[function(_dereq_,module,exports){
+},{"../../helpers/object":122,"../../mixins/localHooks":127,"jsonpatch":"jsonpatch","utils":171}],170:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ObserveChanges: {get: function() {
@@ -25691,7 +26060,7 @@ var $ObserveChanges = ObserveChanges;
 registerPlugin('observeChanges', ObserveChanges);
 
 //# 
-},{"_base":132,"browser":93,"dataObserver":157,"helpers/array":112,"jsonpatch":"jsonpatch","plugins":131}],159:[function(_dereq_,module,exports){
+},{"_base":132,"browser":93,"dataObserver":169,"helpers/array":112,"jsonpatch":"jsonpatch","plugins":131}],171:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   cleanPatches: {get: function() {
@@ -25750,7 +26119,7 @@ function parsePath(path) {
 }
 
 //# 
-},{"../../helpers/array":112}],160:[function(_dereq_,module,exports){
+},{"../../helpers/array":112}],172:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HandsontablePersistentState: {get: function() {
@@ -25864,7 +26233,7 @@ Handsontable.hooks.add('beforeInit', htPersistentState.init);
 Handsontable.hooks.add('afterUpdateSettings', htPersistentState.init);
 
 //# 
-},{"browser":93,"plugins":131}],161:[function(_dereq_,module,exports){
+},{"browser":93,"plugins":131}],173:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47__46__46__47_browser__,
     $___46__46__47__46__46__47_helpers_47_dom_47_element__,
@@ -25974,7 +26343,7 @@ Handsontable.hooks.add('afterInit', init);
 Handsontable.hooks.add('afterUpdateSettings', init);
 
 //# 
-},{"browser":93,"helpers/dom/element":116,"renderers":164}],162:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/dom/element":116,"renderers":176}],174:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   TouchScroll: {get: function() {
@@ -26089,7 +26458,7 @@ var $TouchScroll = TouchScroll;
 registerPlugin('touchScroll', TouchScroll);
 
 //# 
-},{"_base":132,"browser":93,"helpers/dom/element":116,"plugins":131}],163:[function(_dereq_,module,exports){
+},{"_base":132,"browser":93,"helpers/dom/element":116,"plugins":131}],175:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47__46__46__47_browser__,
     $___46__46__47__46__46__47_helpers_47_array__,
@@ -26439,7 +26808,7 @@ Handsontable.hooks.add('afterInit', init);
 Handsontable.hooks.add('afterUpdateSettings', init);
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/dom/event":117,"helpers/number":121,"helpers/object":122}],164:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/array":112,"helpers/dom/event":117,"helpers/number":121,"helpers/object":122}],176:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   registerRenderer: {get: function() {
@@ -26489,7 +26858,7 @@ function hasRenderer(rendererName) {
 ;
 
 //# 
-},{"browser":93,"helpers/string":124}],165:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/string":124}],177:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   cellDecorator: {get: function() {
@@ -26530,7 +26899,7 @@ function cellDecorator(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('base', cellDecorator);
 
 //# 
-},{"helpers/dom/element":116,"renderers":164}],166:[function(_dereq_,module,exports){
+},{"helpers/dom/element":116,"renderers":176}],178:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   autocompleteRenderer: {get: function() {
@@ -26587,7 +26956,7 @@ function autocompleteRenderer(instance, TD, row, col, prop, value, cellPropertie
 registerRenderer('autocomplete', autocompleteRenderer);
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"eventManager":111,"helpers/dom/element":116,"renderers":164}],167:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":75,"eventManager":111,"helpers/dom/element":116,"renderers":176}],179:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   checkboxRenderer: {get: function() {
@@ -26600,6 +26969,7 @@ var $___46__46__47_helpers_47_dom_47_element__,
     $___46__46__47_eventManager__,
     $___46__46__47_renderers__,
     $___46__46__47_helpers_47_unicode__,
+    $___46__46__47_helpers_47_function__,
     $___46__46__47_helpers_47_dom_47_event__;
 var $__0 = ($___46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47_helpers_47_dom_47_element__ && $___46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47_helpers_47_dom_47_element__}),
     empty = $__0.empty,
@@ -26610,17 +26980,17 @@ var EventManager = ($___46__46__47_eventManager__ = _dereq_("eventManager"), $__
 var $__3 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
     getRenderer = $__3.getRenderer,
     registerRenderer = $__3.registerRenderer;
-var KEY_CODES = ($___46__46__47_helpers_47_unicode__ = _dereq_("helpers/unicode"), $___46__46__47_helpers_47_unicode__ && $___46__46__47_helpers_47_unicode__.__esModule && $___46__46__47_helpers_47_unicode__ || {default: $___46__46__47_helpers_47_unicode__}).KEY_CODES;
-var $__5 = ($___46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47_helpers_47_dom_47_event__ && $___46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47_helpers_47_dom_47_event__}),
-    stopPropagation = $__5.stopPropagation,
-    stopImmediatePropagation = $__5.stopImmediatePropagation,
-    isImmediatePropagationStopped = $__5.isImmediatePropagationStopped;
+var isKey = ($___46__46__47_helpers_47_unicode__ = _dereq_("helpers/unicode"), $___46__46__47_helpers_47_unicode__ && $___46__46__47_helpers_47_unicode__.__esModule && $___46__46__47_helpers_47_unicode__ || {default: $___46__46__47_helpers_47_unicode__}).isKey;
+var partial = ($___46__46__47_helpers_47_function__ = _dereq_("helpers/function"), $___46__46__47_helpers_47_function__ && $___46__46__47_helpers_47_function__.__esModule && $___46__46__47_helpers_47_function__ || {default: $___46__46__47_helpers_47_function__}).partial;
+var $__6 = ($___46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47_helpers_47_dom_47_event__ && $___46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47_helpers_47_dom_47_event__}),
+    stopImmediatePropagation = $__6.stopImmediatePropagation,
+    isImmediatePropagationStopped = $__6.isImmediatePropagationStopped;
 var isListeningKeyDownEvent = new WeakMap();
 var isCheckboxListenerAdded = new WeakMap();
 var BAD_VALUE_CLASS = 'htBadValue';
 function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties) {
   getRenderer('base').apply(this, arguments);
-  var eventManager = new EventManager(instance);
+  var eventManager = registerEvents(instance);
   var input = createInput();
   var labelOptions = cellProperties.label;
   var badValue = false;
@@ -26663,35 +27033,24 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (badValue) {
     TD.appendChild(document.createTextNode('#bad-value#'));
   }
-  if (!isCheckboxListenerAdded.has(instance)) {
-    if (cellProperties.readOnly) {
-      eventManager.addEventListener(instance.rootElement, 'click', preventDefault);
-    } else {
-      eventManager.addEventListener(instance.rootElement, 'mouseup', (function(event) {
-        return onMouseUp(event, instance);
-      }));
-      eventManager.addEventListener(instance.rootElement, 'change', (function(event) {
-        return onChange(event, instance);
-      }));
-    }
-    isCheckboxListenerAdded.set(instance, true);
-  }
   if (!isListeningKeyDownEvent.has(instance)) {
     isListeningKeyDownEvent.set(instance, true);
     instance.addHook('beforeKeyDown', onBeforeKeyDown);
   }
   function onBeforeKeyDown(event) {
-    var allowedKeys = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
-    if (allowedKeys.indexOf(event.keyCode) !== -1 && !isImmediatePropagationStopped(event)) {
+    var toggleKeys = 'SPACE|ENTER';
+    var switchOffKeys = 'DELETE|BACKSPACE';
+    var isKeyCode = partial(isKey, event.keyCode);
+    if (isKeyCode((toggleKeys + "|" + switchOffKeys)) && !isImmediatePropagationStopped(event)) {
       eachSelectedCheckboxCell(function() {
         stopImmediatePropagation(event);
         event.preventDefault();
       });
     }
-    if (event.keyCode === KEY_CODES.SPACE || event.keyCode === KEY_CODES.ENTER) {
+    if (isKeyCode(toggleKeys)) {
       toggleSelected();
     }
-    if (event.keyCode === KEY_CODES.DELETE || event.keyCode === KEY_CODES.BACKSPACE) {
+    if (isKeyCode(switchOffKeys)) {
       toggleSelected(false);
     }
   }
@@ -26726,14 +27085,31 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties) {
     for (var row = topLeft.row; row <= bottomRight.row; row++) {
       for (var col = topLeft.col; col <= bottomRight.col; col++) {
         var cell = instance.getCell(row, col);
-        var cellProperties$__6 = instance.getCellMeta(row, col);
+        var cellProperties$__7 = instance.getCellMeta(row, col);
         var checkboxes = cell.querySelectorAll('input[type=checkbox]');
-        if (checkboxes.length > 0 && !cellProperties$__6.readOnly) {
+        if (checkboxes.length > 0 && !cellProperties$__7.readOnly) {
           callback(checkboxes);
         }
       }
     }
   }
+}
+function registerEvents(instance) {
+  var eventManager = isCheckboxListenerAdded.get(instance);
+  if (!eventManager) {
+    eventManager = new EventManager(instance);
+    eventManager.addEventListener(instance.rootElement, 'click', (function(event) {
+      return onClick(event, instance);
+    }));
+    eventManager.addEventListener(instance.rootElement, 'mouseup', (function(event) {
+      return onMouseUp(event, instance);
+    }));
+    eventManager.addEventListener(instance.rootElement, 'change', (function(event) {
+      return onChange(event, instance);
+    }));
+    isCheckboxListenerAdded.set(instance, eventManager);
+  }
+  return eventManager;
 }
 function createInput() {
   var input = document.createElement('input');
@@ -26749,14 +27125,21 @@ function createLabel(text) {
   label.appendChild(document.createTextNode(text));
   return label.cloneNode(true);
 }
-function preventDefault(event) {
-  if (isCheckboxInput(event.target)) {
-    event.preventDefault();
-  }
-}
 function onMouseUp(event, instance) {
-  if (isCheckboxInput(event.target)) {
-    setTimeout(instance.listen, 10);
+  if (!isCheckboxInput(event.target)) {
+    return;
+  }
+  setTimeout(instance.listen, 10);
+}
+function onClick(event, instance) {
+  if (!isCheckboxInput(event.target)) {
+    return false;
+  }
+  var row = parseInt(event.target.getAttribute('data-row'), 10);
+  var col = parseInt(event.target.getAttribute('data-col'), 10);
+  var cellProperties = instance.getCellMeta(row, col);
+  if (cellProperties.readOnly) {
+    event.preventDefault();
   }
 }
 function onChange(event, instance) {
@@ -26766,7 +27149,9 @@ function onChange(event, instance) {
   var row = parseInt(event.target.getAttribute('data-row'), 10);
   var col = parseInt(event.target.getAttribute('data-col'), 10);
   var cellProperties = instance.getCellMeta(row, col);
-  instance.setDataAtCell(row, col, event.target.checked ? (cellProperties.checkedTemplate || true) : (cellProperties.uncheckedTemplate || false));
+  if (!cellProperties.readOnly) {
+    instance.setDataAtCell(row, col, event.target.checked ? (cellProperties.checkedTemplate || true) : (cellProperties.uncheckedTemplate || false));
+  }
 }
 function isCheckboxInput(element) {
   return element.tagName === 'INPUT' && element.getAttribute('type') === 'checkbox';
@@ -26775,7 +27160,7 @@ function isCheckboxInput(element) {
 registerRenderer('checkbox', checkboxRenderer);
 
 //# 
-},{"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/string":124,"helpers/unicode":125,"renderers":164}],168:[function(_dereq_,module,exports){
+},{"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/string":124,"helpers/unicode":125,"renderers":176}],180:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   htmlRenderer: {get: function() {
@@ -26800,7 +27185,7 @@ function htmlRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('html', htmlRenderer);
 
 //# 
-},{"helpers/dom/element":116,"renderers":164}],169:[function(_dereq_,module,exports){
+},{"helpers/dom/element":116,"renderers":176}],181:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   numericRenderer: {get: function() {
@@ -26808,10 +27193,10 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__numeral__,
+var $__numbro__,
     $___46__46__47_renderers__,
     $___46__46__47_helpers_47_number__;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var $__1 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
     getRenderer = $__1.getRenderer,
     registerRenderer = $__1.registerRenderer;
@@ -26819,9 +27204,9 @@ var isNumeric = ($___46__46__47_helpers_47_number__ = _dereq_("helpers/number"),
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
     if (typeof cellProperties.language !== 'undefined') {
-      numeral.language(cellProperties.language);
+      numbro.culture(cellProperties.language);
     }
-    value = numeral(value).format(cellProperties.format || '0');
+    value = numbro(value).format(cellProperties.format || '0');
     var className = cellProperties.className || '';
     var classArr = className.length ? className.split(' ') : [];
     if (classArr.indexOf('htLeft') < 0 && classArr.indexOf('htCenter') < 0 && classArr.indexOf('htRight') < 0 && classArr.indexOf('htJustify') < 0) {
@@ -26838,7 +27223,7 @@ function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('numeric', numericRenderer);
 
 //# 
-},{"helpers/number":121,"numeral":"numeral","renderers":164}],170:[function(_dereq_,module,exports){
+},{"helpers/number":121,"numbro":undefined,"renderers":176}],182:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   passwordRenderer: {get: function() {
@@ -26865,7 +27250,7 @@ function passwordRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('password', passwordRenderer);
 
 //# 
-},{"helpers/dom/element":116,"renderers":164}],171:[function(_dereq_,module,exports){
+},{"helpers/dom/element":116,"renderers":176}],183:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   textRenderer: {get: function() {
@@ -26908,7 +27293,7 @@ function textRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('text', textRenderer);
 
 //# 
-},{"helpers/dom/element":116,"helpers/mixed":120,"renderers":164}],172:[function(_dereq_,module,exports){
+},{"helpers/dom/element":116,"helpers/mixed":120,"renderers":176}],184:[function(_dereq_,module,exports){
 // jscs:disable
 /* jshint ignore:start */
 (function(global) {
@@ -27263,7 +27648,7 @@ registerRenderer('text', textRenderer);
 })();
 /* jshint ignore:end */
 
-},{}],173:[function(_dereq_,module,exports){
+},{}],185:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   TableView: {get: function() {
@@ -27292,7 +27677,9 @@ var $__1 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__
 var eventManagerObject = ($__eventManager__ = _dereq_("eventManager"), $__eventManager__ && $__eventManager__.__esModule && $__eventManager__ || {default: $__eventManager__}).eventManager;
 var $__3 = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__}),
     stopPropagation = $__3.stopPropagation,
-    isImmediatePropagationStopped = $__3.isImmediatePropagationStopped;
+    isImmediatePropagationStopped = $__3.isImmediatePropagationStopped,
+    isRightClick = $__3.isRightClick,
+    isLeftClick = $__3.isLeftClick;
 var WalkontableCellCoords = ($__3rdparty_47_walkontable_47_src_47_cell_47_coords__ = _dereq_("3rdparty/walkontable/src/cell/coords"), $__3rdparty_47_walkontable_47_src_47_cell_47_coords__ && $__3rdparty_47_walkontable_47_src_47_cell_47_coords__.__esModule && $__3rdparty_47_walkontable_47_src_47_cell_47_coords__ || {default: $__3rdparty_47_walkontable_47_src_47_cell_47_coords__}).WalkontableCellCoords;
 var WalkontableSelection = ($__3rdparty_47_walkontable_47_src_47_selection__ = _dereq_("3rdparty/walkontable/src/selection"), $__3rdparty_47_walkontable_47_src_47_selection__ && $__3rdparty_47_walkontable_47_src_47_selection__.__esModule && $__3rdparty_47_walkontable_47_src_47_selection__ || {default: $__3rdparty_47_walkontable_47_src_47_selection__}).WalkontableSelection;
 var Walkontable = ($__3rdparty_47_walkontable_47_src_47_core__ = _dereq_("3rdparty/walkontable/src/core"), $__3rdparty_47_walkontable_47_src_47_core__ && $__3rdparty_47_walkontable_47_src_47_core__.__esModule && $__3rdparty_47_walkontable_47_src_47_core__ || {default: $__3rdparty_47_walkontable_47_src_47_core__}).Walkontable;
@@ -27561,19 +27948,25 @@ function TableView(instance) {
             doNewSelection = coordsNotInSelection;
           }
         }
-        if (event.button === 0 || (event.button === 2 && doNewSelection)) {
-          if (coords.row < 0 && coords.col >= 0) {
-            selection.setSelectedHeaders(false, true);
+        var rightClick = isRightClick(event);
+        var leftClick = isLeftClick(event);
+        if (coords.row < 0 && coords.col >= 0) {
+          selection.setSelectedHeaders(false, true);
+          if (leftClick || (rightClick && doNewSelection)) {
             selection.setRangeStartOnly(new WalkontableCellCoords(0, coords.col));
-            selection.setRangeEnd(new WalkontableCellCoords(instance.countRows() - 1, coords.col), false);
-          } else if (coords.col < 0 && coords.row >= 0) {
-            selection.setSelectedHeaders(true, false);
+            selection.setRangeEnd(new WalkontableCellCoords(Math.max(instance.countRows() - 1, 0), coords.col), false);
+          }
+        } else if (coords.col < 0 && coords.row >= 0) {
+          selection.setSelectedHeaders(true, false);
+          if (leftClick || (rightClick && doNewSelection)) {
             selection.setRangeStartOnly(new WalkontableCellCoords(coords.row, 0));
-            selection.setRangeEnd(new WalkontableCellCoords(coords.row, instance.countCols() - 1), false);
-          } else {
-            coords.row = coords.row < 0 ? 0 : coords.row;
-            coords.col = coords.col < 0 ? 0 : coords.col;
-            selection.setSelectedHeaders(false, false);
+            selection.setRangeEnd(new WalkontableCellCoords(coords.row, Math.max(instance.countCols() - 1, 0)), false);
+          }
+        } else {
+          selection.setSelectedHeaders(false, false, coords.col < 0 && coords.row < 0);
+          coords.row = coords.row < 0 ? 0 : coords.row;
+          coords.col = coords.col < 0 ? 0 : coords.col;
+          if (leftClick || (rightClick && doNewSelection)) {
             selection.setRangeStart(coords);
           }
         }
@@ -27588,6 +27981,9 @@ function TableView(instance) {
       };
       that.activeWt = wt;
       Handsontable.hooks.run(instance, 'beforeOnCellMouseOver', event, coords, TD, blockCalculations);
+      if (isImmediatePropagationStopped(event)) {
+        return;
+      }
       if (event.button === 0) {
         if (coords.row >= 0 && coords.col >= 0) {
           if (isMouseDown) {
@@ -27845,7 +28241,7 @@ TableView.prototype.destroy = function() {
 ;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/core":77,"3rdparty/walkontable/src/selection":88,"browser":93,"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117}],174:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/core":77,"3rdparty/walkontable/src/selection":88,"browser":93,"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117}],186:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   GhostTable: {get: function() {
@@ -28126,7 +28522,7 @@ var GhostTable = function GhostTable(hotInstance) {
 Handsontable.utils.GhostTable = GhostTable;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],175:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],187:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Interval: {get: function() {
@@ -28203,7 +28599,7 @@ function parseDelay(delay) {
 Handsontable.utils.Interval = Interval;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/feature":118,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],176:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/array":112,"helpers/feature":118,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],188:[function(_dereq_,module,exports){
 "use strict";
 var $__8;
 Object.defineProperties(exports, {
@@ -28340,7 +28736,7 @@ var $SamplesGenerator = SamplesGenerator;
 Handsontable.utils.SamplesGenerator = SamplesGenerator;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],177:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],189:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__,
     $___46__46__47_helpers_47_mixed__;
@@ -28384,7 +28780,7 @@ function process(value, callback) {
 }
 
 //# 
-},{"browser":93,"helpers/mixed":120}],178:[function(_dereq_,module,exports){
+},{"browser":93,"helpers/mixed":120}],190:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__,
     $__moment__,
@@ -28438,7 +28834,7 @@ var correctFormat = function correctFormat(value, dateFormat) {
 };
 
 //# 
-},{"../helpers/date":115,"browser":93,"editors":99,"moment":undefined}],179:[function(_dereq_,module,exports){
+},{"../helpers/date":115,"browser":93,"editors":99,"moment":undefined}],191:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
@@ -28456,7 +28852,7 @@ Handsontable.NumericValidator = function(value, callback) {
 };
 
 //# 
-},{"browser":93}],180:[function(_dereq_,module,exports){
+},{"browser":93}],192:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__,
     $__moment__;
@@ -30786,5 +31182,5 @@ if (typeof exports !== "undefined") {
     }
 }).call(window);
 
-},{}]},{},[3,133,135,134,136,157,158,159,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,160,161,162,163,177,178,179,180,166,167,168,169,170,171,101,105,102,103,110,104,106,107,108,109,4,5,6,7,8,62,56,57,58,9,10,11,12,13,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,48,49,50,51,52,53,54,55,59,60,61,63,64,66,67,68,69,70])(93)
+},{}]},{},[3,133,135,134,136,169,170,171,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,172,173,174,175,189,190,191,192,178,179,180,181,182,183,101,105,102,103,110,104,106,107,108,109,4,5,6,7,8,62,56,57,58,9,10,11,12,13,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,48,49,50,51,52,53,54,55,59,60,61,63,64,66,67,68,69,70])(93)
 });

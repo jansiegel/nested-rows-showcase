@@ -2,176 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" media="screen" href="dist/handsontable.css">
-  <link rel="stylesheet" media="screen" href="dist/pikaday/pikaday.css">
-  <!--<script src="dist/handsontable.full.js"></script>-->
+  <script src="./dist/handsontable.full.js"></script>
+  <link href="./dist/handsontable.full.min.css" rel="stylesheet" type="text/css">
 
-  <script data-jsfiddle="common" src="dist/handsontable.full.js"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    h2 {
-      font-family: 'Open Sans', sans-serif;
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: #f5f5f5;
-      padding: 30px;
-      font-size: 20px;
-    }
-
-    #example {
-      font-family: Verdana, Helvetica, Arial, FreeSans, sans-serif;
-      font-size: 13px;
-      margin: 0 auto;
-      width: 600px;
-      height: 320px;
-      overflow: hidden;
-    }
-  </style>
-  <title>Nested Rows showcase alpha</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <title>Nested Rows feature showcase.</title>
 </head>
 <body>
-<h2>Nested Rows</h2>
+<header>
+  <h3>
+    <span>"Nested Rows" feature showcase</span>
+  </h3>
+</header>
+
 <div id="example"></div>
-<script>
-  var container = document.getElementById('example');
-  var hot = new Handsontable(container, {
-    autoRowSize: true,
-    autoColumnSize: true,
-    colHeaders: true,
-    data: [{
-      a: 'test',
-      b: 'test1',
-      c: 'test2',
-      d: 'test',
-      e: 'test',
-      f: 'test',
-      g: 'test',
-      __children: [
-        {
-          a: 'child1-a',
-          b: 'child1-b',
-          c: 'child1-c',
-          d: 'child1-d',
-          e: 'child1-e',
-          f: 'child1-f',
-          g: 'child1-g'
-        },
-        {
-          a: 'child2-a',
-          b: 'child2-b',
-          c: 'child2-c',
-          d: 'child2-d',
-          e: 'child2-e',
-          f: 'child2-f',
-          g: 'child2-g'
-        },
-        {
-          a: 'child3-parent-a',
-          b: 'child3-parent-b',
-          c: 'child3-parent-c',
-          d: 'child3-parent-d',
-          e: 'child3-parent-e',
-          f: 'child3-parent-f',
-          g: 'child3-parent-g',
-          __children: [
-            {
-              a: 'child3-1-a',
-              b: 'child3-1-b',
-              c: 'child3-1-c',
-              d: 'child3-1-d',
-              e: 'child3-1-e',
-              f: 'child3-1-f',
-              g: 'child3-1-g'
-            },
-            {
-              a: 'child3-2-a',
-              b: 'child3-2-b',
-              c: 'child3-2-c',
-              d: 'child3-2-d',
-              e: 'child3-2-e',
-              f: 'child3-2-f',
-              g: 'child3-2-g'
-            }
-          ]
-        }
-      ]
-    },
-      {
-        a: 'after1',
-        b: 'after_b 1',
-        c: 'after_c 1',
-        d: 'after_d 1',
-        e: 'after_e 1',
-        f: 'after_f 1',
-        g: 'after_g 1'
-      },
-      {
-        a: 'after2',
-        b: 'after_b 2',
-        c: 'after_c 2',
-        d: 'after_d 2',
-        e: 'after_e 2',
-        f: 'after_f 2',
-        g: 'after_g 2',
-        __children: [
-          {
-            a: 'after-child3-parent-a',
-            b: 'after-child3-parent-b',
-            c: 'after-child3-parent-c',
-            d: 'after-child3-parent-d',
-            e: 'after-child3-parent-e',
-            f: 'after-child3-parent-f',
-            g: 'after-child3-parent-g',
-            __children: [
-              {
-                a: 'after-child3-1-a',
-                b: 'after-child3-1-b',
-                c: 'after-child3-1-c',
-                d: 'after-child3-1-d',
-                e: 'after-child3-1-e',
-                f: 'after-child3-1-f',
-                g: 'after-child3-1-g'
-              },
-              {
-                a: 'after-child3-2-a',
-                b: 'after-child3-2-b',
-                c: 'after-child3-2-c',
-                d: 'after-child3-2-d',
-                e: 'after-child3-2-e',
-                f: 'after-child3-2-f',
-                g: 'after-child3-2-g'
-              }
-            ]
-          },
-          {
-            a: 'after-child1-a',
-            b: 'after-child1-b',
-            c: 'after-child1-c',
-            d: 'after-child1-d',
-            e: 'after-child1-e',
-            f: 'after-child1-f',
-            g: 'after-child1-g'
-          },
-        ]
-      },
-    ],
-    rowHeaders: true,
-    nestedRows: true,
-    contextMenu: true,
-    colWidths: 150
-  });
-</script>
+
+<h3>
+  <span>API</span>
+</h3>
+
+<section>
+  <div class="third">
+    <label for="row-to-collapse">Enter parent row:</label>
+    <input id="row-to-collapse" type="number" value="1">
+    <a id="toggle-section" href="javascript:void(0)" class="btn">Collapse/Expand section</a>
+  </div>
+  <div class="third">
+  <a id="collapse-all" href="javascript:void(0)" class="btn">Collapse all sections</a>
+    </div>
+  <div class="third">
+  <a id="expand-all" href="javascript:void(0)" class="btn">Expand all sections</a>
+    </div>
+</section>
+
+
+
+<script src="./js/main.js"></script>
 </body>
 </html>

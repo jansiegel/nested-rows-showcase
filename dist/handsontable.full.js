@@ -22,7 +22,7 @@ YOU SHALL OBTAIN A COMMERCIAL LICENSE FOR THIS SOFTWARE AT HANDSONTABLE.COM.
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Handsontable = f()}})(function(){var define,module,exports;return (function outer (modules, cache, entry) {
   // Save the require from previous bundle to this closure if any
   var previousRequire = typeof require == "function" && require;
-  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","pikaday":"Pikaday"}') || {};
+  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","numbro":"numbro","pikaday":"Pikaday"}') || {};
 
   function newRequire(name, jumped){
     if(!cache[name]) {
@@ -267,7 +267,7 @@ window.WalkontableBottomOverlay = WalkontableBottomOverlay;
 WalkontableOverlay.registerOverlay(WalkontableOverlay.CLONE_BOTTOM, WalkontableBottomOverlay);
 
 //# 
-},{"../../../../../node_modules/hot-builder/node_modules/handsontable/src/3rdparty/walkontable/src/overlay/_base.js":81,"../../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116}],2:[function(_dereq_,module,exports){
+},{"../../../../../node_modules/hot-builder/node_modules/handsontable/src/3rdparty/walkontable/src/overlay/_base.js":82,"../../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117}],2:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableBottomLeftCornerOverlay: {get: function() {
@@ -346,7 +346,7 @@ window.WalkontableBottomLeftCornerOverlay = WalkontableBottomLeftCornerOverlay;
 WalkontableOverlay.registerOverlay(WalkontableOverlay.CLONE_BOTTOM_LEFT_CORNER, WalkontableBottomLeftCornerOverlay);
 
 //# 
-},{"../../../../../node_modules/hot-builder/node_modules/handsontable/src/3rdparty/walkontable/src/overlay/_base.js":81,"../../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116}],3:[function(_dereq_,module,exports){
+},{"../../../../../node_modules/hot-builder/node_modules/handsontable/src/3rdparty/walkontable/src/overlay/_base.js":82,"../../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117}],3:[function(_dereq_,module,exports){
 "use strict";
 var $__handsontable_47_browser__,
     $__3rdparty_47_walkontable_47_src_47_overlay_47_bottom__,
@@ -357,7 +357,7 @@ var WalkontableBottomLeftCornerOverlay = ($__3rdparty_47_walkontable_47_src_47_o
 module.exports = Handsontable;
 
 //# 
-},{"../node_modules/hot-builder/node_modules/handsontable/src/browser":93,"3rdparty/walkontable/src/overlay/bottom":1,"3rdparty/walkontable/src/overlay/bottomLeftCorner":2}],4:[function(_dereq_,module,exports){
+},{"../node_modules/hot-builder/node_modules/handsontable/src/browser":94,"3rdparty/walkontable/src/overlay/bottom":1,"3rdparty/walkontable/src/overlay/bottomLeftCorner":2}],4:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BindRowsWithHeaders: {get: function() {
@@ -453,7 +453,7 @@ var $BindRowsWithHeaders = BindRowsWithHeaders;
 registerPlugin('bindRowsWithHeaders', BindRowsWithHeaders);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"bindStrategy":5}],5:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"bindStrategy":5}],5:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BindStrategy: {get: function() {
@@ -528,7 +528,7 @@ var BindStrategy = function BindStrategy() {
 Handsontable.utils.BindStrategy = BindStrategy;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":126,"../../browser":3}],6:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":127,"../../browser":3}],6:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   LooseBindStrategy: {get: function() {
@@ -561,7 +561,7 @@ BindStrategy.registerStrategy(LooseBindStrategy.STRATEGY_NAME, LooseBindStrategy
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":126,"bindStrategy":5}],7:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":127,"bindStrategy":5}],7:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   StrictBindStrategy: {get: function() {
@@ -594,7 +594,7 @@ BindStrategy.registerStrategy(StrictBindStrategy.STRATEGY_NAME, StrictBindStrate
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":126,"bindStrategy":5}],8:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":127,"bindStrategy":5}],8:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   CollapsibleColumns: {get: function() {
@@ -902,7 +902,7 @@ var $CollapsibleColumns = CollapsibleColumns;
 registerPlugin('collapsibleColumns', CollapsibleColumns);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":111,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132}],9:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":118,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133}],9:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ColumnSummary: {get: function() {
@@ -1269,7 +1269,7 @@ var $ColumnSummary = ColumnSummary;
 registerPlugin('columnSummary', ColumnSummary);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins.js":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base.js":132}],10:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins.js":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base.js":133}],10:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DropdownMenu: {get: function() {
@@ -1475,7 +1475,7 @@ Handsontable.hooks.register('afterDropdownMenuExecute');
 registerPlugin('dropdownMenu', DropdownMenu);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":111,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/commandExecutor":139,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/itemsFactory":142,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/menu":143,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":144,"../../browser":3}],11:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":118,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/commandExecutor":140,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/itemsFactory":143,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/menu":144,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":145,"../../browser":3}],11:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataProvider: {get: function() {
@@ -1590,7 +1590,7 @@ var DataProvider = function DataProvider(hotInstance) {
 ;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122}],12:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123}],12:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ExportFile: {get: function() {
@@ -1670,7 +1670,7 @@ var $ExportFile = ExportFile;
 registerPlugin('exportFile', ExportFile);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"dataProvider":11,"typeFactory":13}],13:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"dataProvider":11,"typeFactory":13}],13:[function(_dereq_,module,exports){
 "use strict";
 var $__1;
 Object.defineProperties(exports, {
@@ -1763,7 +1763,7 @@ var $BaseType = BaseType;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":124}],15:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":125}],15:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Csv: {get: function() {
@@ -1839,7 +1839,7 @@ var $Csv = Csv;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":120,"_base.js":14}],16:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":121,"_base.js":14}],16:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BaseComponent: {get: function() {
@@ -1889,7 +1889,7 @@ mixin(BaseComponent, stateSaver);
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":127,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/stateSaver":128}],17:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":128,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/stateSaver":129}],17:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ActionBarComponent: {get: function() {
@@ -1976,7 +1976,7 @@ var $ActionBarComponent = ActionBarComponent;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"_base":16,"ui/input":48,"ui/select":50}],18:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"_base":16,"ui/input":48,"ui/select":50}],18:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ConditionComponent: {get: function() {
@@ -2145,7 +2145,7 @@ var $ConditionComponent = ConditionComponent;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/unicode":125,"_base":16,"constants":20,"formulaRegisterer":45,"ui/input":48,"ui/select":50}],19:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":118,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/unicode":126,"_base":16,"constants":20,"formulaRegisterer":45,"ui/input":48,"ui/select":50}],19:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ValueComponent: {get: function() {
@@ -2298,7 +2298,7 @@ var $ValueComponent = ValueComponent;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":124,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/unicode":125,"_base":16,"constants":20,"formulaRegisterer":45,"ui/multipleSelect":49,"utils":51}],20:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":118,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":125,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/unicode":126,"_base":16,"constants":20,"formulaRegisterer":45,"ui/multipleSelect":49,"utils":51}],20:[function(_dereq_,module,exports){
 "use strict";
 var $__25;
 Object.defineProperties(exports, {
@@ -2470,7 +2470,7 @@ function getOptionsList(type) {
 }
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":144,"formula/beginsWith":23,"formula/between":24,"formula/byValue":25,"formula/contains":26,"formula/date/after":27,"formula/date/before":28,"formula/date/today":29,"formula/date/tomorrow":30,"formula/date/yesterday":31,"formula/empty":32,"formula/endsWith":33,"formula/equal":34,"formula/greaterThan":35,"formula/greaterThanOrEqual":36,"formula/lessThan":37,"formula/lessThanOrEqual":38,"formula/none":39,"formula/notBetween":40,"formula/notContains":41,"formula/notEmpty":42,"formula/notEqual":43,"formulaRegisterer":45}],21:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":145,"formula/beginsWith":23,"formula/between":24,"formula/byValue":25,"formula/contains":26,"formula/date/after":27,"formula/date/before":28,"formula/date/today":29,"formula/date/tomorrow":30,"formula/date/yesterday":31,"formula/empty":32,"formula/endsWith":33,"formula/equal":34,"formula/greaterThan":35,"formula/greaterThanOrEqual":36,"formula/lessThan":37,"formula/lessThanOrEqual":38,"formula/none":39,"formula/notBetween":40,"formula/notContains":41,"formula/notEmpty":42,"formula/notEqual":43,"formulaRegisterer":45}],21:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataFilter: {get: function() {
@@ -2530,7 +2530,7 @@ var DataFilter = function DataFilter(formulaCollection) {
 Handsontable.utils.FiltersDataFilter = DataFilter;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../browser":3}],22:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../browser":3}],22:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Filters: {get: function() {
@@ -2835,7 +2835,7 @@ var $Filters = Filters;
 registerPlugin('filters', Filters);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":111,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":144,"component/actionBar":17,"component/condition":18,"component/value":19,"constants":20,"dataFilter":21,"formulaCollection":44,"formulaRegisterer":45,"formulaUpdateObserver":46}],23:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":145,"component/actionBar":17,"component/condition":18,"component/value":19,"constants":20,"dataFilter":21,"formulaCollection":44,"formulaRegisterer":45,"formulaUpdateObserver":46}],23:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   FORMULA_NAME: {get: function() {
@@ -2860,7 +2860,7 @@ registerFormula(FORMULA_NAME, formula, {
 });
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":120,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":124,"formulaRegisterer":45}],24:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":121,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":125,"formulaRegisterer":45}],24:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   FORMULA_NAME: {get: function() {
@@ -2947,7 +2947,7 @@ registerFormula(FORMULA_NAME, formula, {
 });
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":120,"formulaRegisterer":45}],27:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":121,"formulaRegisterer":45}],27:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   FORMULA_NAME: {get: function() {
@@ -3126,7 +3126,7 @@ registerFormula(FORMULA_NAME, formula, {
 });
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":120,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":124,"formulaRegisterer":45}],34:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":121,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":125,"formulaRegisterer":45}],34:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   FORMULA_NAME: {get: function() {
@@ -3149,7 +3149,7 @@ registerFormula(FORMULA_NAME, formula, {
 });
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":120,"formulaRegisterer":45}],35:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/mixed":121,"formulaRegisterer":45}],35:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   FORMULA_NAME: {get: function() {
@@ -3517,7 +3517,7 @@ mixin(FormulaCollection, localHooks);
 ;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":127,"formulaRegisterer":45}],45:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":128,"formulaRegisterer":45}],45:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   getFormula: {get: function() {
@@ -3698,7 +3698,7 @@ mixin(FormulaUpdateObserver, localHooks);
 ;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/function":119,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":127,"dataFilter":21,"formulaCollection":44}],47:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/function":120,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":128,"dataFilter":21,"formulaCollection":44}],47:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BaseUI: {get: function() {
@@ -3824,7 +3824,7 @@ mixin(BaseUI, localHooks);
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":111,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":127}],48:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/eventManager":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/localHooks":128}],48:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   InputUI: {get: function() {
@@ -3896,7 +3896,7 @@ var $InputUI = InputUI;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"_base":47}],49:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"_base":47}],49:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MultipleSelectUI: {get: function() {
@@ -4127,7 +4127,7 @@ function itemsToValue(availableItems) {
 }
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/function":119,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":124,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/unicode":125,"../../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/menu":143,"_base":47,"input":48}],50:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":118,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/function":120,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/string":125,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/unicode":126,"../../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/menu":144,"_base":47,"input":48}],50:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   SelectUI: {get: function() {
@@ -4245,7 +4245,7 @@ var $SelectUI = SelectUI;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/menu":143,"../../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":144,"_base":47}],51:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/menu":144,"../../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":145,"_base":47}],51:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   sortComparison: {get: function() {
@@ -4311,7 +4311,7 @@ function intersectValues(base, selected, callback) {
 }
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/feature":118}],52:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/feature":119}],52:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DateCalculator: {get: function() {
@@ -4502,7 +4502,7 @@ var DateCalculator = function DateCalculator(year) {
 ;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122}],53:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123}],53:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   GanttChart: {get: function() {
@@ -4914,7 +4914,7 @@ var $GanttChart = GanttChart;
 registerPlugin('ganttChart', GanttChart);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/data":114,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins.js":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base.js":132,"dateCalculator":52,"ganttChartDataFeed":54}],54:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/data":115,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins.js":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base.js":133,"dateCalculator":52,"ganttChartDataFeed":54}],54:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   GanttChartDataFeed: {get: function() {
@@ -5116,7 +5116,7 @@ var GanttChartDataFeed = function GanttChartDataFeed(chartInstance, data, startD
 ;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"dateCalculator":52}],55:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"dateCalculator":52}],55:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HeaderTooltips: {get: function() {
@@ -5212,7 +5212,7 @@ var $HeaderTooltips = HeaderTooltips;
 registerPlugin('headerTooltips', HeaderTooltips);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element.js":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins.js":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base.js":132}],56:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element.js":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins.js":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base.js":133}],56:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   hideColumnItem: {get: function() {
@@ -5246,7 +5246,7 @@ function hideColumnItem(hiddenColumnsPlugin) {
 }
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121}],57:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122}],57:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   showColumnItem: {get: function() {
@@ -5343,7 +5343,7 @@ function showColumnItem(hiddenColumnsPlugin) {
 }
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121}],58:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122}],58:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HiddenColumns: {get: function() {
@@ -5694,7 +5694,7 @@ function hiddenRenderer(hotInstance, td) {
 registerPlugin('hiddenColumns', HiddenColumns);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":144,"contextMenuItem/hideColumn":56,"contextMenuItem/showColumn":57}],59:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/contextMenu/predefinedItems":145,"contextMenuItem/hideColumn":56,"contextMenuItem/showColumn":57}],59:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   hideRowItem: {get: function() {
@@ -5728,7 +5728,7 @@ function hideRowItem(hiddenRowsPlugin) {
 }
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121}],60:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122}],60:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   showRowItem: {get: function() {
@@ -5817,7 +5817,7 @@ function showRowItem(hiddenRowsPlugin) {
 }
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121}],61:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122}],61:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HiddenRows: {get: function() {
@@ -6160,7 +6160,7 @@ var $HiddenRows = HiddenRows;
 registerPlugin('hiddenRows', HiddenRows);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"contextMenuItem/hideRow":59,"contextMenuItem/showRow":60}],62:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"contextMenuItem/hideRow":59,"contextMenuItem/showRow":60}],62:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   NestedHeaders: {get: function() {
@@ -6511,7 +6511,7 @@ var $NestedHeaders = NestedHeaders;
 registerPlugin('nestedHeaders', NestedHeaders);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132}],63:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133}],63:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataManager: {get: function() {
@@ -6650,7 +6650,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     if (!isNaN(row)) {
       row = this.getDataObject(row);
     }
-    return (row.__children && row.__children.length);
+    return !!(row.__children && row.__children.length);
   },
   addChild: function(parent, element) {
     if (!parent.__children) {
@@ -6702,6 +6702,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     }));
   },
   spliceData: function(index, amount, element) {
+    index = this.translateTrimmedRow(index);
     var previousElement = this.getDataObject(index - 1);
     var newRowParent = null;
     var indexWithinParent = null;
@@ -6724,12 +6725,19 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     rangeEach(0, this.countAllRows(), (function(i) {
       $__3.levelCache[i] = $__3.getRowLevel(i);
     }));
+  },
+  translateTrimmedRow: function(row) {
+    if (this.plugin.collapsingUI) {
+      return this.plugin.collapsingUI.translateTrimmedRow(row);
+    } else {
+      return row;
+    }
   }
 }, {});
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122}],64:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123}],64:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   NestedRows: {get: function() {
@@ -6797,8 +6805,8 @@ var $NestedRows = NestedRows;
     this.addHook('beforeRemoveRow', (function(index, amount) {
       return $__7.onBeforeRemoveRow(index, amount);
     }));
-    this.addHook('afterRemoveRow', (function(index, amount) {
-      return $__7.headersUI.updateRowHeaderWidth();
+    this.addHook('modifyRemovedAmount', (function(amount, index) {
+      return $__7.onModifyRemovedAmount(amount, index);
     }));
     this.addHook('afterInit', (function() {
       return $__7.onAfterInit();
@@ -6814,6 +6822,7 @@ var $NestedRows = NestedRows;
     }));
     if (!this.trimRowsPlugin.isEnabled()) {
       this.trimRowsPlugin.enablePlugin();
+      this.hot.getSettings().trimRows = true;
     }
     $traceurRuntime.superGet(this, $NestedRows.prototype, "enablePlugin").call(this);
   },
@@ -6854,11 +6863,22 @@ var $NestedRows = NestedRows;
     return this.headersUI.rowHeaderWidthCache || rowHeaderWidth;
   },
   onBeforeRemoveRow: function(index, amount) {
-    var rowsToRemove = [];
+    index = this.collapsingUI.translateTrimmedRow(index);
+    if (index != null) {
+      var rowsToRemove = [];
+      rangeEach(index, index + amount - 1, (function(i) {
+        rowsToRemove.push(i);
+      }));
+      this.collapsingUI.showRows(rowsToRemove);
+    }
+  },
+  onModifyRemovedAmount: function(amount, index) {
+    var $__7 = this;
+    var childrenCount = 0;
     rangeEach(index, index + amount - 1, (function(i) {
-      rowsToRemove.push(i);
+      childrenCount += $__7.dataManager.countChildren($__7.collapsingUI.translateTrimmedRow(i));
     }));
-    this.collapsingUI.showRows(rowsToRemove);
+    return amount + childrenCount;
   },
   onAfterInit: function() {
     var $__9;
@@ -6876,7 +6896,7 @@ var $NestedRows = NestedRows;
 registerPlugin('nestedRows', NestedRows);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"data/dataManager":63,"ui/collapsing":66,"ui/contextMenu":67,"ui/headers":68}],65:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"data/dataManager":63,"ui/collapsing":66,"ui/contextMenu":67,"ui/headers":68}],65:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BaseUI: {get: function() {
@@ -6903,11 +6923,13 @@ Object.defineProperties(exports, {
 var $___95_base__,
     $__handsontable_47_helpers_47_dom_47_event__,
     $__handsontable_47_helpers_47_array__,
+    $__handsontable_47_helpers_47_number__,
     $__handsontable_47_helpers_47_dom_47_element__,
     $__headers__;
 var BaseUI = ($___95_base__ = _dereq_("_base"), $___95_base__ && $___95_base__.__esModule && $___95_base__ || {default: $___95_base__}).BaseUI;
 var stopImmediatePropagation = ($__handsontable_47_helpers_47_dom_47_event__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event"), $__handsontable_47_helpers_47_dom_47_event__ && $__handsontable_47_helpers_47_dom_47_event__.__esModule && $__handsontable_47_helpers_47_dom_47_event__ || {default: $__handsontable_47_helpers_47_dom_47_event__}).stopImmediatePropagation;
 var arrayEach = ($__handsontable_47_helpers_47_array__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array"), $__handsontable_47_helpers_47_array__ && $__handsontable_47_helpers_47_array__.__esModule && $__handsontable_47_helpers_47_array__ || {default: $__handsontable_47_helpers_47_array__}).arrayEach;
+var rangeEach = ($__handsontable_47_helpers_47_number__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number"), $__handsontable_47_helpers_47_number__ && $__handsontable_47_helpers_47_number__.__esModule && $__handsontable_47_helpers_47_number__ || {default: $__handsontable_47_helpers_47_number__}).rangeEach;
 var hasClass = ($__handsontable_47_helpers_47_dom_47_element__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element"), $__handsontable_47_helpers_47_dom_47_element__ && $__handsontable_47_helpers_47_dom_47_element__.__esModule && $__handsontable_47_helpers_47_dom_47_element__ || {default: $__handsontable_47_helpers_47_dom_47_element__}).hasClass;
 var HeadersUI = ($__headers__ = _dereq_("headers"), $__headers__ && $__headers__.__esModule && $__headers__ || {default: $__headers__}).HeadersUI;
 var CollapsingUI = function CollapsingUI(nestedRowsPlugin, hotInstance) {
@@ -6918,7 +6940,8 @@ var CollapsingUI = function CollapsingUI(nestedRowsPlugin, hotInstance) {
 var $CollapsingUI = CollapsingUI;
 ($traceurRuntime.createClass)(CollapsingUI, {
   hideChildren: function(row) {
-    var $__5 = this;
+    var forceRender = arguments[1] !== (void 0) ? arguments[1] : true;
+    var $__6 = this;
     var rowObject = null;
     if (isNaN(row)) {
       rowObject = row;
@@ -6927,30 +6950,33 @@ var $CollapsingUI = CollapsingUI;
     }
     if (this.dataManager.hasChildren(rowObject)) {
       arrayEach(rowObject.__children, (function(elem, i) {
-        $__5.hideNode(elem);
+        $__6.hideNode(elem);
       }));
     }
-    this.hot.render();
+    if (forceRender) {
+      this.renderAndAdjust();
+    }
   },
   hideNode: function(rowObj) {
-    var $__5 = this;
+    var $__6 = this;
     var rowIndex = this.dataManager.getRowIndex(rowObj);
     this.trimRowsPlugin.trimRow(rowIndex);
     if (this.dataManager.hasChildren(rowObj)) {
       arrayEach(rowObj.__children, (function(elem, i) {
-        $__5.hideNode(elem);
+        $__6.hideNode(elem);
       }));
     }
   },
   showRows: function(rows) {
-    var $__5 = this;
+    var $__6 = this;
     arrayEach(rows, (function(elem, i) {
-      var rowObj = $__5.dataManager.getDataObject(elem);
-      $__5.showNode(rowObj);
+      var rowObj = $__6.dataManager.getDataObject(elem);
+      $__6.showNode(rowObj);
     }));
   },
   showChildren: function(row) {
-    var $__5 = this;
+    var forceRender = arguments[1] !== (void 0) ? arguments[1] : true;
+    var $__6 = this;
     var rowObject = null;
     if (isNaN(row)) {
       rowObject = row;
@@ -6959,23 +6985,45 @@ var $CollapsingUI = CollapsingUI;
     }
     if (this.dataManager.hasChildren(rowObject)) {
       arrayEach(rowObject.__children, (function(elem, i) {
-        $__5.showNode(elem);
+        $__6.showNode(elem);
       }));
     }
-    this.hot.render();
+    if (forceRender) {
+      this.renderAndAdjust();
+    }
+  },
+  hideAll: function() {
+    var $__6 = this;
+    var sourceData = this.hot.getSourceData();
+    arrayEach(sourceData, (function(elem, i) {
+      if ($__6.dataManager.hasChildren(elem)) {
+        $__6.hideChildren(elem, false);
+      }
+    }));
+    this.renderAndAdjust();
+  },
+  showAll: function() {
+    var $__6 = this;
+    var sourceData = this.hot.getSourceData();
+    arrayEach(sourceData, (function(elem, i) {
+      if ($__6.dataManager.hasChildren(elem)) {
+        $__6.showChildren(elem, false);
+      }
+    }));
+    this.renderAndAdjust();
   },
   showNode: function(rowObj) {
-    var $__5 = this;
+    var $__6 = this;
     var rowIndex = this.dataManager.getRowIndex(rowObj);
     this.trimRowsPlugin.untrimRow(rowIndex);
     if (this.dataManager.hasChildren(rowObj)) {
       arrayEach(rowObj.__children, (function(elem, i) {
-        $__5.showNode(elem);
+        $__6.showNode(elem);
       }));
     }
   },
   areChildrenHidden: function(row) {
-    var $__5 = this;
+    var $__6 = this;
     var rowObj = null;
     var allHidden = true;
     if (isNaN(row)) {
@@ -6985,8 +7033,8 @@ var $CollapsingUI = CollapsingUI;
     }
     if (this.dataManager.hasChildren(rowObj)) {
       arrayEach(rowObj.__children, (function(elem, i) {
-        var rowIndex = $__5.dataManager.getRowIndex(elem);
-        if (!$__5.trimRowsPlugin.isTrimmed(rowIndex)) {
+        var rowIndex = $__6.dataManager.getRowIndex(elem);
+        if (!$__6.trimRowsPlugin.isTrimmed(rowIndex)) {
           allHidden = false;
           return false;
         }
@@ -7010,12 +7058,16 @@ var $CollapsingUI = CollapsingUI;
   },
   translateTrimmedRow: function(row) {
     return this.trimRowsPlugin.rowsMapper.getValueByIndex(row);
+  },
+  renderAndAdjust: function() {
+    this.hot.render();
+    this.hot.view.wt.wtOverlays.adjustElementsSize();
   }
 }, {}, BaseUI);
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":117,"_base":65,"headers":68}],67:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/event":118,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"_base":65,"headers":68}],67:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ContextMenuUI: {get: function() {
@@ -7072,7 +7124,7 @@ var $ContextMenuUI = ContextMenuUI;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"_base":65}],68:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"_base":65}],68:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HeadersUI: {get: function() {
@@ -7123,6 +7175,7 @@ var $HeadersUI = HeadersUI;
     }
     if (this.dataManager.hasChildren(rowObject)) {
       var buttonsContainer = document.createElement('DIV');
+      addClass(TH, $HeadersUI.CSS_CLASSES.parent);
       if (this.collapsingUI.areChildrenHidden(row)) {
         addClass(buttonsContainer, $HeadersUI.CSS_CLASSES.button + ' ' + $HeadersUI.CSS_CLASSES.expandButton);
       } else {
@@ -7142,6 +7195,7 @@ var $HeadersUI = HeadersUI;
 }, {get CSS_CLASSES() {
     return {
       indicatorContainer: 'ht_nestingLevels',
+      parent: 'ht_nestingParent',
       indicator: 'ht_nestingLevel',
       emptyIndicator: 'ht_nestingLevel_empty',
       button: 'ht_nestingButton',
@@ -7152,7 +7206,7 @@ var $HeadersUI = HeadersUI;
 ;
 
 //# 
-},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":116,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"_base":65}],69:[function(_dereq_,module,exports){
+},{"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element":117,"../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"_base":65}],69:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   RowsMapper: {get: function() {
@@ -7194,7 +7248,7 @@ mixin(RowsMapper, arrayMapper);
 Handsontable.utils.TrimRowsRowsMapper = RowsMapper;
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":126,"../../browser":3}],70:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/object":123,"../../../node_modules/hot-builder/node_modules/handsontable/src/mixins/arrayMapper":127,"../../browser":3}],70:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   TrimRows: {get: function() {
@@ -7336,7 +7390,1833 @@ var $TrimRows = TrimRows;
 registerPlugin('trimRows', TrimRows);
 
 //# 
-},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":112,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":121,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":131,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":132,"rowsMapper":69}],71:[function(_dereq_,module,exports){
+},{"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array":113,"../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number":122,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins":132,"../../../node_modules/hot-builder/node_modules/handsontable/src/plugins/_base":133,"rowsMapper":69}],71:[function(_dereq_,module,exports){
+/*!
+ * numbro.js language configuration
+ * language : Czech
+ * locale: Czech Republic
+ * author : Anatoli Papirovski : https://github.com/apapirovski
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'cs-CZ',
+        cultureCode: 'cs-CZ',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'tis.',
+            million: 'mil.',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: 'Kč',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Danish
+ * locale: Denmark
+ * author : Michael Storgaard : https://github.com/mstorgaard
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'da-DK',
+        cultureCode: 'da-DK',
+        delimiters: {
+            thousands: '.',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'mio',
+            billion: 'mia',
+            trillion: 'b'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: 'kr',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : German
+ * locale: Switzerland
+ * author : Michael Piefel : https://github.com/piefel (based on work from Marco Krage : https://github.com/sinky)
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'de-CH',
+        cultureCode: 'de-CH',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: 'CHF',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : German
+ * locale: Germany
+ * author : Marco Krage : https://github.com/sinky
+ *
+ * Generally useful in Germany, Austria, Luxembourg, Belgium
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'de-DE',
+        cultureCode: 'de-DE',
+        delimiters: {
+            thousands: '.',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : English
+ * locale: United Kingdom of Great Britain and Northern Ireland
+ * author : Dan Ristic : https://github.com/dristic
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'en-GB',
+        cultureCode: 'en-GB',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function (number) {
+            var b = number % 10;
+            return (~~ (number % 100 / 10) === 1) ? 'th' :
+                (b === 1) ? 'st' :
+                (b === 2) ? 'nd' :
+                (b === 3) ? 'rd' : 'th';
+        },
+        currency: {
+            symbol: '£',
+            position: 'prefix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: '$ ,0.00',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: '$ ,0'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : English
+ * locale: South Africa
+ * author : Stewart Scott https://github.com/stewart42
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'en-ZA',
+        cultureCode: 'en-ZA',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function (number) {
+            var b = number % 10;
+            return (~~ (number % 100 / 10) === 1) ? 'th' :
+                (b === 1) ? 'st' :
+                (b === 2) ? 'nd' :
+                (b === 3) ? 'rd' : 'th';
+        },
+        currency: {
+            symbol: 'R',
+            position: 'prefix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: '$ ,0.00',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: '$ ,0'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Spanish
+ * locale: Argentina
+ * author : Hernan Garcia : https://github.com/hgarcia
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'es-AR',
+        cultureCode: 'es-AR',
+        delimiters: {
+            thousands: '.',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'mm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function (number) {
+            var b = number % 10;
+            return (b === 1 || b === 3) ? 'er' :
+                (b === 2) ? 'do' :
+                (b === 7 || b === 0) ? 'mo' :
+        (b === 8) ? 'vo' :
+        (b === 9) ? 'no' : 'to';
+        },
+        currency: {
+            symbol: '$',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Spanish
+ * locale: Spain
+ * author : Hernan Garcia : https://github.com/hgarcia
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'es-ES',
+        cultureCode: 'es-ES',
+        delimiters: {
+            thousands: '.',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'mm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function (number) {
+            var b = number % 10;
+            return (b === 1 || b === 3) ? 'er' :
+                (b === 2) ? 'do' :
+                    (b === 7 || b === 0) ? 'mo' :
+                        (b === 8) ? 'vo' :
+                            (b === 9) ? 'no' : 'to';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Estonian
+ * locale: Estonia
+ * author : Illimar Tambek : https://github.com/ragulka
+ *
+ * Note: in Estonian, abbreviations are always separated
+ * from numbers with a space
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'et-EE',
+        cultureCode: 'et-EE',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: ' tuh',
+            million: ' mln',
+            billion: ' mld',
+            trillion: ' trl'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Farsi
+ * locale: Iran
+ * author : neo13 : https://github.com/neo13
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'fa-IR',
+        cultureCode: 'fa-IR',
+        delimiters: {
+            thousands: '،',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'هزار',
+            million: 'میلیون',
+            billion: 'میلیارد',
+            trillion: 'تریلیون'
+        },
+        ordinal: function () {
+            return 'ام';
+        },
+        currency: {
+            symbol: '﷼'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Finnish
+ * locale: Finland
+ * author : Sami Saada : https://github.com/samitheberber
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'fi-FI',
+        cultureCode: 'fi-FI',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'M',
+            billion: 'G',
+            trillion: 'T'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Filipino (Pilipino)
+ * locale: Philippines
+ * author : Michael Abadilla : https://github.com/mjmaix
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'fil-PH',
+        cultureCode: 'fil-PH',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function (number) {
+            var b = number % 10;
+            return (~~ (number % 100 / 10) === 1) ? 'th' :
+                (b === 1) ? 'st' :
+                (b === 2) ? 'nd' :
+                (b === 3) ? 'rd' : 'th';
+        },
+        currency: {
+            symbol: '₱'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : French
+ * locale: Canada
+ * author : Léo Renaud-Allaire : https://github.com/renaudleo
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'fr-CA',
+        cultureCode: 'fr-CA',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'M',
+            billion: 'G',
+            trillion: 'T'
+        },
+        ordinal : function (number) {
+            return number === 1 ? 'er' : 'ème';
+        },
+        currency: {
+            symbol: '$',
+            position: 'postfix',
+            spaceSeparated : true
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: '$ ,0.00',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: '$ ,0'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : French
+ * locale: Switzerland
+ * author : Adam Draper : https://github.com/adamwdraper
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'fr-CH',
+        cultureCode: 'fr-CH',
+        delimiters: {
+            thousands: '\'',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal : function (number) {
+            return number === 1 ? 'er' : 'ème';
+        },
+        currency: {
+            symbol: 'CHF',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : French
+ * locale: France
+ * author : Adam Draper : https://github.com/adamwdraper
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'fr-FR',
+        cultureCode: 'fr-FR',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal : function (number) {
+            return number === 1 ? 'er' : 'ème';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Hebrew
+ * locale : IL
+ * author : Eli Zehavi : https://github.com/eli-zehavi
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'he-IL',
+        cultureCode: 'he-IL',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'אלף',
+            million: 'מליון',
+            billion: 'בליון',
+            trillion: 'טריליון'
+        },
+        currency: {
+            symbol: '₪',
+            position: 'prefix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: '₪ ,0.00',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: '₪ ,0'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+
+/*!
+ * numbro.js language configuration
+ * language : Hungarian
+ * locale: Hungary
+ * author : Peter Bakondy : https://github.com/pbakondy
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'hu-HU',
+        cultureCode: 'hu-HU',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'E',  // ezer
+            million: 'M',   // millió
+            billion: 'Mrd', // milliárd
+            trillion: 'T'   // trillió
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: ' Ft',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Italian
+ * locale: Italy
+ * author : Giacomo Trombi : http://cinquepunti.it
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'it-IT',
+        cultureCode: 'it-IT',
+        delimiters: {
+            thousands: '.',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'mila',
+            million: 'mil',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            return 'º';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Japanese
+ * locale: Japan
+ * author : teppeis : https://github.com/teppeis
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'ja-JP',
+        cultureCode: 'ja-JP',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: '千',
+            million: '百万',
+            billion: '十億',
+            trillion: '兆'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '¥',
+            position: 'prefix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: '$ ,0.00',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: '$ ,0'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Korean
+ * author (numbro.js Version): Randy Wilander : https://github.com/rocketedaway
+ * author (numeral.js Version) : Rich Daley : https://github.com/pedantic-git
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'ko-KR',
+        cultureCode: 'ko-KR',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: '천',
+            million: '백만',
+            billion: '십억',
+            trillion: '일조'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '₩'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Latvian
+ * locale: Latvia
+ * author : Lauris Bukšis-Haberkorns : https://github.com/Lafriks
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'lv-LV',
+        cultureCode: 'lv-LV',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: ' tūkst.',
+            million: ' milj.',
+            billion: ' mljrd.',
+            trillion: ' trilj.'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language: Norwegian Bokmål
+ * locale: Norway
+ * author : Benjamin Van Ryseghem
+ */
+(function() {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'nb-NO',
+        cultureCode: 'nb-NO',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 't',
+            million: 'M',
+            billion: 'md',
+            trillion: 't'
+        },
+        currency: {
+            symbol: 'kr',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Dutch
+ * locale: Belgium
+ * author : Dieter Luypaert : https://github.com/moeriki
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'nl-BE',
+        cultureCode: 'nl-BE',
+        delimiters: {
+            thousands: ' ',
+            decimal  : ','
+        },
+        abbreviations: {
+            thousand : 'k',
+            million  : 'mln',
+            billion  : 'mld',
+            trillion : 'bln'
+        },
+        ordinal : function (number) {
+            var remainder = number % 100;
+            return (number !== 0 && remainder <= 1 || remainder === 8 || remainder >= 20) ? 'ste' : 'de';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Dutch
+ * locale: Netherlands
+ * author : Dave Clayton : https://github.com/davedx
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'nl-NL',
+        cultureCode: 'nl-NL',
+        delimiters: {
+            thousands: '.',
+            decimal  : ','
+        },
+        abbreviations: {
+            thousand : 'k',
+            million  : 'mln',
+            billion  : 'mrd',
+            trillion : 'bln'
+        },
+        ordinal : function (number) {
+            var remainder = number % 100;
+            return (number !== 0 && remainder <= 1 || remainder === 8 || remainder >= 20) ? 'ste' : 'de';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Polish
+ * locale : Poland
+ * author : Dominik Bulaj : https://github.com/dominikbulaj
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'pl-PL',
+        cultureCode: 'pl-PL',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'tys.',
+            million: 'mln',
+            billion: 'mld',
+            trillion: 'bln'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: ' zł',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Portuguese
+ * locale : Brazil
+ * author : Ramiro Varandas Jr : https://github.com/ramirovjr
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'pt-BR',
+        cultureCode: 'pt-BR',
+        delimiters: {
+            thousands: '.',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'mil',
+            million: 'milhões',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            return 'º';
+        },
+        currency: {
+            symbol: 'R$',
+            position: 'prefix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Portuguese
+ * locale : Portugal
+ * author : Diogo Resende : https://github.com/dresende
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'pt-PT',
+        cultureCode: 'pt-PT',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'k',
+            million: 'm',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal : function () {
+            return 'º';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Russian
+ * locale : Russsia
+ * author : Anatoli Papirovski : https://github.com/apapirovski
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'ru-RU',
+        cultureCode: 'ru-RU',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'тыс.',
+            million: 'млн',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            // not ideal, but since in Russian it can taken on
+            // different forms (masculine, feminine, neuter)
+            // this is all we can do
+            return '.';
+        },
+        currency: {
+            symbol: 'руб.',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Russian
+ * locale : Ukraine
+ * author : Anatoli Papirovski : https://github.com/apapirovski
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'ru-UA',
+        cultureCode: 'ru-UA',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'тыс.',
+            million: 'млн',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            // not ideal, but since in Russian it can taken on
+            // different forms (masculine, feminine, neuter)
+            // this is all we can do
+            return '.';
+        },
+        currency: {
+            symbol: '\u20B4',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Slovak
+ * locale : Slovakia
+ * author : Ahmed Al Hafoudh : http://www.freevision.sk
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'sk-SK',
+        cultureCode: 'sk-SK',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'tis.',
+            million: 'mil.',
+            billion: 'b',
+            trillion: 't'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '€',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Swedish
+ * locale : Sweden
+ * author : Benjamin Van Ryseghem (benjamin.vanryseghem.com)
+ */
+(function() {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'sv-SE',
+        cultureCode: 'sv-SE',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 't',
+            million: 'M',
+            billion: 'md',
+            trillion: 'tmd'
+        },
+        currency: {
+            symbol: 'kr',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Thai
+ * locale : Thailand
+ * author : Sathit Jittanupat : https://github.com/jojosati
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'th-TH',
+        cultureCode: 'th-TH',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: 'พัน',
+            million: 'ล้าน',
+            billion: 'พันล้าน',
+            trillion: 'ล้านล้าน'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '฿',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Turkish
+ * locale : Turkey
+ * author : Ecmel Ercan : https://github.com/ecmel,
+ *          Erhan Gundogan : https://github.com/erhangundogan,
+ *          Burak Yiğit Kaya: https://github.com/BYK
+ */
+(function() {
+    'use strict';
+
+    var suffixes = {
+            1: '\'inci',
+            5: '\'inci',
+            8: '\'inci',
+            70: '\'inci',
+            80: '\'inci',
+
+            2: '\'nci',
+            7: '\'nci',
+            20: '\'nci',
+            50: '\'nci',
+
+            3: '\'üncü',
+            4: '\'üncü',
+            100: '\'üncü',
+
+            6: '\'ncı',
+
+            9: '\'uncu',
+            10: '\'uncu',
+            30: '\'uncu',
+
+            60: '\'ıncı',
+            90: '\'ıncı'
+        },
+        language = {
+            langLocaleCode: 'tr-TR',
+            cultureCode: 'tr-TR',
+            delimiters: {
+                thousands: '.',
+                decimal: ','
+            },
+            abbreviations: {
+                thousand: 'bin',
+                million: 'milyon',
+                billion: 'milyar',
+                trillion: 'trilyon'
+            },
+            ordinal: function(number) {
+                if (number === 0) {  // special case for zero
+                    return '\'ıncı';
+                }
+
+                var a = number % 10,
+                    b = number % 100 - a,
+                    c = number >= 100 ? 100 : null;
+
+                return suffixes[a] || suffixes[b] || suffixes[c];
+            },
+            currency: {
+                symbol: '\u20BA',
+                position: 'postfix'
+            },
+            defaults: {
+                currencyFormat: ',4 a'
+            },
+            formats: {
+                fourDigits: '4 a',
+                fullWithTwoDecimals: ',0.00 $',
+                fullWithTwoDecimalsNoCurrency: ',0.00',
+                fullWithNoDecimals: ',0 $'
+            }
+        };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Ukrainian
+ * locale : Ukraine
+ * author : Michael Piefel : https://github.com/piefel (with help from Tetyana Kuzmenko)
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'uk-UA',
+        cultureCode: 'uk-UA',
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: 'тис.',
+            million: 'млн',
+            billion: 'млрд',
+            trillion: 'блн'
+        },
+        ordinal: function () {
+            // not ideal, but since in Ukrainian it can taken on
+            // different forms (masculine, feminine, neuter)
+            // this is all we can do
+            return '';
+        },
+        currency: {
+            symbol: '\u20B4',
+            position: 'postfix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: ',0.00 $',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: ',0 $'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : simplified chinese
+ * locale : China
+ * author : badplum : https://github.com/badplum
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'zh-CN',
+        cultureCode: 'zh-CN',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: '千',
+            million: '百万',
+            billion: '十亿',
+            trillion: '兆'
+        },
+        ordinal: function () {
+            return '.';
+        },
+        currency: {
+            symbol: '¥',
+            position: 'prefix'
+        },
+        defaults: {
+            currencyFormat: ',4 a'
+        },
+        formats: {
+            fourDigits: '4 a',
+            fullWithTwoDecimals: '$ ,0.00',
+            fullWithTwoDecimalsNoCurrency: ',0.00',
+            fullWithNoDecimals: '$ ,0'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+/*!
+ * numbro.js language configuration
+ * language : Chinese (Taiwan)
+ * author (numbro.js Version): Randy Wilander : https://github.com/rocketedaway
+ * author (numeral.js Version) : Rich Daley : https://github.com/pedantic-git
+ */
+(function () {
+    'use strict';
+
+    var language = {
+        langLocaleCode: 'zh-TW',
+        cultureCode: 'zh-TW',
+        delimiters: {
+            thousands: ',',
+            decimal: '.'
+        },
+        abbreviations: {
+            thousand: '千',
+            million: '百萬',
+            billion: '十億',
+            trillion: '兆'
+        },
+        ordinal: function () {
+            return '第';
+        },
+        currency: {
+            symbol: 'NT$'
+        }
+    };
+
+    // CommonJS
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && window.numbro && window.numbro.culture) {
+        window.numbro.culture(language.cultureCode, language);
+    }
+}.call(typeof window === 'undefined' ? this : window));
+
+},{}],72:[function(_dereq_,module,exports){
 if (window.jQuery) {
   (function ($) {
     $.fn.handsontable = function (action) {
@@ -7393,7 +9273,7 @@ if (window.jQuery) {
 
 
 
-},{}],72:[function(_dereq_,module,exports){
+},{}],73:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableBorder: {get: function() {
@@ -7790,7 +9670,7 @@ var WalkontableBorder = function WalkontableBorder(wotInstance, settings) {
 window.WalkontableBorder = WalkontableBorder;
 
 //# 
-},{"cell/coords":75,"eventManager":111,"helpers/browser":113,"helpers/dom/element":116,"helpers/dom/event":117,"overlay/_base.js":81}],73:[function(_dereq_,module,exports){
+},{"cell/coords":76,"eventManager":112,"helpers/browser":114,"helpers/dom/element":117,"helpers/dom/event":118,"overlay/_base.js":82}],74:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableViewportColumnsCalculator: {get: function() {
@@ -7964,7 +9844,7 @@ var $WalkontableViewportColumnsCalculator = WalkontableViewportColumnsCalculator
 window.WalkontableViewportColumnsCalculator = WalkontableViewportColumnsCalculator;
 
 //# 
-},{}],74:[function(_dereq_,module,exports){
+},{}],75:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableViewportRowsCalculator: {get: function() {
@@ -8055,7 +9935,7 @@ var $WalkontableViewportRowsCalculator = WalkontableViewportRowsCalculator;
 window.WalkontableViewportRowsCalculator = WalkontableViewportRowsCalculator;
 
 //# 
-},{}],75:[function(_dereq_,module,exports){
+},{}],76:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableCellCoords: {get: function() {
@@ -8105,7 +9985,7 @@ var WalkontableCellCoords = function WalkontableCellCoords(row, col) {
 window.WalkontableCellCoords = WalkontableCellCoords;
 
 //# 
-},{}],76:[function(_dereq_,module,exports){
+},{}],77:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableCellRange: {get: function() {
@@ -8360,7 +10240,7 @@ var $WalkontableCellRange = WalkontableCellRange;
 window.WalkontableCellRange = WalkontableCellRange;
 
 //# 
-},{"cell/coords":75}],77:[function(_dereq_,module,exports){
+},{"cell/coords":76}],78:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Walkontable: {get: function() {
@@ -8536,7 +10416,7 @@ var Walkontable = function Walkontable(settings) {
 window.Walkontable = Walkontable;
 
 //# 
-},{"event":78,"helpers/dom/element":116,"helpers/object":122,"helpers/string":124,"overlay/_base.js":81,"overlay/debug.js":82,"overlay/left.js":83,"overlay/top.js":84,"overlay/topLeftCorner.js":85,"overlays":86,"scroll":87,"settings":89,"table":90,"viewport":92}],78:[function(_dereq_,module,exports){
+},{"event":79,"helpers/dom/element":117,"helpers/object":123,"helpers/string":125,"overlay/_base.js":82,"overlay/debug.js":83,"overlay/left.js":84,"overlay/top.js":85,"overlay/topLeftCorner.js":86,"overlays":87,"scroll":88,"settings":90,"table":91,"viewport":93}],79:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableEvent: {get: function() {
@@ -8548,7 +10428,7 @@ var $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__,
     $___46__46__47__46__46__47__46__46__47_helpers_47_browser__,
     $___46__46__47__46__46__47__46__46__47_eventManager__;
 var $__0 = ($___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__ && $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47__46__46__47__46__46__47_helpers_47_dom_47_element__}),
-    closest = $__0.closest,
+    closestDown = $__0.closestDown,
     hasClass = $__0.hasClass,
     isChildOf = $__0.isChildOf;
 var isMobileBrowser = ($___46__46__47__46__46__47__46__46__47_helpers_47_browser__ = _dereq_("helpers/browser"), $___46__46__47__46__46__47__46__46__47_helpers_47_browser__ && $___46__46__47__46__46__47__46__46__47_helpers_47_browser__.__esModule && $___46__46__47__46__46__47__46__46__47_helpers_47_browser__ || {default: $___46__46__47__46__46__47__46__46__47_helpers_47_browser__}).isMobileBrowser;
@@ -8601,7 +10481,7 @@ function WalkontableEvent(instance) {
         mainWOT;
     if (that.instance.hasSetting('onCellMouseOver')) {
       table = that.instance.wtTable.TABLE;
-      td = closest(event.realTarget, ['TD', 'TH'], table);
+      td = closestDown(event.realTarget, ['TD', 'TH'], table);
       mainWOT = that.instance.cloneSource || that.instance;
       if (td && td !== mainWOT.lastMouseOver && isChildOf(td, table)) {
         mainWOT.lastMouseOver = td;
@@ -8682,9 +10562,8 @@ function WalkontableEvent(instance) {
 WalkontableEvent.prototype.parentCell = function(elem) {
   var cell = {};
   var TABLE = this.instance.wtTable.TABLE;
-  var TD = closest(elem, ['TD', 'TH'], TABLE);
-  var referenceTABLE = closest(TD, ['TABLE']);
-  if (TD && isChildOf(TD, TABLE) && referenceTABLE == TABLE) {
+  var TD = closestDown(elem, ['TD', 'TH'], TABLE);
+  if (TD) {
     cell.coords = this.instance.wtTable.getCoords(TD);
     cell.TD = TD;
   } else if (hasClass(elem, 'wtBorder') && hasClass(elem, 'current')) {
@@ -8702,7 +10581,7 @@ WalkontableEvent.prototype.parentCell = function(elem) {
 window.WalkontableEvent = WalkontableEvent;
 
 //# 
-},{"eventManager":111,"helpers/browser":113,"helpers/dom/element":116}],79:[function(_dereq_,module,exports){
+},{"eventManager":112,"helpers/browser":114,"helpers/dom/element":117}],80:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableColumnFilter: {get: function() {
@@ -8745,7 +10624,7 @@ var WalkontableColumnFilter = function WalkontableColumnFilter(offset, total, co
 window.WalkontableColumnFilter = WalkontableColumnFilter;
 
 //# 
-},{}],80:[function(_dereq_,module,exports){
+},{}],81:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableRowFilter: {get: function() {
@@ -8788,7 +10667,7 @@ var WalkontableRowFilter = function WalkontableRowFilter(offset, total, countTH)
 window.WalkontableRowFilter = WalkontableRowFilter;
 
 //# 
-},{}],81:[function(_dereq_,module,exports){
+},{}],82:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableOverlay: {get: function() {
@@ -8910,7 +10789,7 @@ var $WalkontableOverlay = WalkontableOverlay;
 window.WalkontableOverlay = WalkontableOverlay;
 
 //# 
-},{"eventManager":111,"helpers/dom/element":116,"helpers/object":122}],82:[function(_dereq_,module,exports){
+},{"eventManager":112,"helpers/dom/element":117,"helpers/object":123}],83:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableDebugOverlay: {get: function() {
@@ -8936,7 +10815,7 @@ window.WalkontableDebugOverlay = WalkontableDebugOverlay;
 WalkontableOverlay.registerOverlay(WalkontableOverlay.CLONE_DEBUG, WalkontableDebugOverlay);
 
 //# 
-},{"_base":81,"helpers/dom/element":116}],83:[function(_dereq_,module,exports){
+},{"_base":82,"helpers/dom/element":117}],84:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableLeftOverlay: {get: function() {
@@ -9110,6 +10989,12 @@ var $WalkontableLeftOverlay = WalkontableLeftOverlay;
     var masterParent = this.wot.wtTable.holder.parentNode;
     var rowHeaders = this.wot.getSetting('rowHeaders');
     var fixedColumnsLeft = this.wot.getSetting('fixedColumnsLeft');
+    var totalRows = this.wot.getSetting('totalRows');
+    if (totalRows) {
+      removeClass(masterParent, 'emptyRows');
+    } else {
+      addClass(masterParent, 'emptyRows');
+    }
     if (fixedColumnsLeft && !rowHeaders.length) {
       addClass(masterParent, 'innerBorderLeft');
     } else if (!fixedColumnsLeft && rowHeaders.length) {
@@ -9130,7 +11015,7 @@ window.WalkontableLeftOverlay = WalkontableLeftOverlay;
 WalkontableOverlay.registerOverlay(WalkontableOverlay.CLONE_LEFT, WalkontableLeftOverlay);
 
 //# 
-},{"_base":81,"helpers/dom/element":116}],84:[function(_dereq_,module,exports){
+},{"_base":82,"helpers/dom/element":117}],85:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableTopOverlay: {get: function() {
@@ -9305,8 +11190,14 @@ var $WalkontableTopOverlay = WalkontableTopOverlay;
     return getScrollTop(this.mainTableScrollableElement);
   },
   adjustHeaderBordersPosition: function(position) {
+    var masterParent = this.wot.wtTable.holder.parentNode;
+    var totalColumns = this.wot.getSetting('totalColumns');
+    if (totalColumns) {
+      removeClass(masterParent, 'emptyColumns');
+    } else {
+      addClass(masterParent, 'emptyColumns');
+    }
     if (this.wot.getSetting('fixedRowsTop') === 0 && this.wot.getSetting('columnHeaders').length > 0) {
-      var masterParent = this.wot.wtTable.holder.parentNode;
       var previousState = hasClass(masterParent, 'innerBorderTop');
       if (position || this.wot.getSetting('totalRows') === 0) {
         addClass(masterParent, 'innerBorderTop');
@@ -9332,7 +11223,7 @@ window.WalkontableTopOverlay = WalkontableTopOverlay;
 WalkontableOverlay.registerOverlay(WalkontableOverlay.CLONE_TOP, WalkontableTopOverlay);
 
 //# 
-},{"_base":81,"helpers/dom/element":116}],85:[function(_dereq_,module,exports){
+},{"_base":82,"helpers/dom/element":117}],86:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableTopLeftCornerOverlay: {get: function() {
@@ -9397,7 +11288,7 @@ window.WalkontableTopLeftCornerOverlay = WalkontableTopLeftCornerOverlay;
 WalkontableOverlay.registerOverlay(WalkontableOverlay.CLONE_TOP_LEFT_CORNER, WalkontableTopLeftCornerOverlay);
 
 //# 
-},{"_base":81,"helpers/dom/element":116}],86:[function(_dereq_,module,exports){
+},{"_base":82,"helpers/dom/element":117}],87:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableOverlays: {get: function() {
@@ -9897,7 +11788,7 @@ var WalkontableOverlays = function WalkontableOverlays(wotInstance) {
 window.WalkontableOverlays = WalkontableOverlays;
 
 //# 
-},{"eventManager":111,"helpers/array":112,"helpers/browser":113,"helpers/dom/element":116,"helpers/unicode":125}],87:[function(_dereq_,module,exports){
+},{"eventManager":112,"helpers/array":113,"helpers/browser":114,"helpers/dom/element":117,"helpers/unicode":126}],88:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableScroll: {get: function() {
@@ -9933,10 +11824,10 @@ var WalkontableScroll = function WalkontableScroll(wotInstance) {
         fixedRowsTop = $__3.fixedRowsTop,
         fixedRowsBottom = $__3.fixedRowsBottom,
         fixedColumnsLeft = $__3.fixedColumnsLeft;
-    if (coords.row < 0 || coords.row > totalRows - 1) {
+    if (coords.row < 0 || coords.row > Math.max(totalRows - 1, 0)) {
       throw new Error(("row " + coords.row + " does not exist"));
     }
-    if (coords.col < 0 || coords.col > totalColumns - 1) {
+    if (coords.col < 0 || coords.col > Math.max(totalColumns - 1, 0)) {
       throw new Error(("column " + coords.col + " does not exist"));
     }
     if (coords.row >= fixedRowsTop && coords.row < this.getFirstVisibleRow()) {
@@ -10079,7 +11970,7 @@ var WalkontableScroll = function WalkontableScroll(wotInstance) {
 window.WalkontableScroll = WalkontableScroll;
 
 //# 
-},{"helpers/dom/element":116,"helpers/number":121}],88:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117,"helpers/number":122}],89:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableSelection: {get: function() {
@@ -10207,7 +12098,7 @@ var WalkontableSelection = function WalkontableSelection(settings, cellRange) {
 window.WalkontableSelection = WalkontableSelection;
 
 //# 
-},{"border":72,"cell/coords":75,"cell/range":76,"helpers/dom/element":116}],89:[function(_dereq_,module,exports){
+},{"border":73,"cell/coords":76,"cell/range":77,"helpers/dom/element":117}],90:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableSettings: {get: function() {
@@ -10326,7 +12217,7 @@ var WalkontableSettings = function WalkontableSettings(wotInstance, settings) {
 window.WalkontableSettings = WalkontableSettings;
 
 //# 
-},{"helpers/dom/element":116}],90:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117}],91:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableTable: {get: function() {
@@ -10727,7 +12618,7 @@ var WalkontableTable = function WalkontableTable(wotInstance, table) {
 window.WalkontableTable = WalkontableTable;
 
 //# 
-},{"cell/coords":75,"cell/range":76,"filter/column":79,"filter/row":80,"helpers/dom/element":116,"tableRenderer":91}],91:[function(_dereq_,module,exports){
+},{"cell/coords":76,"cell/range":77,"filter/column":80,"filter/row":81,"helpers/dom/element":117,"tableRenderer":92}],92:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableTableRenderer: {get: function() {
@@ -10782,7 +12673,7 @@ var WalkontableTableRenderer = function WalkontableTableRenderer(wtTable) {
       this.columnHeaders = [];
       this.columnHeaderCount = 0;
     }
-    if (totalColumns > 0) {
+    if (totalColumns >= 0) {
       this.adjustAvailableNodes();
       adjusted = true;
       this.renderColumnHeaders();
@@ -11061,7 +12952,6 @@ var WalkontableTableRenderer = function WalkontableTableRenderer(wtTable) {
     this.adjustThead();
   },
   renderColumnHeaders: function() {
-    var overlayName = this.wot.getOverlayName();
     if (!this.columnHeaderCount) {
       return;
     }
@@ -11162,7 +13052,7 @@ function replaceThWithTd(TH, TR) {
 window.WalkontableTableRenderer = WalkontableTableRenderer;
 
 //# 
-},{"helpers/dom/element":116}],92:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117}],93:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   WalkontableViewport: {get: function() {
@@ -11466,11 +13356,13 @@ var WalkontableViewport = function WalkontableViewport(wotInstance) {
 window.WalkontableViewport = WalkontableViewport;
 
 //# 
-},{"browser":93,"calculator/viewportColumns":73,"calculator/viewportRows":74,"eventManager":111,"helpers/dom/element":116}],93:[function(_dereq_,module,exports){
+},{"browser":94,"calculator/viewportColumns":74,"calculator/viewportRows":75,"eventManager":112,"helpers/dom/element":117}],94:[function(_dereq_,module,exports){
 "use strict";
 var $__shims_47_runtime__,
     $__es6collections__,
     $__pluginHooks__,
+    $__numbro__,
+    $__moment__,
     $__core__,
     $__renderers_47__95_cellDecorator__,
     $__cellTypes__,
@@ -11500,6 +13392,16 @@ Handsontable.utils = {};
 ($__shims_47_runtime__ = _dereq_("shims/runtime"), $__shims_47_runtime__ && $__shims_47_runtime__.__esModule && $__shims_47_runtime__ || {default: $__shims_47_runtime__});
 ($__es6collections__ = _dereq_("es6collections"), $__es6collections__ && $__es6collections__.__esModule && $__es6collections__ || {default: $__es6collections__});
 var Hooks = ($__pluginHooks__ = _dereq_("pluginHooks"), $__pluginHooks__ && $__pluginHooks__.__esModule && $__pluginHooks__ || {default: $__pluginHooks__}).Hooks;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
+var moment = ($__moment__ = _dereq_("moment"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
+if (typeof window === 'object') {
+  if (typeof window.numbro === 'undefined') {
+    window.numbro = numbro;
+  }
+  if (typeof window.moment === 'undefined') {
+    window.moment = moment;
+  }
+}
 if (!Handsontable.hooks) {
   Handsontable.hooks = new Hooks();
 }
@@ -11524,7 +13426,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Tue Jun 21 2016 10:36:30 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Tue Jun 28 2016 10:31:34 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';
@@ -11553,7 +13455,7 @@ arrayHelpers.arrayEach(DOM, (function(helper) {
 }));
 
 //# 
-},{"cellTypes":94,"core":95,"es6collections":"es6collections","helpers/array":112,"helpers/browser":113,"helpers/data":114,"helpers/date":115,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/feature":118,"helpers/function":119,"helpers/mixed":120,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"helpers/string":124,"helpers/unicode":125,"pluginHooks":130,"plugins":131,"plugins/jqueryHandsontable":71,"renderers/_cellDecorator":165,"shims/runtime":172}],94:[function(_dereq_,module,exports){
+},{"cellTypes":95,"core":96,"es6collections":"es6collections","helpers/array":113,"helpers/browser":114,"helpers/data":115,"helpers/date":116,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/feature":119,"helpers/function":120,"helpers/mixed":121,"helpers/number":122,"helpers/object":123,"helpers/setting":124,"helpers/string":125,"helpers/unicode":126,"moment":"moment","numbro":"numbro","pluginHooks":131,"plugins":132,"plugins/jqueryHandsontable":72,"renderers/_cellDecorator":178,"shims/runtime":185}],95:[function(_dereq_,module,exports){
 "use strict";
 var $__helpers_47_browser__,
     $__editors__,
@@ -11663,10 +13565,10 @@ Handsontable.cellLookup = {validator: {
   }};
 
 //# 
-},{"browser":93,"editors":99,"editors/autocompleteEditor":101,"editors/checkboxEditor":102,"editors/dateEditor":103,"editors/dropdownEditor":104,"editors/handsontableEditor":105,"editors/mobileTextEditor":106,"editors/numericEditor":107,"editors/passwordEditor":108,"editors/selectEditor":109,"editors/textEditor":110,"helpers/browser":113,"renderers":164,"renderers/autocompleteRenderer":166,"renderers/checkboxRenderer":167,"renderers/htmlRenderer":168,"renderers/numericRenderer":169,"renderers/passwordRenderer":170,"renderers/textRenderer":171,"validators/autocompleteValidator":177,"validators/dateValidator":178,"validators/numericValidator":179,"validators/timeValidator":180}],95:[function(_dereq_,module,exports){
+},{"browser":94,"editors":100,"editors/autocompleteEditor":102,"editors/checkboxEditor":103,"editors/dateEditor":104,"editors/dropdownEditor":105,"editors/handsontableEditor":106,"editors/mobileTextEditor":107,"editors/numericEditor":108,"editors/passwordEditor":109,"editors/selectEditor":110,"editors/textEditor":111,"helpers/browser":114,"renderers":177,"renderers/autocompleteRenderer":179,"renderers/checkboxRenderer":180,"renderers/htmlRenderer":181,"renderers/numericRenderer":182,"renderers/passwordRenderer":183,"renderers/textRenderer":184,"validators/autocompleteValidator":190,"validators/dateValidator":191,"validators/numericValidator":192,"validators/timeValidator":193}],96:[function(_dereq_,module,exports){
 "use strict";
 var $__browser__,
-    $__numeral__,
+    $__numbro__,
     $__helpers_47_dom_47_element__,
     $__helpers_47_setting__,
     $__helpers_47_browser__,
@@ -11687,7 +13589,7 @@ var $__browser__,
     $__3rdparty_47_walkontable_47_src_47_selection__,
     $__3rdparty_47_walkontable_47_src_47_calculator_47_viewportColumns__;
 var Handsontable = ($__browser__ = _dereq_("browser"), $__browser__ && $__browser__.__esModule && $__browser__ || {default: $__browser__}).default;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var $__2 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__helpers_47_dom_47_element__ && $__helpers_47_dom_47_element__.__esModule && $__helpers_47_dom_47_element__ || {default: $__helpers_47_dom_47_element__}),
     addClass = $__2.addClass,
     empty = $__2.empty,
@@ -11831,10 +13733,10 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         case 'remove_col':
           var logicalColumnIndex = translateColIndex(index);
           datamap.removeCol(index, amount);
-          for (var row$__22 = 0,
-              len$__23 = instance.countSourceRows(); row$__22 < len$__23; row$__22++) {
-            if (priv.cellSettings[row$__22]) {
-              priv.cellSettings[row$__22].splice(logicalColumnIndex, amount);
+          for (var row$__23 = 0,
+              len$__24 = instance.countSourceRows(); row$__23 < len$__24; row$__23++) {
+            if (priv.cellSettings[row$__23]) {
+              priv.cellSettings[row$__23].splice(logicalColumnIndex, amount);
             }
           }
           var fixedColumnsLeft = instance.getSettings().fixedColumnsLeft;
@@ -12099,9 +14001,13 @@ Handsontable.Core = function Core(rootElement, userSettings) {
       cols: false,
       rows: false
     },
-    setSelectedHeaders: function(rows, cols) {
+    setSelectedHeaders: function() {
+      var rows = arguments[0] !== (void 0) ? arguments[0] : false;
+      var cols = arguments[1] !== (void 0) ? arguments[1] : false;
+      var corner = arguments[2] !== (void 0) ? arguments[2] : false;
       instance.selection.selectedHeader.rows = rows;
       instance.selection.selectedHeader.cols = cols;
+      instance.selection.selectedHeader.corner = corner;
     },
     begin: function() {
       instance.selection.inProgress = true;
@@ -12381,15 +14287,19 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
           if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|\,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
             var len = changes[i][3].length;
-            if (typeof cellProperties.language == 'undefined') {
-              numeral.language('en');
+            if (typeof cellProperties.language === 'undefined') {
+              numbro.culture('en-US');
             } else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              numeral.language('en');
+              numbro.culture('en-US');
             } else {
-              numeral.language(cellProperties.language);
+              numbro.culture(cellProperties.language);
             }
-            if (numeral.validate(changes[i][3])) {
-              changes[i][3] = numeral().unformat(changes[i][3]);
+            var delimiters = numbro.cultureData(numbro.culture()).delimiters;
+            if (new RegExp('^\\' + delimiters.decimal + '[0-9]+$').test(changes[i][3] + '')) {
+              changes[i][3] = '0' + changes[i][3];
+            }
+            if (numbro.validate(changes[i][3]) || !isNaN(parseFloat(changes[i][3]))) {
+              changes[i][3] = numbro().unformat(changes[i][3]);
             }
           }
         }
@@ -12729,9 +14639,9 @@ Handsontable.Core = function Core(rootElement, userSettings) {
       }
     }
     if (height === null) {
-      var initialStyle$__24 = instance.rootElement.getAttribute('data-initialstyle');
-      if (initialStyle$__24 && (initialStyle$__24.indexOf('height') > -1 || initialStyle$__24.indexOf('overflow') > -1)) {
-        instance.rootElement.setAttribute('style', initialStyle$__24);
+      var initialStyle$__25 = instance.rootElement.getAttribute('data-initialstyle');
+      if (initialStyle$__25 && (initialStyle$__25.indexOf('height') > -1 || initialStyle$__25.indexOf('overflow') > -1)) {
+        instance.rootElement.setAttribute('style', initialStyle$__25);
       } else {
         instance.rootElement.style.height = '';
         instance.rootElement.style.overflow = '';
@@ -13477,7 +15387,7 @@ DefaultSettings.prototype = {
 Handsontable.DefaultSettings = DefaultSettings;
 
 //# 
-},{"3rdparty/walkontable/src/calculator/viewportColumns":73,"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/selection":88,"browser":93,"dataMap":96,"dataSource":97,"editorManager":98,"eventManager":111,"helpers/array":112,"helpers/browser":113,"helpers/data":114,"helpers/dom/element":116,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"helpers/string":124,"numeral":"numeral","plugins":131,"renderers":164,"tableView":173}],96:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/calculator/viewportColumns":74,"3rdparty/walkontable/src/cell/coords":76,"3rdparty/walkontable/src/cell/range":77,"3rdparty/walkontable/src/selection":89,"browser":94,"dataMap":97,"dataSource":98,"editorManager":99,"eventManager":112,"helpers/array":113,"helpers/browser":114,"helpers/data":115,"helpers/dom/element":117,"helpers/number":122,"helpers/object":123,"helpers/setting":124,"helpers/string":125,"numbro":"numbro","plugins":132,"renderers":177,"tableView":186}],97:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataMap: {get: function() {
@@ -13663,11 +15573,15 @@ DataMap.prototype.createCol = function(index, amount, createdAutomatically) {
   while (numberOfCreatedCols < amount && this.instance.countCols() < maxCols) {
     constructor = columnFactory(this.GridSettings, this.priv.columnsSettingConflicts);
     if (typeof index !== 'number' || index >= this.instance.countCols()) {
-      for (var r = 0; r < rlen; r++) {
-        if (typeof data[r] === 'undefined') {
-          data[r] = [];
+      if (rlen > 0) {
+        for (var r = 0; r < rlen; r++) {
+          if (typeof data[r] === 'undefined') {
+            data[r] = [];
+          }
+          data[r].push(null);
         }
-        data[r].push(null);
+      } else {
+        data.push([null]);
       }
       this.priv.columnSettings.push(constructor);
     } else {
@@ -13690,11 +15604,9 @@ DataMap.prototype.removeRow = function(index, amount) {
   if (typeof index !== 'number') {
     index = -amount;
   }
+  amount = Handsontable.hooks.run(this.instance, 'modifyRemovedAmount', amount, index);
   index = (this.instance.countSourceRows() + index) % this.instance.countSourceRows();
   var logicRows = this.physicalRowsToLogical(index, amount);
-  var descendingLogicRows = logicRows.slice(0).sort(function(a, b) {
-    return b - a;
-  });
   var actionWasNotCancelled = Handsontable.hooks.run(this.instance, 'beforeRemoveRow', index, amount, logicRows);
   if (actionWasNotCancelled === false) {
     return;
@@ -13980,7 +15892,7 @@ DataMap.prototype.destroy = function() {
 ;
 
 //# 
-},{"SheetClip":"SheetClip","browser":93,"helpers/array":112,"helpers/data":114,"helpers/number":121,"helpers/object":122,"helpers/setting":123,"multiMap":129,"utils/interval":175}],97:[function(_dereq_,module,exports){
+},{"SheetClip":"SheetClip","browser":94,"helpers/array":113,"helpers/data":115,"helpers/number":122,"helpers/object":123,"helpers/setting":124,"multiMap":130,"utils/interval":188}],98:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataSource: {get: function() {
@@ -14069,7 +15981,7 @@ var DataSource = function DataSource(hotInstance) {
 ;
 
 //# 
-},{"helpers/array":112,"helpers/data":114,"helpers/number":121,"helpers/object":122,"helpers/setting":123}],98:[function(_dereq_,module,exports){
+},{"helpers/array":113,"helpers/data":115,"helpers/number":122,"helpers/object":123,"helpers/setting":124}],99:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   EditorManager: {get: function() {
@@ -14367,7 +16279,7 @@ function EditorManager(instance, priv, selection) {
 }
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"browser":93,"editors":99,"eventManager":111,"helpers/dom/event":117,"helpers/unicode":125}],99:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"browser":94,"editors":100,"eventManager":112,"helpers/dom/event":118,"helpers/unicode":126}],100:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   registerEditor: {get: function() {
@@ -14451,7 +16363,7 @@ function hasEditor(editorName) {
 }
 
 //# 
-},{"browser":93,"helpers/string":124}],100:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/string":125}],101:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   BaseEditor: {get: function() {
@@ -14666,7 +16578,7 @@ BaseEditor.prototype.checkEditorSection = function() {
 };
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"browser":93,"helpers/mixed":120}],101:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"browser":94,"helpers/mixed":121}],102:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   AutocompleteEditor: {get: function() {
@@ -14984,7 +16896,7 @@ AutocompleteEditor.prototype.allowKeyEventPropagation = function(keyCode) {
 registerEditor('autocomplete', AutocompleteEditor);
 
 //# 
-},{"browser":93,"editors":99,"handsontableEditor":105,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/unicode":125}],102:[function(_dereq_,module,exports){
+},{"browser":94,"editors":100,"handsontableEditor":106,"helpers/array":113,"helpers/dom/element":117,"helpers/mixed":121,"helpers/unicode":126}],103:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   CheckboxEditor: {get: function() {
@@ -15023,7 +16935,7 @@ var $CheckboxEditor = CheckboxEditor;
 registerEditor('checkbox', CheckboxEditor);
 
 //# 
-},{"_baseEditor":100,"editors":99,"helpers/dom/element":116}],103:[function(_dereq_,module,exports){
+},{"_baseEditor":101,"editors":100,"helpers/dom/element":117}],104:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DateEditor: {get: function() {
@@ -15215,7 +17127,7 @@ var $DateEditor = DateEditor;
 registerEditor('date', DateEditor);
 
 //# 
-},{"browser":93,"editors":99,"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/object":122,"helpers/unicode":125,"moment":"moment","pikaday":"pikaday","textEditor":110}],104:[function(_dereq_,module,exports){
+},{"browser":94,"editors":100,"eventManager":112,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/object":123,"helpers/unicode":126,"moment":"moment","pikaday":"pikaday","textEditor":111}],105:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DropdownEditor: {get: function() {
@@ -15254,7 +17166,7 @@ Handsontable.hooks.add('beforeValidate', function(value, row, col, source) {
 registerEditor('dropdown', DropdownEditor);
 
 //# 
-},{"autocompleteEditor":101,"browser":93,"editors":99}],105:[function(_dereq_,module,exports){
+},{"autocompleteEditor":102,"browser":94,"editors":100}],106:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HandsontableEditor: {get: function() {
@@ -15418,7 +17330,7 @@ HandsontableEditor.prototype.assignHooks = function() {
 registerEditor('handsontable', HandsontableEditor);
 
 //# 
-},{"browser":93,"editors":99,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/object":122,"helpers/unicode":125,"textEditor":110}],106:[function(_dereq_,module,exports){
+},{"browser":94,"editors":100,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/object":123,"helpers/unicode":126,"textEditor":111}],107:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MobileTextEditor: {get: function() {
@@ -15679,7 +17591,7 @@ MobileTextEditor.prototype.destroy = function() {
 registerEditor('mobile', MobileTextEditor);
 
 //# 
-},{"_baseEditor":100,"browser":93,"editors":99,"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/unicode":125}],107:[function(_dereq_,module,exports){
+},{"_baseEditor":101,"browser":94,"editors":100,"eventManager":112,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/unicode":126}],108:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   NumericEditor: {get: function() {
@@ -15687,10 +17599,10 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__numeral__,
+var $__numbro__,
     $___46__46__47_editors__,
     $__textEditor__;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var registerEditor = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editors__ && $___46__46__47_editors__.__esModule && $___46__46__47_editors__ || {default: $___46__46__47_editors__}).registerEditor;
 var TextEditor = ($__textEditor__ = _dereq_("textEditor"), $__textEditor__ && $__textEditor__.__esModule && $__textEditor__ || {default: $__textEditor__}).TextEditor;
 var NumericEditor = function NumericEditor() {
@@ -15700,9 +17612,9 @@ var $NumericEditor = NumericEditor;
 ($traceurRuntime.createClass)(NumericEditor, {beginEditing: function(initialValue) {
     if (typeof initialValue === 'undefined' && this.originalValue) {
       if (typeof this.cellProperties.language !== 'undefined') {
-        numeral.language(this.cellProperties.language);
+        numbro.culture(this.cellProperties.language);
       }
-      var decimalDelimiter = numeral.languageData().delimiters.decimal;
+      var decimalDelimiter = numbro.cultureData().delimiters.decimal;
       initialValue = ('' + this.originalValue).replace('.', decimalDelimiter);
     }
     $traceurRuntime.superGet(this, $NumericEditor.prototype, "beginEditing").call(this, initialValue);
@@ -15711,7 +17623,7 @@ var $NumericEditor = NumericEditor;
 registerEditor('numeric', NumericEditor);
 
 //# 
-},{"editors":99,"numeral":"numeral","textEditor":110}],108:[function(_dereq_,module,exports){
+},{"editors":100,"numbro":"numbro","textEditor":111}],109:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   PasswordEditor: {get: function() {
@@ -15748,7 +17660,7 @@ var $PasswordEditor = PasswordEditor;
 registerEditor('password', PasswordEditor);
 
 //# 
-},{"browser":93,"editors":99,"helpers/dom/element":116,"textEditor":110}],109:[function(_dereq_,module,exports){
+},{"browser":94,"editors":100,"helpers/dom/element":117,"textEditor":111}],110:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   SelectEditor: {get: function() {
@@ -15975,7 +17887,7 @@ SelectEditor.prototype.getEditedCell = function() {
 registerEditor('select', SelectEditor);
 
 //# 
-},{"_baseEditor":100,"browser":93,"editors":99,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/unicode":125}],110:[function(_dereq_,module,exports){
+},{"_baseEditor":101,"browser":94,"editors":100,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/unicode":126}],111:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   TextEditor: {get: function() {
@@ -16295,7 +18207,7 @@ TextEditor.prototype.destroy = function() {
 registerEditor('text', TextEditor);
 
 //# 
-},{"_baseEditor":100,"autoResize":"autoResize","browser":93,"editors":99,"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/unicode":125}],111:[function(_dereq_,module,exports){
+},{"_baseEditor":101,"autoResize":"autoResize","browser":94,"editors":100,"eventManager":112,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/unicode":126}],112:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   EventManager: {get: function() {
@@ -16483,7 +18395,7 @@ function eventManager(context) {
 }
 
 //# 
-},{"browser":93,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/feature":118}],112:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/feature":119}],113:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   to2dArray: {get: function() {
@@ -16642,7 +18554,7 @@ function arrayUnique(array) {
 }
 
 //# 
-},{}],113:[function(_dereq_,module,exports){
+},{}],114:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   isIE8: {get: function() {
@@ -16686,7 +18598,7 @@ function isMobileBrowser(userAgent) {
 }
 
 //# 
-},{}],114:[function(_dereq_,module,exports){
+},{}],115:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   spreadsheetColumnLabel: {get: function() {
@@ -16817,7 +18729,7 @@ function cellMethodLookupFactory(methodName, allowUndefined) {
 }
 
 //# 
-},{"browser":93,"object":122}],115:[function(_dereq_,module,exports){
+},{"browser":94,"object":123}],116:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   getNormalizedDate: {get: function() {
@@ -16834,11 +18746,14 @@ function getNormalizedDate(dateString) {
 }
 
 //# 
-},{}],116:[function(_dereq_,module,exports){
+},{}],117:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   closest: {get: function() {
       return closest;
+    }},
+  closestDown: {get: function() {
+      return closestDown;
     }},
   isChildOf: {get: function() {
       return isChildOf;
@@ -16987,6 +18902,23 @@ function closest(element, nodes, until) {
     }
   }
   return null;
+}
+function closestDown(element, nodes, until) {
+  var matched = [];
+  while (element) {
+    element = closest(element, nodes, until);
+    if (!element || (until && !until.contains(element))) {
+      break;
+    }
+    matched.push(element);
+    if (element.host && element.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+      element = element.host;
+    } else {
+      element = element.parentNode;
+    }
+  }
+  var length = matched.length;
+  return length ? matched[length - 1] : null;
 }
 function isChildOf(child, parent) {
   var node = child.parentNode;
@@ -17515,7 +19447,7 @@ function isOutsideInput(element) {
 }
 
 //# 
-},{"../browser":113,"../feature":118}],117:[function(_dereq_,module,exports){
+},{"../browser":114,"../feature":119}],118:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   stopImmediatePropagation: {get: function() {
@@ -17532,6 +19464,12 @@ Object.defineProperties(exports, {
     }},
   pageY: {get: function() {
       return pageY;
+    }},
+  isRightClick: {get: function() {
+      return isRightClick;
+    }},
+  isLeftClick: {get: function() {
+      return isLeftClick;
     }},
   __esModule: {value: true}
 });
@@ -17565,9 +19503,15 @@ function pageY(event) {
   }
   return event.clientY + getWindowScrollTop();
 }
+function isRightClick(event) {
+  return event.button === 2;
+}
+function isLeftClick(event) {
+  return event.button === 0;
+}
 
 //# 
-},{"element":116}],118:[function(_dereq_,module,exports){
+},{"element":117}],119:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   requestAnimationFrame: {get: function() {
@@ -17677,7 +19621,7 @@ function getComparisonFunction(language) {
 }
 
 //# 
-},{}],119:[function(_dereq_,module,exports){
+},{}],120:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   proxy: {get: function() {
@@ -17846,7 +19790,7 @@ function curryRight(func) {
 }
 
 //# 
-},{"array":112}],120:[function(_dereq_,module,exports){
+},{"array":113}],121:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   stringify: {get: function() {
@@ -17874,7 +19818,7 @@ function stringify(value) {
 }
 
 //# 
-},{}],121:[function(_dereq_,module,exports){
+},{}],122:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   isNumeric: {get: function() {
@@ -17928,7 +19872,7 @@ function valueAccordingPercent(value, percent) {
 }
 
 //# 
-},{}],122:[function(_dereq_,module,exports){
+},{}],123:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   duckSchema: {get: function() {
@@ -18144,7 +20088,7 @@ function getProperty(object, name) {
 }
 
 //# 
-},{"array":112}],123:[function(_dereq_,module,exports){
+},{"array":113}],124:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   columnFactory: {get: function() {
@@ -18166,7 +20110,7 @@ function columnFactory(GridSettings, conflictList) {
 }
 
 //# 
-},{"object":122}],124:[function(_dereq_,module,exports){
+},{"object":123}],125:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   toUpperCaseFirst: {get: function() {
@@ -18281,7 +20225,7 @@ function padStart(string, maxLength) {
 ;
 
 //# 
-},{"mixed":120,"number":121}],125:[function(_dereq_,module,exports){
+},{"mixed":121,"number":122}],126:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   KEY_CODES: {get: function() {
@@ -18370,7 +20314,7 @@ function isKey(keyCode, baseCode) {
 }
 
 //# 
-},{"array":112}],126:[function(_dereq_,module,exports){
+},{"array":113}],127:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   arrayMapper: {get: function() {
@@ -18473,7 +20417,7 @@ defineGetter(arrayMapper, 'MIXIN_NAME', MIXIN_NAME, {
 Handsontable.utils.arrayMapper = arrayMapper;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/number":121,"helpers/object":122}],127:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/number":122,"helpers/object":123}],128:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   localHooks: {get: function() {
@@ -18519,7 +20463,7 @@ defineGetter(localHooks, 'MIXIN_NAME', MIXIN_NAME, {
 Handsontable.utils.localHooks = localHooks;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/object":122}],128:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/object":123}],129:[function(_dereq_,module,exports){
 "use strict";
 var $__3;
 Object.defineProperties(exports, {
@@ -18606,7 +20550,7 @@ defineGetter(stateSaver, 'MIXIN_NAME', MIXIN_NAME, {
 Handsontable.utils.stateSaver = stateSaver;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/object":122}],129:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/object":123}],130:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MultiMap: {get: function() {
@@ -18658,7 +20602,7 @@ function MultiMap() {
 }
 
 //# 
-},{}],130:[function(_dereq_,module,exports){
+},{}],131:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Hooks: {get: function() {
@@ -18807,7 +20751,7 @@ var Hooks = function Hooks() {
 ;
 
 //# 
-},{"helpers/array":112,"helpers/object":122}],131:[function(_dereq_,module,exports){
+},{"helpers/array":113,"helpers/object":123}],132:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   registerPlugin: {get: function() {
@@ -18881,7 +20825,7 @@ function getPluginName(hotInstance, plugin) {
 ;
 
 //# 
-},{"browser":93,"helpers/object":122,"helpers/string":124}],132:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/object":123,"helpers/string":125}],133:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   default: {get: function() {
@@ -19016,7 +20960,7 @@ var $__default = BasePlugin;
 Handsontable.plugins.BasePlugin = BasePlugin;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/object":122,"plugins":131}],133:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/object":123,"plugins":132}],134:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   AutoColumnSize: {get: function() {
@@ -19301,7 +21245,7 @@ var $AutoColumnSize = AutoColumnSize;
 registerPlugin('autoColumnSize', AutoColumnSize);
 
 //# 
-},{"3rdparty/walkontable/src/calculator/viewportColumns":73,"_base":132,"helpers/array":112,"helpers/dom/element":116,"helpers/feature":118,"helpers/number":121,"helpers/object":122,"helpers/string":124,"plugins":131,"utils/ghostTable":174,"utils/samplesGenerator":176}],134:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/calculator/viewportColumns":74,"_base":133,"helpers/array":113,"helpers/dom/element":117,"helpers/feature":119,"helpers/number":122,"helpers/object":123,"helpers/string":125,"plugins":132,"utils/ghostTable":187,"utils/samplesGenerator":189}],135:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   AutoRowSize: {get: function() {
@@ -19637,7 +21581,7 @@ var $AutoRowSize = AutoRowSize;
 registerPlugin('autoRowSize', AutoRowSize);
 
 //# 
-},{"_base":132,"helpers/array":112,"helpers/dom/element":116,"helpers/feature":118,"helpers/number":121,"helpers/object":122,"helpers/string":124,"plugins":131,"utils/ghostTable":174,"utils/samplesGenerator":176}],135:[function(_dereq_,module,exports){
+},{"_base":133,"helpers/array":113,"helpers/dom/element":117,"helpers/feature":119,"helpers/number":122,"helpers/object":123,"helpers/string":125,"plugins":132,"utils/ghostTable":187,"utils/samplesGenerator":189}],136:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Autofill: {get: function() {
@@ -19915,7 +21859,7 @@ function settingsFactory(settings) {
 Handsontable.Autofill = Autofill;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"browser":93,"eventManager":111,"helpers/dom/element":116,"plugins":131}],136:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"browser":94,"eventManager":112,"helpers/dom/element":117,"plugins":132}],137:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ColumnSorting: {get: function() {
@@ -20144,6 +22088,9 @@ var $ColumnSorting = ColumnSorting;
         return sortOrder ? 1 : -1;
       } else if (!isNaN(a[1]) && isNaN(b[1])) {
         return sortOrder ? -1 : 1;
+      } else if (!(isNaN(a[1]) || isNaN(b[1]))) {
+        a[1] = parseFloat(a[1]);
+        b[1] = parseFloat(b[1]);
       }
       if (a[1] < b[1]) {
         return sortOrder ? -1 : 1;
@@ -20254,6 +22201,9 @@ var $ColumnSorting = ColumnSorting;
     }
   },
   getColHeader: function(col, TH) {
+    if (col < 0 || !TH.parentNode) {
+      return false;
+    }
     var headerLink = TH.querySelector('.colHeader');
     var colspan = TH.getAttribute('colspan');
     var TRs = TH.parentNode.parentNode.childNodes;
@@ -20324,7 +22274,7 @@ var $ColumnSorting = ColumnSorting;
 registerPlugin('columnSorting', ColumnSorting);
 
 //# 
-},{"_base":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"plugins":131}],137:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"plugins":132}],138:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   CommentEditor: {get: function() {
@@ -20412,7 +22362,7 @@ var $CommentEditor = CommentEditor;
 ;
 
 //# 
-},{"helpers/dom/element":116}],138:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117}],139:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Comments: {get: function() {
@@ -20437,9 +22387,7 @@ var $__1 = ($___46__46__47__46__46__47_helpers_47_dom_47_element__ = _dereq_("he
     offset = $__1.offset;
 var EventManager = ($___46__46__47__46__46__47_eventManager__ = _dereq_("eventManager"), $___46__46__47__46__46__47_eventManager__ && $___46__46__47__46__46__47_eventManager__.__esModule && $___46__46__47__46__46__47_eventManager__ || {default: $___46__46__47__46__46__47_eventManager__}).EventManager;
 var WalkontableCellCoords = ($___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__ = _dereq_("3rdparty/walkontable/src/cell/coords"), $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__ && $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__.__esModule && $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__ || {default: $___46__46__47__46__46__47_3rdparty_47_walkontable_47_src_47_cell_47_coords__}).WalkontableCellCoords;
-var $__4 = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}),
-    registerPlugin = $__4.registerPlugin,
-    getPlugin = $__4.getPlugin;
+var registerPlugin = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}).registerPlugin;
 var BasePlugin = ($___46__46__47__95_base__ = _dereq_("_base"), $___46__46__47__95_base__ && $___46__46__47__95_base__.__esModule && $___46__46__47__95_base__ || {default: $___46__46__47__95_base__}).default;
 var CommentEditor = ($__commentEditor__ = _dereq_("commentEditor"), $__commentEditor__ && $__commentEditor__.__esModule && $__commentEditor__ || {default: $__commentEditor__}).CommentEditor;
 var Comments = function Comments(hotInstance) {
@@ -20645,6 +22593,7 @@ var $Comments = Comments;
   },
   checkSelectionCommentsConsistency: function() {
     var selected = this.hot.getSelectedRange();
+    console.log('selected', selected);
     if (!selected) {
       return false;
     }
@@ -20683,7 +22632,7 @@ var $Comments = Comments;
         return $__7.onContextMenuAddComment();
       }),
       disabled: function() {
-        return this.getSelected() ? false : true;
+        return this.getSelected() && !this.selection.selectedHeader.corner ? false : true;
       }
     }, {
       key: 'commentsRemove',
@@ -20694,7 +22643,7 @@ var $Comments = Comments;
         return $__7.onContextMenuRemoveComment(key, selection);
       }),
       disabled: (function() {
-        return !$__7.checkSelectionCommentsConsistency();
+        return $__7.hot.selection.selectedHeader.corner || !$__7.checkSelectionCommentsConsistency();
       })
     });
   },
@@ -20709,7 +22658,7 @@ var $Comments = Comments;
 registerPlugin('comments', Comments);
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"_base":132,"browser":93,"commentEditor":137,"eventManager":111,"helpers/dom/element":116,"plugins":131}],139:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"_base":133,"browser":94,"commentEditor":138,"eventManager":112,"helpers/dom/element":117,"plugins":132}],140:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   CommandExecutor: {get: function() {
@@ -20782,7 +22731,7 @@ function findSubCommand(subCommandName, subCommands) {
 ;
 
 //# 
-},{"helpers/array":112}],140:[function(_dereq_,module,exports){
+},{"helpers/array":113}],141:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ContextMenu: {get: function() {
@@ -20939,11 +22888,6 @@ var $ContextMenu = ContextMenu;
       if (!isValidElement(element) && !(hasClass(element, 'current') && hasClass(element, 'wtBorder'))) {
         return;
       }
-    } else if (showRowHeaders && showColHeaders) {
-      var containsCornerHeader = element.parentNode.querySelectorAll('.cornerHeader').length > 0;
-      if (containsCornerHeader) {
-        return;
-      }
     }
     this.open(event);
   },
@@ -20973,7 +22917,7 @@ Handsontable.hooks.register('afterContextMenuExecute');
 registerPlugin('contextMenu', ContextMenu);
 
 //# 
-},{"_base":132,"browser":93,"commandExecutor":139,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"itemsFactory":142,"menu":143,"plugins":131,"predefinedItems":144}],141:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"commandExecutor":140,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"itemsFactory":143,"menu":144,"plugins":132,"predefinedItems":145}],142:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Cursor: {get: function() {
@@ -21055,7 +22999,7 @@ Handsontable.plugins.utils = Handsontable.plugins.utils || {};
 Handsontable.plugins.utils.Cursor = Cursor;
 
 //# 
-},{"browser":93,"helpers/dom/element":116,"helpers/dom/event":117}],142:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/dom/element":117,"helpers/dom/event":118}],143:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ItemsFactory: {get: function() {
@@ -21160,7 +23104,7 @@ function getItems() {
 ;
 
 //# 
-},{"helpers/array":112,"helpers/object":122,"predefinedItems":144}],143:[function(_dereq_,module,exports){
+},{"helpers/array":113,"helpers/object":123,"predefinedItems":145}],144:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Menu: {get: function() {
@@ -21376,11 +23320,15 @@ var $Menu = Menu;
     }
     var selRange = this.hot.getSelectedRange();
     var normalizedSelection = selRange ? normalizeSelection(selRange) : {};
+    var autoClose = true;
+    if (selectedItem.disabled === true || (typeof selectedItem.disabled === 'function' && selectedItem.disabled.call(this.hot) === true) || selectedItem.submenu) {
+      autoClose = false;
+    }
     this.runLocalHooks('executeCommand', selectedItem.key, normalizedSelection, event);
     if (this.isSubMenu()) {
       this.parentMenu.runLocalHooks('executeCommand', selectedItem.key, normalizedSelection, event);
     }
-    if (!(selectedItem.disabled === true || typeof selectedItem.disabled === 'function' && selectedItem.disabled.call(this.hot) === true || selectedItem.submenu)) {
+    if (autoClose) {
       this.close(true);
     }
   },
@@ -21520,7 +23468,7 @@ var $Menu = Menu;
         }));
       } else {
         this.eventManager.addEventListener(TD, 'mouseenter', (function() {
-          return hot.selectCell(row, col, void 0, void 0, void 0, false);
+          return hot.selectCell(row, col, void 0, void 0, false, false);
         }));
       }
     } else {
@@ -21532,7 +23480,7 @@ var $Menu = Menu;
         }));
       } else {
         this.eventManager.addEventListener(TD, 'mouseenter', (function() {
-          return hot.selectCell(row, col, void 0, void 0, void 0, false);
+          return hot.selectCell(row, col, void 0, void 0, false, false);
         }));
       }
     }
@@ -21658,45 +23606,45 @@ mixin(Menu, localHooks);
 ;
 
 //# 
-},{"browser":93,"cursor":141,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/object":122,"helpers/unicode":125,"mixins/localHooks":127,"predefinedItems":144,"utils":145}],144:[function(_dereq_,module,exports){
+},{"browser":94,"cursor":142,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/function":120,"helpers/object":123,"helpers/unicode":126,"mixins/localHooks":128,"predefinedItems":145,"utils":158}],145:[function(_dereq_,module,exports){
 "use strict";
-var $__4;
+var $__13;
 Object.defineProperties(exports, {
-  ROW_ABOVE: {get: function() {
-      return ROW_ABOVE;
-    }},
-  ROW_BELOW: {get: function() {
-      return ROW_BELOW;
-    }},
-  COLUMN_LEFT: {get: function() {
-      return COLUMN_LEFT;
-    }},
-  COLUMN_RIGHT: {get: function() {
-      return COLUMN_RIGHT;
+  ALIGNMENT: {get: function() {
+      return $__predefinedItems_47_alignment__.KEY;
     }},
   CLEAR_COLUMN: {get: function() {
-      return CLEAR_COLUMN;
+      return $__predefinedItems_47_clearColumn__.KEY;
     }},
-  REMOVE_ROW: {get: function() {
-      return REMOVE_ROW;
+  COLUMN_LEFT: {get: function() {
+      return $__predefinedItems_47_columnLeft__.KEY;
     }},
-  REMOVE_COLUMN: {get: function() {
-      return REMOVE_COLUMN;
-    }},
-  UNDO: {get: function() {
-      return UNDO;
-    }},
-  REDO: {get: function() {
-      return REDO;
+  COLUMN_RIGHT: {get: function() {
+      return $__predefinedItems_47_columnRight__.KEY;
     }},
   READ_ONLY: {get: function() {
-      return READ_ONLY;
+      return $__predefinedItems_47_readOnly__.KEY;
     }},
-  ALIGNMENT: {get: function() {
-      return ALIGNMENT;
+  REDO: {get: function() {
+      return $__predefinedItems_47_redo__.KEY;
+    }},
+  REMOVE_COLUMN: {get: function() {
+      return $__predefinedItems_47_removeColumn__.KEY;
+    }},
+  REMOVE_ROW: {get: function() {
+      return $__predefinedItems_47_removeRow__.KEY;
+    }},
+  ROW_ABOVE: {get: function() {
+      return $__predefinedItems_47_rowAbove__.KEY;
+    }},
+  ROW_BELOW: {get: function() {
+      return $__predefinedItems_47_rowBelow__.KEY;
     }},
   SEPARATOR: {get: function() {
-      return SEPARATOR;
+      return $__predefinedItems_47_separator__.KEY;
+    }},
+  UNDO: {get: function() {
+      return $__predefinedItems_47_undo__.KEY;
     }},
   ITEMS: {get: function() {
       return ITEMS;
@@ -21710,35 +23658,145 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var $___46__46__47__46__46__47_helpers_47_object__,
-    $___46__46__47__46__46__47_helpers_47_number__,
-    $__utils__;
-var $__0 = ($___46__46__47__46__46__47_helpers_47_object__ = _dereq_("helpers/object"), $___46__46__47__46__46__47_helpers_47_object__ && $___46__46__47__46__46__47_helpers_47_object__.__esModule && $___46__46__47__46__46__47_helpers_47_object__ || {default: $___46__46__47__46__46__47_helpers_47_object__}),
-    objectEach = $__0.objectEach,
-    clone = $__0.clone;
-var rangeEach = ($___46__46__47__46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47__46__46__47_helpers_47_number__ && $___46__46__47__46__46__47_helpers_47_number__.__esModule && $___46__46__47__46__46__47_helpers_47_number__ || {default: $___46__46__47__46__46__47_helpers_47_number__}).rangeEach;
-var $__2 = ($__utils__ = _dereq_("utils"), $__utils__ && $__utils__.__esModule && $__utils__ || {default: $__utils__}),
-    align = $__2.align,
-    getAlignmentClasses = $__2.getAlignmentClasses,
-    getValidSelection = $__2.getValidSelection,
-    checkSelectionConsistency = $__2.checkSelectionConsistency,
-    markLabelAsSelected = $__2.markLabelAsSelected;
-var ROW_ABOVE = 'row_above';
-var ROW_BELOW = 'row_below';
-var COLUMN_LEFT = 'col_left';
-var COLUMN_RIGHT = 'col_right';
-var CLEAR_COLUMN = 'clear_column';
-var REMOVE_ROW = 'remove_row';
-var REMOVE_COLUMN = 'remove_col';
-var UNDO = 'undo';
-var REDO = 'redo';
-var READ_ONLY = 'make_read_only';
-var ALIGNMENT = 'alignment';
-var SEPARATOR = '---------';
+    $__predefinedItems_47_alignment__,
+    $__predefinedItems_47_clearColumn__,
+    $__predefinedItems_47_columnLeft__,
+    $__predefinedItems_47_columnRight__,
+    $__predefinedItems_47_readOnly__,
+    $__predefinedItems_47_redo__,
+    $__predefinedItems_47_removeColumn__,
+    $__predefinedItems_47_removeRow__,
+    $__predefinedItems_47_rowAbove__,
+    $__predefinedItems_47_rowBelow__,
+    $__predefinedItems_47_separator__,
+    $__predefinedItems_47_undo__,
+    $__predefinedItems_47_alignment__,
+    $__predefinedItems_47_clearColumn__,
+    $__predefinedItems_47_columnLeft__,
+    $__predefinedItems_47_columnRight__,
+    $__predefinedItems_47_readOnly__,
+    $__predefinedItems_47_redo__,
+    $__predefinedItems_47_removeColumn__,
+    $__predefinedItems_47_removeRow__,
+    $__predefinedItems_47_rowAbove__,
+    $__predefinedItems_47_rowBelow__,
+    $__predefinedItems_47_separator__,
+    $__predefinedItems_47_undo__;
+var objectEach = ($___46__46__47__46__46__47_helpers_47_object__ = _dereq_("helpers/object"), $___46__46__47__46__46__47_helpers_47_object__ && $___46__46__47__46__46__47_helpers_47_object__.__esModule && $___46__46__47__46__46__47_helpers_47_object__ || {default: $___46__46__47__46__46__47_helpers_47_object__}).objectEach;
+var $__1 = ($__predefinedItems_47_alignment__ = _dereq_("predefinedItems/alignment"), $__predefinedItems_47_alignment__ && $__predefinedItems_47_alignment__.__esModule && $__predefinedItems_47_alignment__ || {default: $__predefinedItems_47_alignment__}),
+    alignmentItem = $__1.alignmentItem,
+    ALIGNMENT = $__1.KEY;
+var $__2 = ($__predefinedItems_47_clearColumn__ = _dereq_("predefinedItems/clearColumn"), $__predefinedItems_47_clearColumn__ && $__predefinedItems_47_clearColumn__.__esModule && $__predefinedItems_47_clearColumn__ || {default: $__predefinedItems_47_clearColumn__}),
+    clearColumnItem = $__2.clearColumnItem,
+    CLEAR_COLUMN = $__2.KEY;
+var $__3 = ($__predefinedItems_47_columnLeft__ = _dereq_("predefinedItems/columnLeft"), $__predefinedItems_47_columnLeft__ && $__predefinedItems_47_columnLeft__.__esModule && $__predefinedItems_47_columnLeft__ || {default: $__predefinedItems_47_columnLeft__}),
+    columnLeftItem = $__3.columnLeftItem,
+    COLUMN_LEFT = $__3.KEY;
+var $__4 = ($__predefinedItems_47_columnRight__ = _dereq_("predefinedItems/columnRight"), $__predefinedItems_47_columnRight__ && $__predefinedItems_47_columnRight__.__esModule && $__predefinedItems_47_columnRight__ || {default: $__predefinedItems_47_columnRight__}),
+    columnRightItem = $__4.columnRightItem,
+    COLUMN_RIGHT = $__4.KEY;
+var $__5 = ($__predefinedItems_47_readOnly__ = _dereq_("predefinedItems/readOnly"), $__predefinedItems_47_readOnly__ && $__predefinedItems_47_readOnly__.__esModule && $__predefinedItems_47_readOnly__ || {default: $__predefinedItems_47_readOnly__}),
+    readOnlyItem = $__5.readOnlyItem,
+    READ_ONLY = $__5.KEY;
+var $__6 = ($__predefinedItems_47_redo__ = _dereq_("predefinedItems/redo"), $__predefinedItems_47_redo__ && $__predefinedItems_47_redo__.__esModule && $__predefinedItems_47_redo__ || {default: $__predefinedItems_47_redo__}),
+    redoItem = $__6.redoItem,
+    REDO = $__6.KEY;
+var $__7 = ($__predefinedItems_47_removeColumn__ = _dereq_("predefinedItems/removeColumn"), $__predefinedItems_47_removeColumn__ && $__predefinedItems_47_removeColumn__.__esModule && $__predefinedItems_47_removeColumn__ || {default: $__predefinedItems_47_removeColumn__}),
+    removeColumnItem = $__7.removeColumnItem,
+    REMOVE_COLUMN = $__7.KEY;
+var $__8 = ($__predefinedItems_47_removeRow__ = _dereq_("predefinedItems/removeRow"), $__predefinedItems_47_removeRow__ && $__predefinedItems_47_removeRow__.__esModule && $__predefinedItems_47_removeRow__ || {default: $__predefinedItems_47_removeRow__}),
+    removeRowItem = $__8.removeRowItem,
+    REMOVE_ROW = $__8.KEY;
+var $__9 = ($__predefinedItems_47_rowAbove__ = _dereq_("predefinedItems/rowAbove"), $__predefinedItems_47_rowAbove__ && $__predefinedItems_47_rowAbove__.__esModule && $__predefinedItems_47_rowAbove__ || {default: $__predefinedItems_47_rowAbove__}),
+    rowAboveItem = $__9.rowAboveItem,
+    ROW_ABOVE = $__9.KEY;
+var $__10 = ($__predefinedItems_47_rowBelow__ = _dereq_("predefinedItems/rowBelow"), $__predefinedItems_47_rowBelow__ && $__predefinedItems_47_rowBelow__.__esModule && $__predefinedItems_47_rowBelow__ || {default: $__predefinedItems_47_rowBelow__}),
+    rowBelowItem = $__10.rowBelowItem,
+    ROW_BELOW = $__10.KEY;
+var $__11 = ($__predefinedItems_47_separator__ = _dereq_("predefinedItems/separator"), $__predefinedItems_47_separator__ && $__predefinedItems_47_separator__.__esModule && $__predefinedItems_47_separator__ || {default: $__predefinedItems_47_separator__}),
+    separatorItem = $__11.separatorItem,
+    SEPARATOR = $__11.KEY;
+var $__12 = ($__predefinedItems_47_undo__ = _dereq_("predefinedItems/undo"), $__predefinedItems_47_undo__ && $__predefinedItems_47_undo__.__esModule && $__predefinedItems_47_undo__ || {default: $__predefinedItems_47_undo__}),
+    undoItem = $__12.undoItem,
+    UNDO = $__12.KEY;
+var $__predefinedItems_47_alignment__ = ($__predefinedItems_47_alignment__ = _dereq_("predefinedItems/alignment"), $__predefinedItems_47_alignment__ && $__predefinedItems_47_alignment__.__esModule && $__predefinedItems_47_alignment__ || {default: $__predefinedItems_47_alignment__});
+var $__predefinedItems_47_clearColumn__ = ($__predefinedItems_47_clearColumn__ = _dereq_("predefinedItems/clearColumn"), $__predefinedItems_47_clearColumn__ && $__predefinedItems_47_clearColumn__.__esModule && $__predefinedItems_47_clearColumn__ || {default: $__predefinedItems_47_clearColumn__});
+var $__predefinedItems_47_columnLeft__ = ($__predefinedItems_47_columnLeft__ = _dereq_("predefinedItems/columnLeft"), $__predefinedItems_47_columnLeft__ && $__predefinedItems_47_columnLeft__.__esModule && $__predefinedItems_47_columnLeft__ || {default: $__predefinedItems_47_columnLeft__});
+var $__predefinedItems_47_columnRight__ = ($__predefinedItems_47_columnRight__ = _dereq_("predefinedItems/columnRight"), $__predefinedItems_47_columnRight__ && $__predefinedItems_47_columnRight__.__esModule && $__predefinedItems_47_columnRight__ || {default: $__predefinedItems_47_columnRight__});
+var $__predefinedItems_47_readOnly__ = ($__predefinedItems_47_readOnly__ = _dereq_("predefinedItems/readOnly"), $__predefinedItems_47_readOnly__ && $__predefinedItems_47_readOnly__.__esModule && $__predefinedItems_47_readOnly__ || {default: $__predefinedItems_47_readOnly__});
+var $__predefinedItems_47_redo__ = ($__predefinedItems_47_redo__ = _dereq_("predefinedItems/redo"), $__predefinedItems_47_redo__ && $__predefinedItems_47_redo__.__esModule && $__predefinedItems_47_redo__ || {default: $__predefinedItems_47_redo__});
+var $__predefinedItems_47_removeColumn__ = ($__predefinedItems_47_removeColumn__ = _dereq_("predefinedItems/removeColumn"), $__predefinedItems_47_removeColumn__ && $__predefinedItems_47_removeColumn__.__esModule && $__predefinedItems_47_removeColumn__ || {default: $__predefinedItems_47_removeColumn__});
+var $__predefinedItems_47_removeRow__ = ($__predefinedItems_47_removeRow__ = _dereq_("predefinedItems/removeRow"), $__predefinedItems_47_removeRow__ && $__predefinedItems_47_removeRow__.__esModule && $__predefinedItems_47_removeRow__ || {default: $__predefinedItems_47_removeRow__});
+var $__predefinedItems_47_rowAbove__ = ($__predefinedItems_47_rowAbove__ = _dereq_("predefinedItems/rowAbove"), $__predefinedItems_47_rowAbove__ && $__predefinedItems_47_rowAbove__.__esModule && $__predefinedItems_47_rowAbove__ || {default: $__predefinedItems_47_rowAbove__});
+var $__predefinedItems_47_rowBelow__ = ($__predefinedItems_47_rowBelow__ = _dereq_("predefinedItems/rowBelow"), $__predefinedItems_47_rowBelow__ && $__predefinedItems_47_rowBelow__.__esModule && $__predefinedItems_47_rowBelow__ || {default: $__predefinedItems_47_rowBelow__});
+var $__predefinedItems_47_separator__ = ($__predefinedItems_47_separator__ = _dereq_("predefinedItems/separator"), $__predefinedItems_47_separator__ && $__predefinedItems_47_separator__.__esModule && $__predefinedItems_47_separator__ || {default: $__predefinedItems_47_separator__});
+var $__predefinedItems_47_undo__ = ($__predefinedItems_47_undo__ = _dereq_("predefinedItems/undo"), $__predefinedItems_47_undo__ && $__predefinedItems_47_undo__.__esModule && $__predefinedItems_47_undo__ || {default: $__predefinedItems_47_undo__});
 var ITEMS = [ROW_ABOVE, ROW_BELOW, COLUMN_LEFT, COLUMN_RIGHT, CLEAR_COLUMN, REMOVE_ROW, REMOVE_COLUMN, UNDO, REDO, READ_ONLY, ALIGNMENT, SEPARATOR];
+var _predefinedItems = ($__13 = {}, Object.defineProperty($__13, SEPARATOR, {
+  value: separatorItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, ROW_ABOVE, {
+  value: rowAboveItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, ROW_BELOW, {
+  value: rowBelowItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, COLUMN_LEFT, {
+  value: columnLeftItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, COLUMN_RIGHT, {
+  value: columnRightItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, CLEAR_COLUMN, {
+  value: clearColumnItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, REMOVE_ROW, {
+  value: removeRowItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, REMOVE_COLUMN, {
+  value: removeColumnItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, UNDO, {
+  value: undoItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, REDO, {
+  value: redoItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, READ_ONLY, {
+  value: readOnlyItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), Object.defineProperty($__13, ALIGNMENT, {
+  value: alignmentItem,
+  configurable: true,
+  enumerable: true,
+  writable: true
+}), $__13);
 function predefinedItems() {
   var items = {};
-  objectEach(_predefinedItems, (function(value, key) {
-    return items[key] = clone(value);
+  objectEach(_predefinedItems, (function(itemFactory, key) {
+    return items[key] = itemFactory();
   }));
   return items;
 }
@@ -21747,114 +23805,274 @@ function addItem(key, item) {
     _predefinedItems[key] = item;
   }
 }
-var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
-  value: {name: SEPARATOR},
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, ROW_ABOVE, {
-  value: {
-    key: ROW_ABOVE,
-    name: 'Insert row above',
-    callback: function(key, selection) {
-      this.alter('insert_row', selection.start.row);
-    },
+
+//# 
+},{"helpers/object":123,"predefinedItems/alignment":146,"predefinedItems/clearColumn":147,"predefinedItems/columnLeft":148,"predefinedItems/columnRight":149,"predefinedItems/readOnly":150,"predefinedItems/redo":151,"predefinedItems/removeColumn":152,"predefinedItems/removeRow":153,"predefinedItems/rowAbove":154,"predefinedItems/rowBelow":155,"predefinedItems/separator":156,"predefinedItems/undo":157}],146:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  alignmentItem: {get: function() {
+      return alignmentItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__,
+    $__separator__;
+var $__0 = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}),
+    align = $__0.align,
+    getAlignmentClasses = $__0.getAlignmentClasses,
+    checkSelectionConsistency = $__0.checkSelectionConsistency,
+    markLabelAsSelected = $__0.markLabelAsSelected;
+var SEPARATOR = ($__separator__ = _dereq_("separator"), $__separator__ && $__separator__.__esModule && $__separator__ || {default: $__separator__}).KEY;
+var KEY = 'alignment';
+function alignmentItem() {
+  return {
+    key: KEY,
+    name: 'Alignment',
     disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected || this.countRows() >= this.getSettings().maxRows) {
-        return true;
-      }
-      var rowCount = this.countRows();
-      var entireColumnSelection = [0, selected[1], rowCount - 1, selected[1]];
-      return (entireColumnSelection.join(',') === selected.join(',')) && rowCount > 1;
+      return this.getSelectedRange() && !this.selection.selectedHeader.corner ? false : true;
     },
-    hidden: function() {
-      return !this.getSettings().allowInsertRow;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, ROW_BELOW, {
-  value: {
-    key: ROW_BELOW,
-    name: 'Insert row below',
-    callback: function(key, selection) {
-      this.alter('insert_row', selection.end.row + 1);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected || this.countRows() >= this.getSettings().maxRows) {
-        return true;
-      }
-      var rowCount = this.countRows();
-      var entireColumnSelection = [0, selected[1], rowCount - 1, selected[1]];
-      return (entireColumnSelection.join(',') === selected.join(',')) && rowCount > 1;
-    },
-    hidden: function() {
-      return !this.getSettings().allowInsertRow;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, COLUMN_LEFT, {
-  value: {
-    key: COLUMN_LEFT,
-    name: 'Insert column on the left',
-    callback: function(key, selection) {
-      this.alter('insert_col', selection.start.col);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected) {
-        return true;
-      }
-      if (!this.isColumnModificationAllowed()) {
-        return true;
-      }
-      var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
-      var rowSelected = entireRowSelection.join(',') == selected.join(',');
-      var onlyOneColumn = this.countCols() == 1;
-      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
-    },
-    hidden: function() {
-      return !this.getSettings().allowInsertColumn;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, COLUMN_RIGHT, {
-  value: {
-    key: COLUMN_RIGHT,
-    name: 'Insert column on the right',
-    callback: function(key, selection) {
-      this.alter('insert_col', selection.end.col + 1);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected) {
-        return true;
-      }
-      if (!this.isColumnModificationAllowed()) {
-        return true;
-      }
-      var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
-      var rowSelected = entireRowSelection.join(',') == selected.join(',');
-      var onlyOneColumn = this.countCols() == 1;
-      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
-    },
-    hidden: function() {
-      return !this.getSettings().allowInsertColumn;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, CLEAR_COLUMN, {
-  value: {
-    key: CLEAR_COLUMN,
+    submenu: {items: [{
+        key: (KEY + ":left"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Left';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htLeft') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htLeft';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":center"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Center';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htCenter') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htCenter';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":right"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Right';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htRight') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htRight';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":justify"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Justify';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htJustify') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'horizontal';
+          var alignment = 'htJustify';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {name: SEPARATOR}, {
+        key: (KEY + ":top"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Top';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htTop') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'vertical';
+          var alignment = 'htTop';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":middle"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Middle';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htMiddle') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'vertical';
+          var alignment = 'htMiddle';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }, {
+        key: (KEY + ":bottom"),
+        name: function() {
+          var $__2 = this;
+          var label = 'Bottom';
+          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
+            var className = $__2.getCellMeta(row, col).className;
+            if (className && className.indexOf('htBottom') !== -1) {
+              return true;
+            }
+          }));
+          if (hasClass) {
+            label = markLabelAsSelected(label);
+          }
+          return label;
+        },
+        callback: function() {
+          var $__2 = this;
+          var range = this.getSelectedRange();
+          var stateBefore = getAlignmentClasses(range, (function(row, col) {
+            return $__2.getCellMeta(row, col).className;
+          }));
+          var type = 'vertical';
+          var alignment = 'htBottom';
+          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
+          align(range, type, alignment, (function(row, col) {
+            return $__2.getCellMeta(row, col);
+          }));
+          this.render();
+        },
+        disabled: false
+      }]}
+  };
+}
+
+//# 
+},{"separator":156,"utils":158}],147:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  clearColumnItem: {get: function() {
+      return clearColumnItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'clear_column';
+function clearColumnItem() {
+  return {
+    key: KEY,
     name: 'Clear column',
     callback: function(key, selection) {
       var column = selection.start.col;
@@ -21871,44 +24089,34 @@ var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
       var rowSelected = entireRowSelection.join(',') == selected.join(',');
       return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || rowSelected;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, REMOVE_ROW, {
-  value: {
-    key: REMOVE_ROW,
-    name: 'Remove row',
+  };
+}
+
+//# 
+},{"utils":158}],148:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  columnLeftItem: {get: function() {
+      return columnLeftItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'col_left';
+function columnLeftItem() {
+  return {
+    key: KEY,
+    name: 'Insert column on the left',
     callback: function(key, selection) {
-      var amount = selection.end.row - selection.start.row + 1;
-      this.alter('remove_row', selection.start.row, amount);
+      this.alter('insert_col', selection.start.col);
     },
     disabled: function() {
       var selected = getValidSelection(this);
-      if (!selected || this.selection.selectedHeader.cols) {
-        return true;
-      }
-      var entireColumnSelection = [0, selected[1], this.countRows() - 1, selected[1]];
-      return entireColumnSelection.join(',') === selected.join(',');
-    },
-    hidden: function() {
-      return !this.getSettings().allowRemoveRow;
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, REMOVE_COLUMN, {
-  value: {
-    key: REMOVE_COLUMN,
-    name: 'Remove column',
-    callback: function(key, selection) {
-      var amount = selection.end.col - selection.start.col + 1;
-      this.alter('remove_col', selection.start.col, amount);
-    },
-    disabled: function() {
-      var selected = getValidSelection(this);
-      if (!selected || this.selection.selectedHeader.rows) {
+      if (!selected) {
         return true;
       }
       if (!this.isColumnModificationAllowed()) {
@@ -21916,51 +24124,81 @@ var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
       }
       var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
       var rowSelected = entireRowSelection.join(',') == selected.join(',');
-      return (selected[1] < 0 || rowSelected);
+      var onlyOneColumn = this.countCols() === 1;
+      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
     },
     hidden: function() {
-      return !this.getSettings().allowRemoveColumn;
+      return !this.getSettings().allowInsertColumn;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, UNDO, {
-  value: {
-    key: UNDO,
-    name: 'Undo',
-    callback: function() {
-      this.undo();
+  };
+}
+
+//# 
+},{"utils":158}],149:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  columnRightItem: {get: function() {
+      return columnRightItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'col_right';
+function columnRightItem() {
+  return {
+    key: KEY,
+    name: 'Insert column on the right',
+    callback: function(key, selection) {
+      this.alter('insert_col', selection.end.col + 1);
     },
     disabled: function() {
-      return this.undoRedo && !this.undoRedo.isUndoAvailable();
-    }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, REDO, {
-  value: {
-    key: REDO,
-    name: 'Redo',
-    callback: function() {
-      this.redo();
+      var selected = getValidSelection(this);
+      if (!selected) {
+        return true;
+      }
+      if (!this.isColumnModificationAllowed()) {
+        return true;
+      }
+      var entireRowSelection = [selected[0], 0, selected[0], this.countCols() - 1];
+      var rowSelected = entireRowSelection.join(',') == selected.join(',');
+      var onlyOneColumn = this.countCols() === 1;
+      return selected[1] < 0 || this.countCols() >= this.getSettings().maxCols || (!onlyOneColumn && rowSelected);
     },
-    disabled: function() {
-      return this.undoRedo && !this.undoRedo.isRedoAvailable();
+    hidden: function() {
+      return !this.getSettings().allowInsertColumn;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, READ_ONLY, {
-  value: {
-    key: READ_ONLY,
+  };
+}
+
+//# 
+},{"utils":158}],150:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  readOnlyItem: {get: function() {
+      return readOnlyItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var $__0 = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}),
+    checkSelectionConsistency = $__0.checkSelectionConsistency,
+    markLabelAsSelected = $__0.markLabelAsSelected;
+var KEY = 'make_read_only';
+function readOnlyItem() {
+  return {
+    key: KEY,
     name: function() {
-      var $__3 = this;
+      var $__1 = this;
       var label = 'Read only';
       var atLeastOneReadOnly = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-        return $__3.getCellMeta(row, col).readOnly;
+        return $__1.getCellMeta(row, col).readOnly;
       }));
       if (atLeastOneReadOnly) {
         label = markLabelAsSelected(label);
@@ -21968,256 +24206,225 @@ var _predefinedItems = ($__4 = {}, Object.defineProperty($__4, SEPARATOR, {
       return label;
     },
     callback: function() {
-      var $__3 = this;
+      var $__1 = this;
       var range = this.getSelectedRange();
       var atLeastOneReadOnly = checkSelectionConsistency(range, (function(row, col) {
-        return $__3.getCellMeta(row, col).readOnly;
+        return $__1.getCellMeta(row, col).readOnly;
       }));
       range.forAll((function(row, col) {
-        $__3.getCellMeta(row, col).readOnly = atLeastOneReadOnly ? false : true;
+        $__1.getCellMeta(row, col).readOnly = atLeastOneReadOnly ? false : true;
       }));
       this.render();
     },
     disabled: function() {
-      return this.getSelectedRange() ? false : true;
+      return this.getSelectedRange() && !this.selection.selectedHeader.corner ? false : true;
     }
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), Object.defineProperty($__4, ALIGNMENT, {
-  value: {
-    key: ALIGNMENT,
-    name: 'Alignment',
-    disabled: function() {
-      return this.getSelectedRange() ? false : true;
-    },
-    submenu: {items: [{
-        key: (ALIGNMENT + ":left"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Left';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htLeft') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htLeft';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":center"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Center';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htCenter') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htCenter';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":right"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Right';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htRight') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htRight';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":justify"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Justify';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htJustify') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'horizontal';
-          var alignment = 'htJustify';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {name: SEPARATOR}, {
-        key: (ALIGNMENT + ":top"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Top';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htTop') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'vertical';
-          var alignment = 'htTop';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":middle"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Middle';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htMiddle') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'vertical';
-          var alignment = 'htMiddle';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }, {
-        key: (ALIGNMENT + ":bottom"),
-        name: function() {
-          var $__3 = this;
-          var label = 'Bottom';
-          var hasClass = checkSelectionConsistency(this.getSelectedRange(), (function(row, col) {
-            var className = $__3.getCellMeta(row, col).className;
-            if (className && className.indexOf('htBottom') !== -1) {
-              return true;
-            }
-          }));
-          if (hasClass) {
-            label = markLabelAsSelected(label);
-          }
-          return label;
-        },
-        callback: function() {
-          var $__3 = this;
-          var range = this.getSelectedRange();
-          var stateBefore = getAlignmentClasses(range, (function(row, col) {
-            return $__3.getCellMeta(row, col).className;
-          }));
-          var type = 'vertical';
-          var alignment = 'htBottom';
-          this.runHooks('beforeCellAlignment', stateBefore, range, type, alignment);
-          align(range, type, alignment, (function(row, col) {
-            return $__3.getCellMeta(row, col);
-          }));
-          this.render();
-        },
-        disabled: false
-      }]}
-  },
-  configurable: true,
-  enumerable: true,
-  writable: true
-}), $__4);
+  };
+}
 
 //# 
-},{"helpers/number":121,"helpers/object":122,"utils":145}],145:[function(_dereq_,module,exports){
+},{"utils":158}],151:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  redoItem: {get: function() {
+      return redoItem;
+    }},
+  __esModule: {value: true}
+});
+var KEY = 'redo';
+function redoItem() {
+  return {
+    key: KEY,
+    name: 'Redo',
+    callback: function() {
+      this.redo();
+    },
+    disabled: function() {
+      return this.undoRedo && !this.undoRedo.isRedoAvailable();
+    }
+  };
+}
+
+//# 
+},{}],152:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  removeColumnItem: {get: function() {
+      return removeColumnItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'remove_col';
+function removeColumnItem() {
+  return {
+    key: KEY,
+    name: 'Remove column',
+    callback: function(key, selection) {
+      var amount = selection.end.col - selection.start.col + 1;
+      this.alter('remove_col', selection.start.col, amount);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      var totalColumns = this.countCols();
+      return !selected || this.selection.selectedHeader.rows || this.selection.selectedHeader.corner || !this.isColumnModificationAllowed() || !totalColumns;
+    },
+    hidden: function() {
+      return !this.getSettings().allowRemoveColumn;
+    }
+  };
+}
+
+//# 
+},{"utils":158}],153:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  removeRowItem: {get: function() {
+      return removeRowItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'remove_row';
+function removeRowItem() {
+  return {
+    key: KEY,
+    name: 'Remove row',
+    callback: function(key, selection) {
+      var amount = selection.end.row - selection.start.row + 1;
+      this.alter('remove_row', selection.start.row, amount);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      var totalRows = this.countRows();
+      return !selected || this.selection.selectedHeader.cols || this.selection.selectedHeader.corner || !totalRows;
+    },
+    hidden: function() {
+      return !this.getSettings().allowRemoveRow;
+    }
+  };
+}
+
+//# 
+},{"utils":158}],154:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  rowAboveItem: {get: function() {
+      return rowAboveItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'row_above';
+function rowAboveItem() {
+  return {
+    key: KEY,
+    name: 'Insert row above',
+    callback: function(key, selection) {
+      this.alter('insert_row', selection.start.row);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      return !selected || this.selection.selectedHeader.cols || this.countRows() >= this.getSettings().maxRows;
+    },
+    hidden: function() {
+      return !this.getSettings().allowInsertRow;
+    }
+  };
+}
+
+//# 
+},{"utils":158}],155:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  rowBelowItem: {get: function() {
+      return rowBelowItem;
+    }},
+  __esModule: {value: true}
+});
+var $___46__46__47_utils__;
+var getValidSelection = ($___46__46__47_utils__ = _dereq_("utils"), $___46__46__47_utils__ && $___46__46__47_utils__.__esModule && $___46__46__47_utils__ || {default: $___46__46__47_utils__}).getValidSelection;
+var KEY = 'row_below';
+function rowBelowItem() {
+  return {
+    key: KEY,
+    name: 'Insert row below',
+    callback: function(key, selection) {
+      this.alter('insert_row', selection.end.row + 1);
+    },
+    disabled: function() {
+      var selected = getValidSelection(this);
+      return !selected || this.selection.selectedHeader.cols || this.countRows() >= this.getSettings().maxRows;
+    },
+    hidden: function() {
+      return !this.getSettings().allowInsertRow;
+    }
+  };
+}
+
+//# 
+},{"utils":158}],156:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  separatorItem: {get: function() {
+      return separatorItem;
+    }},
+  __esModule: {value: true}
+});
+var KEY = '---------';
+function separatorItem() {
+  return {name: KEY};
+}
+
+//# 
+},{}],157:[function(_dereq_,module,exports){
+"use strict";
+Object.defineProperties(exports, {
+  KEY: {get: function() {
+      return KEY;
+    }},
+  undoItem: {get: function() {
+      return undoItem;
+    }},
+  __esModule: {value: true}
+});
+var KEY = 'undo';
+function undoItem() {
+  return {
+    key: KEY,
+    name: 'Undo',
+    callback: function() {
+      this.undo();
+    },
+    disabled: function() {
+      return this.undoRedo && !this.undoRedo.isUndoAvailable();
+    }
+  };
+}
+
+//# 
+},{}],158:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   normalizeSelection: {get: function() {
@@ -22266,10 +24473,10 @@ Object.defineProperties(exports, {
 });
 var $___46__46__47__46__46__47_helpers_47_array__,
     $___46__46__47__46__46__47_helpers_47_dom_47_element__,
-    $__predefinedItems__;
+    $__predefinedItems_47_separator__;
 var arrayEach = ($___46__46__47__46__46__47_helpers_47_array__ = _dereq_("helpers/array"), $___46__46__47__46__46__47_helpers_47_array__ && $___46__46__47__46__46__47_helpers_47_array__.__esModule && $___46__46__47__46__46__47_helpers_47_array__ || {default: $___46__46__47__46__46__47_helpers_47_array__}).arrayEach;
 var hasClass = ($___46__46__47__46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47__46__46__47_helpers_47_dom_47_element__ && $___46__46__47__46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_element__}).hasClass;
-var SEPARATOR = ($__predefinedItems__ = _dereq_("predefinedItems"), $__predefinedItems__ && $__predefinedItems__.__esModule && $__predefinedItems__ || {default: $__predefinedItems__}).SEPARATOR;
+var SEPARATOR = ($__predefinedItems_47_separator__ = _dereq_("predefinedItems/separator"), $__predefinedItems_47_separator__ && $__predefinedItems_47_separator__.__esModule && $__predefinedItems_47_separator__ || {default: $__predefinedItems_47_separator__}).KEY;
 function normalizeSelection(selRange) {
   return {
     start: selRange.getTopLeftCorner(),
@@ -22408,7 +24615,7 @@ function filterSeparators(items) {
 }
 
 //# 
-},{"helpers/array":112,"helpers/dom/element":116,"predefinedItems":144}],146:[function(_dereq_,module,exports){
+},{"helpers/array":113,"helpers/dom/element":117,"predefinedItems/separator":156}],159:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ContextMenuCopyPaste: {get: function() {
@@ -22490,12 +24697,18 @@ var $ContextMenuCopyPaste = ContextMenuCopyPaste;
   onAfterContextMenuDefaultOptions: function(defaultOptions) {
     defaultOptions.items.unshift({
       key: 'copy',
-      name: 'Copy'
+      name: 'Copy',
+      disabled: function() {
+        return this.selection.selectedHeader.corner;
+      }
     }, {
       key: 'paste',
       name: 'Paste',
       callback: function() {
         this.copyPaste.triggerPaste();
+      },
+      disabled: function() {
+        return this.selection.selectedHeader.corner;
       }
     }, Handsontable.plugins.ContextMenu.SEPARATOR);
   },
@@ -22542,7 +24755,7 @@ var $ContextMenuCopyPaste = ContextMenuCopyPaste;
 registerPlugin('contextMenuCopyPaste', ContextMenuCopyPaste);
 
 //# 
-},{"_base":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"plugins":131,"zeroclipboard":"zeroclipboard"}],147:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"plugins":132,"zeroclipboard":"zeroclipboard"}],160:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   CopyPastePlugin: {get: function() {
@@ -22747,7 +24960,7 @@ Handsontable.hooks.register('modifyCopyableRange');
 ;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"SheetClip":"SheetClip","browser":93,"copyPaste":"copyPaste","helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/function":119,"helpers/number":121,"helpers/unicode":125,"plugins":131}],148:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"3rdparty/walkontable/src/cell/range":77,"SheetClip":"SheetClip","browser":94,"copyPaste":"copyPaste","helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/function":120,"helpers/number":122,"helpers/unicode":126,"plugins":132}],161:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47__46__46__47_browser__,
     $___46__46__47__46__46__47_plugins__,
@@ -22995,6 +25208,9 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
   defaultOptions.items.push({
     key: 'borders',
     name: 'Borders',
+    disabled: function() {
+      return this.selection.selectedHeader.corner;
+    },
     submenu: {items: [{
         key: 'borders:top',
         name: function() {
@@ -23008,8 +25224,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'top');
           prepareBorder.call(this, this.getSelectedRange(), 'top', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:right',
         name: function() {
@@ -23023,8 +25238,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'right');
           prepareBorder.call(this, this.getSelectedRange(), 'right', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:bottom',
         name: function() {
@@ -23038,8 +25252,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'bottom');
           prepareBorder.call(this, this.getSelectedRange(), 'bottom', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:left',
         name: function() {
@@ -23053,8 +25266,7 @@ var addBordersOptionsToContextMenu = function(defaultOptions) {
         callback: function() {
           var hasBorder = checkSelectionBorders(this, 'left');
           prepareBorder.call(this, this.getSelectedRange(), 'left', hasBorder);
-        },
-        disabled: false
+        }
       }, {
         key: 'borders:no_borders',
         name: 'Remove border(s)',
@@ -23086,7 +25298,7 @@ Handsontable.hooks.add('afterInit', function() {
 Handsontable.CustomBorders = CustomBorders;
 
 //# 
-},{"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/selection":88,"browser":93,"plugins":131}],149:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/range":77,"3rdparty/walkontable/src/selection":89,"browser":94,"plugins":132}],162:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DragToScroll: {get: function() {
@@ -23176,7 +25388,7 @@ Handsontable.hooks.add('afterOnCellCornerMouseDown', function() {
 Handsontable.plugins.DragToScroll = DragToScroll;
 
 //# 
-},{"browser":93,"eventManager":111,"plugins":131}],150:[function(_dereq_,module,exports){
+},{"browser":94,"eventManager":112,"plugins":132}],163:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualColumnFreeze: {get: function() {
@@ -23320,7 +25532,7 @@ var $ManualColumnFreeze = ManualColumnFreeze;
 registerPlugin('manualColumnFreeze', ManualColumnFreeze);
 
 //# 
-},{"_base":132,"browser":93,"plugins":131}],151:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"plugins":132}],164:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualColumnMove: {get: function() {
@@ -23348,9 +25560,7 @@ var $__3 = ($___46__46__47__46__46__47_helpers_47_array__ = _dereq_("helpers/arr
     arrayMap = $__3.arrayMap;
 var rangeEach = ($___46__46__47__46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47__46__46__47_helpers_47_number__ && $___46__46__47__46__46__47_helpers_47_number__.__esModule && $___46__46__47__46__46__47_helpers_47_number__ || {default: $___46__46__47__46__46__47_helpers_47_number__}).rangeEach;
 var eventManagerObject = ($___46__46__47__46__46__47_eventManager__ = _dereq_("eventManager"), $___46__46__47__46__46__47_eventManager__ && $___46__46__47__46__46__47_eventManager__.__esModule && $___46__46__47__46__46__47_eventManager__ || {default: $___46__46__47__46__46__47_eventManager__}).eventManager;
-var $__6 = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}),
-    pageX = $__6.pageX,
-    pageY = $__6.pageY;
+var pageX = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}).pageX;
 var registerPlugin = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}).registerPlugin;
 var privatePool = new WeakMap();
 var ManualColumnMove = function ManualColumnMove(hotInstance) {
@@ -23545,10 +25755,8 @@ var $ManualColumnMove = ManualColumnMove;
     this.columnPositions.splice(destinationIndex, 0, this.columnPositions.splice(columnIndex, 1)[0]);
   },
   getVisibleColumnIndex: function(column) {
-    if (column > this.columnPositions.length - 1) {
-      this.createPositionData(column);
-    }
-    return this.columnPositions.indexOf(column);
+    var position = this.columnPositions.indexOf(column);
+    return position === -1 ? void 0 : position;
   },
   getLogicalColumnIndex: function(column) {
     return this.columnPositions[column];
@@ -23602,15 +25810,9 @@ var $ManualColumnMove = ManualColumnMove;
     }
   },
   onModifyCol: function(col) {
-    if (typeof this.getVisibleColumnIndex(col) == -1) {
-      this.createPositionData(col + 1);
-    }
     return this.getLogicalColumnIndex(col);
   },
   onUnmodifyCol: function(col) {
-    if (typeof this.getVisibleColumnIndex(col) == -1) {
-      this.createPositionData(col + 1);
-    }
     return this.getVisibleColumnIndex(col);
   },
   onAfterRemoveCol: function(index, amount) {
@@ -23645,7 +25847,7 @@ var $ManualColumnMove = ManualColumnMove;
       addindx.push(index + i);
     }));
     if (index >= colpos.length) {
-      colpos.concat(addindx);
+      colpos = colpos.concat(addindx);
     } else {
       colpos = arrayMap(colpos, function(value, ind) {
         return (value >= index) ? (value + amount) : value;
@@ -23665,7 +25867,7 @@ Handsontable.hooks.register('afterColumnMove');
 Handsontable.hooks.register('unmodifyCol');
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],152:[function(_dereq_,module,exports){
+},{"_base.js":133,"browser":94,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/number":122,"plugins":132}],165:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualColumnResize: {get: function() {
@@ -24012,7 +26214,7 @@ var $ManualColumnResize = ManualColumnResize;
 registerPlugin('manualColumnResize', ManualColumnResize);
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],153:[function(_dereq_,module,exports){
+},{"_base.js":133,"browser":94,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/number":122,"plugins":132}],166:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualRowMove: {get: function() {
@@ -24040,9 +26242,7 @@ var $__3 = ($___46__46__47__46__46__47_helpers_47_array__ = _dereq_("helpers/arr
     arrayMap = $__3.arrayMap;
 var rangeEach = ($___46__46__47__46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47__46__46__47_helpers_47_number__ && $___46__46__47__46__46__47_helpers_47_number__.__esModule && $___46__46__47__46__46__47_helpers_47_number__ || {default: $___46__46__47__46__46__47_helpers_47_number__}).rangeEach;
 var eventManagerObject = ($___46__46__47__46__46__47_eventManager__ = _dereq_("eventManager"), $___46__46__47__46__46__47_eventManager__ && $___46__46__47__46__46__47_eventManager__.__esModule && $___46__46__47__46__46__47_eventManager__ || {default: $___46__46__47__46__46__47_eventManager__}).eventManager;
-var $__6 = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}),
-    pageX = $__6.pageX,
-    pageY = $__6.pageY;
+var pageY = ($___46__46__47__46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47__46__46__47_helpers_47_dom_47_event__ && $___46__46__47__46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47__46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47__46__46__47_helpers_47_dom_47_event__}).pageY;
 var registerPlugin = ($___46__46__47__46__46__47_plugins__ = _dereq_("plugins"), $___46__46__47__46__46__47_plugins__ && $___46__46__47__46__46__47_plugins__.__esModule && $___46__46__47__46__46__47_plugins__ || {default: $___46__46__47__46__46__47_plugins__}).registerPlugin;
 var privatePool = new WeakMap();
 var ManualRowMove = function ManualRowMove(hotInstance) {
@@ -24233,10 +26433,8 @@ var $ManualRowMove = ManualRowMove;
     this.rowPositions.splice(destinationIndex, 0, this.rowPositions.splice(rowIndex, 1)[0]);
   },
   getVisibleRowIndex: function(row) {
-    if (row > this.rowPositions.length - 1) {
-      this.createPositionData(row);
-    }
-    return this.rowPositions.indexOf(row);
+    var position = this.rowPositions.indexOf(row);
+    return position === -1 ? void 0 : position;
   },
   getLogicalRowIndex: function(row) {
     return this.rowPositions[row];
@@ -24287,9 +26485,6 @@ var $ManualRowMove = ManualRowMove;
     }
   },
   onModifyRow: function(row) {
-    if (typeof this.getVisibleRowIndex(row) === 'undefined') {
-      this.createPositionData(row + 1);
-    }
     return this.getLogicalRowIndex(row);
   },
   onAfterRemoveRow: function(index, amount) {
@@ -24323,7 +26518,7 @@ var $ManualRowMove = ManualRowMove;
       addindx.push(index + i);
     }
     if (index >= rowpos.length) {
-      rowpos.concat(addindx);
+      rowpos = rowpos.concat(addindx);
     } else {
       rowpos = arrayMap(rowpos, function(value, ind) {
         return (value >= index) ? (value + amount) : value;
@@ -24342,7 +26537,7 @@ Handsontable.hooks.register('beforeRowMove');
 Handsontable.hooks.register('afterRowMove');
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],154:[function(_dereq_,module,exports){
+},{"_base.js":133,"browser":94,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/number":122,"plugins":132}],167:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ManualRowResize: {get: function() {
@@ -24659,7 +26854,7 @@ var $ManualRowResize = ManualRowResize;
 registerPlugin('manualRowResize', ManualRowResize);
 
 //# 
-},{"_base.js":132,"browser":93,"eventManager":111,"helpers/array":112,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/number":121,"plugins":131}],155:[function(_dereq_,module,exports){
+},{"_base.js":133,"browser":94,"eventManager":112,"helpers/array":113,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/number":122,"plugins":132}],168:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MergeCells: {get: function() {
@@ -24993,7 +27188,7 @@ var addMergeActionsToContextMenu = function(defaultOptions) {
       this.render();
     },
     disabled: function() {
-      return false;
+      return this.selection.selectedHeader.corner;
     }
   });
 };
@@ -25199,7 +27394,7 @@ Handsontable.hooks.add('afterRemoveRow', onAfterRemoveRow);
 Handsontable.MergeCells = MergeCells;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/cell/range":76,"3rdparty/walkontable/src/table":90,"browser":93,"helpers/dom/event":117,"plugins":131}],156:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"3rdparty/walkontable/src/cell/range":77,"3rdparty/walkontable/src/table":91,"browser":94,"helpers/dom/event":118,"plugins":132}],169:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   MultipleSelectionHandles: {get: function() {
@@ -25490,7 +27685,7 @@ var $MultipleSelectionHandles = MultipleSelectionHandles;
 registerPlugin('multipleSelectionHandles', MultipleSelectionHandles);
 
 //# 
-},{"_base":132,"browser":93,"eventManager":111,"helpers/browser":113,"helpers/dom/element":116,"plugins":131}],157:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"eventManager":112,"helpers/browser":114,"helpers/dom/element":117,"plugins":132}],170:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataObserver: {get: function() {
@@ -25545,7 +27740,7 @@ mixin(DataObserver, localHooks);
 ;
 
 //# 
-},{"../../helpers/object":122,"../../mixins/localHooks":127,"jsonpatch":"jsonpatch","utils":159}],158:[function(_dereq_,module,exports){
+},{"../../helpers/object":123,"../../mixins/localHooks":128,"jsonpatch":"jsonpatch","utils":172}],171:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   ObserveChanges: {get: function() {
@@ -25691,7 +27886,7 @@ var $ObserveChanges = ObserveChanges;
 registerPlugin('observeChanges', ObserveChanges);
 
 //# 
-},{"_base":132,"browser":93,"dataObserver":157,"helpers/array":112,"jsonpatch":"jsonpatch","plugins":131}],159:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"dataObserver":170,"helpers/array":113,"jsonpatch":"jsonpatch","plugins":132}],172:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   cleanPatches: {get: function() {
@@ -25750,7 +27945,7 @@ function parsePath(path) {
 }
 
 //# 
-},{"../../helpers/array":112}],160:[function(_dereq_,module,exports){
+},{"../../helpers/array":113}],173:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   HandsontablePersistentState: {get: function() {
@@ -25864,7 +28059,7 @@ Handsontable.hooks.add('beforeInit', htPersistentState.init);
 Handsontable.hooks.add('afterUpdateSettings', htPersistentState.init);
 
 //# 
-},{"browser":93,"plugins":131}],161:[function(_dereq_,module,exports){
+},{"browser":94,"plugins":132}],174:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47__46__46__47_browser__,
     $___46__46__47__46__46__47_helpers_47_dom_47_element__,
@@ -25974,7 +28169,7 @@ Handsontable.hooks.add('afterInit', init);
 Handsontable.hooks.add('afterUpdateSettings', init);
 
 //# 
-},{"browser":93,"helpers/dom/element":116,"renderers":164}],162:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/dom/element":117,"renderers":177}],175:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   TouchScroll: {get: function() {
@@ -26089,7 +28284,7 @@ var $TouchScroll = TouchScroll;
 registerPlugin('touchScroll', TouchScroll);
 
 //# 
-},{"_base":132,"browser":93,"helpers/dom/element":116,"plugins":131}],163:[function(_dereq_,module,exports){
+},{"_base":133,"browser":94,"helpers/dom/element":117,"plugins":132}],176:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47__46__46__47_browser__,
     $___46__46__47__46__46__47_helpers_47_array__,
@@ -26439,7 +28634,7 @@ Handsontable.hooks.add('afterInit', init);
 Handsontable.hooks.add('afterUpdateSettings', init);
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/dom/event":117,"helpers/number":121,"helpers/object":122}],164:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/dom/event":118,"helpers/number":122,"helpers/object":123}],177:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   registerRenderer: {get: function() {
@@ -26489,7 +28684,7 @@ function hasRenderer(rendererName) {
 ;
 
 //# 
-},{"browser":93,"helpers/string":124}],165:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/string":125}],178:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   cellDecorator: {get: function() {
@@ -26530,7 +28725,7 @@ function cellDecorator(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('base', cellDecorator);
 
 //# 
-},{"helpers/dom/element":116,"renderers":164}],166:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117,"renderers":177}],179:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   autocompleteRenderer: {get: function() {
@@ -26587,7 +28782,7 @@ function autocompleteRenderer(instance, TD, row, col, prop, value, cellPropertie
 registerRenderer('autocomplete', autocompleteRenderer);
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"eventManager":111,"helpers/dom/element":116,"renderers":164}],167:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"eventManager":112,"helpers/dom/element":117,"renderers":177}],180:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   checkboxRenderer: {get: function() {
@@ -26600,6 +28795,7 @@ var $___46__46__47_helpers_47_dom_47_element__,
     $___46__46__47_eventManager__,
     $___46__46__47_renderers__,
     $___46__46__47_helpers_47_unicode__,
+    $___46__46__47_helpers_47_function__,
     $___46__46__47_helpers_47_dom_47_event__;
 var $__0 = ($___46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47_helpers_47_dom_47_element__ && $___46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47_helpers_47_dom_47_element__}),
     empty = $__0.empty,
@@ -26610,17 +28806,17 @@ var EventManager = ($___46__46__47_eventManager__ = _dereq_("eventManager"), $__
 var $__3 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
     getRenderer = $__3.getRenderer,
     registerRenderer = $__3.registerRenderer;
-var KEY_CODES = ($___46__46__47_helpers_47_unicode__ = _dereq_("helpers/unicode"), $___46__46__47_helpers_47_unicode__ && $___46__46__47_helpers_47_unicode__.__esModule && $___46__46__47_helpers_47_unicode__ || {default: $___46__46__47_helpers_47_unicode__}).KEY_CODES;
-var $__5 = ($___46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47_helpers_47_dom_47_event__ && $___46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47_helpers_47_dom_47_event__}),
-    stopPropagation = $__5.stopPropagation,
-    stopImmediatePropagation = $__5.stopImmediatePropagation,
-    isImmediatePropagationStopped = $__5.isImmediatePropagationStopped;
+var isKey = ($___46__46__47_helpers_47_unicode__ = _dereq_("helpers/unicode"), $___46__46__47_helpers_47_unicode__ && $___46__46__47_helpers_47_unicode__.__esModule && $___46__46__47_helpers_47_unicode__ || {default: $___46__46__47_helpers_47_unicode__}).isKey;
+var partial = ($___46__46__47_helpers_47_function__ = _dereq_("helpers/function"), $___46__46__47_helpers_47_function__ && $___46__46__47_helpers_47_function__.__esModule && $___46__46__47_helpers_47_function__ || {default: $___46__46__47_helpers_47_function__}).partial;
+var $__6 = ($___46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47_helpers_47_dom_47_event__ && $___46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47_helpers_47_dom_47_event__}),
+    stopImmediatePropagation = $__6.stopImmediatePropagation,
+    isImmediatePropagationStopped = $__6.isImmediatePropagationStopped;
 var isListeningKeyDownEvent = new WeakMap();
 var isCheckboxListenerAdded = new WeakMap();
 var BAD_VALUE_CLASS = 'htBadValue';
 function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties) {
   getRenderer('base').apply(this, arguments);
-  var eventManager = new EventManager(instance);
+  var eventManager = registerEvents(instance);
   var input = createInput();
   var labelOptions = cellProperties.label;
   var badValue = false;
@@ -26663,35 +28859,24 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (badValue) {
     TD.appendChild(document.createTextNode('#bad-value#'));
   }
-  if (!isCheckboxListenerAdded.has(instance)) {
-    if (cellProperties.readOnly) {
-      eventManager.addEventListener(instance.rootElement, 'click', preventDefault);
-    } else {
-      eventManager.addEventListener(instance.rootElement, 'mouseup', (function(event) {
-        return onMouseUp(event, instance);
-      }));
-      eventManager.addEventListener(instance.rootElement, 'change', (function(event) {
-        return onChange(event, instance);
-      }));
-    }
-    isCheckboxListenerAdded.set(instance, true);
-  }
   if (!isListeningKeyDownEvent.has(instance)) {
     isListeningKeyDownEvent.set(instance, true);
     instance.addHook('beforeKeyDown', onBeforeKeyDown);
   }
   function onBeforeKeyDown(event) {
-    var allowedKeys = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
-    if (allowedKeys.indexOf(event.keyCode) !== -1 && !isImmediatePropagationStopped(event)) {
+    var toggleKeys = 'SPACE|ENTER';
+    var switchOffKeys = 'DELETE|BACKSPACE';
+    var isKeyCode = partial(isKey, event.keyCode);
+    if (isKeyCode((toggleKeys + "|" + switchOffKeys)) && !isImmediatePropagationStopped(event)) {
       eachSelectedCheckboxCell(function() {
         stopImmediatePropagation(event);
         event.preventDefault();
       });
     }
-    if (event.keyCode === KEY_CODES.SPACE || event.keyCode === KEY_CODES.ENTER) {
+    if (isKeyCode(toggleKeys)) {
       toggleSelected();
     }
-    if (event.keyCode === KEY_CODES.DELETE || event.keyCode === KEY_CODES.BACKSPACE) {
+    if (isKeyCode(switchOffKeys)) {
       toggleSelected(false);
     }
   }
@@ -26726,14 +28911,31 @@ function checkboxRenderer(instance, TD, row, col, prop, value, cellProperties) {
     for (var row = topLeft.row; row <= bottomRight.row; row++) {
       for (var col = topLeft.col; col <= bottomRight.col; col++) {
         var cell = instance.getCell(row, col);
-        var cellProperties$__6 = instance.getCellMeta(row, col);
+        var cellProperties$__7 = instance.getCellMeta(row, col);
         var checkboxes = cell.querySelectorAll('input[type=checkbox]');
-        if (checkboxes.length > 0 && !cellProperties$__6.readOnly) {
+        if (checkboxes.length > 0 && !cellProperties$__7.readOnly) {
           callback(checkboxes);
         }
       }
     }
   }
+}
+function registerEvents(instance) {
+  var eventManager = isCheckboxListenerAdded.get(instance);
+  if (!eventManager) {
+    eventManager = new EventManager(instance);
+    eventManager.addEventListener(instance.rootElement, 'click', (function(event) {
+      return onClick(event, instance);
+    }));
+    eventManager.addEventListener(instance.rootElement, 'mouseup', (function(event) {
+      return onMouseUp(event, instance);
+    }));
+    eventManager.addEventListener(instance.rootElement, 'change', (function(event) {
+      return onChange(event, instance);
+    }));
+    isCheckboxListenerAdded.set(instance, eventManager);
+  }
+  return eventManager;
 }
 function createInput() {
   var input = document.createElement('input');
@@ -26749,14 +28951,21 @@ function createLabel(text) {
   label.appendChild(document.createTextNode(text));
   return label.cloneNode(true);
 }
-function preventDefault(event) {
-  if (isCheckboxInput(event.target)) {
-    event.preventDefault();
-  }
-}
 function onMouseUp(event, instance) {
-  if (isCheckboxInput(event.target)) {
-    setTimeout(instance.listen, 10);
+  if (!isCheckboxInput(event.target)) {
+    return;
+  }
+  setTimeout(instance.listen, 10);
+}
+function onClick(event, instance) {
+  if (!isCheckboxInput(event.target)) {
+    return false;
+  }
+  var row = parseInt(event.target.getAttribute('data-row'), 10);
+  var col = parseInt(event.target.getAttribute('data-col'), 10);
+  var cellProperties = instance.getCellMeta(row, col);
+  if (cellProperties.readOnly) {
+    event.preventDefault();
   }
 }
 function onChange(event, instance) {
@@ -26766,7 +28975,9 @@ function onChange(event, instance) {
   var row = parseInt(event.target.getAttribute('data-row'), 10);
   var col = parseInt(event.target.getAttribute('data-col'), 10);
   var cellProperties = instance.getCellMeta(row, col);
-  instance.setDataAtCell(row, col, event.target.checked ? (cellProperties.checkedTemplate || true) : (cellProperties.uncheckedTemplate || false));
+  if (!cellProperties.readOnly) {
+    instance.setDataAtCell(row, col, event.target.checked ? (cellProperties.checkedTemplate || true) : (cellProperties.uncheckedTemplate || false));
+  }
 }
 function isCheckboxInput(element) {
   return element.tagName === 'INPUT' && element.getAttribute('type') === 'checkbox';
@@ -26775,7 +28986,7 @@ function isCheckboxInput(element) {
 registerRenderer('checkbox', checkboxRenderer);
 
 //# 
-},{"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117,"helpers/string":124,"helpers/unicode":125,"renderers":164}],168:[function(_dereq_,module,exports){
+},{"eventManager":112,"helpers/dom/element":117,"helpers/dom/event":118,"helpers/function":120,"helpers/string":125,"helpers/unicode":126,"renderers":177}],181:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   htmlRenderer: {get: function() {
@@ -26800,7 +29011,7 @@ function htmlRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('html', htmlRenderer);
 
 //# 
-},{"helpers/dom/element":116,"renderers":164}],169:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117,"renderers":177}],182:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   numericRenderer: {get: function() {
@@ -26808,10 +29019,10 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__numeral__,
+var $__numbro__,
     $___46__46__47_renderers__,
     $___46__46__47_helpers_47_number__;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var $__1 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
     getRenderer = $__1.getRenderer,
     registerRenderer = $__1.registerRenderer;
@@ -26819,9 +29030,9 @@ var isNumeric = ($___46__46__47_helpers_47_number__ = _dereq_("helpers/number"),
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
     if (typeof cellProperties.language !== 'undefined') {
-      numeral.language(cellProperties.language);
+      numbro.culture(cellProperties.language);
     }
-    value = numeral(value).format(cellProperties.format || '0');
+    value = numbro(value).format(cellProperties.format || '0');
     var className = cellProperties.className || '';
     var classArr = className.length ? className.split(' ') : [];
     if (classArr.indexOf('htLeft') < 0 && classArr.indexOf('htCenter') < 0 && classArr.indexOf('htRight') < 0 && classArr.indexOf('htJustify') < 0) {
@@ -26838,7 +29049,7 @@ function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('numeric', numericRenderer);
 
 //# 
-},{"helpers/number":121,"numeral":"numeral","renderers":164}],170:[function(_dereq_,module,exports){
+},{"helpers/number":122,"numbro":"numbro","renderers":177}],183:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   passwordRenderer: {get: function() {
@@ -26865,7 +29076,7 @@ function passwordRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('password', passwordRenderer);
 
 //# 
-},{"helpers/dom/element":116,"renderers":164}],171:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117,"renderers":177}],184:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   textRenderer: {get: function() {
@@ -26908,7 +29119,7 @@ function textRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('text', textRenderer);
 
 //# 
-},{"helpers/dom/element":116,"helpers/mixed":120,"renderers":164}],172:[function(_dereq_,module,exports){
+},{"helpers/dom/element":117,"helpers/mixed":121,"renderers":177}],185:[function(_dereq_,module,exports){
 // jscs:disable
 /* jshint ignore:start */
 (function(global) {
@@ -27263,7 +29474,7 @@ registerRenderer('text', textRenderer);
 })();
 /* jshint ignore:end */
 
-},{}],173:[function(_dereq_,module,exports){
+},{}],186:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   TableView: {get: function() {
@@ -27292,7 +29503,9 @@ var $__1 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__
 var eventManagerObject = ($__eventManager__ = _dereq_("eventManager"), $__eventManager__ && $__eventManager__.__esModule && $__eventManager__ || {default: $__eventManager__}).eventManager;
 var $__3 = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__}),
     stopPropagation = $__3.stopPropagation,
-    isImmediatePropagationStopped = $__3.isImmediatePropagationStopped;
+    isImmediatePropagationStopped = $__3.isImmediatePropagationStopped,
+    isRightClick = $__3.isRightClick,
+    isLeftClick = $__3.isLeftClick;
 var WalkontableCellCoords = ($__3rdparty_47_walkontable_47_src_47_cell_47_coords__ = _dereq_("3rdparty/walkontable/src/cell/coords"), $__3rdparty_47_walkontable_47_src_47_cell_47_coords__ && $__3rdparty_47_walkontable_47_src_47_cell_47_coords__.__esModule && $__3rdparty_47_walkontable_47_src_47_cell_47_coords__ || {default: $__3rdparty_47_walkontable_47_src_47_cell_47_coords__}).WalkontableCellCoords;
 var WalkontableSelection = ($__3rdparty_47_walkontable_47_src_47_selection__ = _dereq_("3rdparty/walkontable/src/selection"), $__3rdparty_47_walkontable_47_src_47_selection__ && $__3rdparty_47_walkontable_47_src_47_selection__.__esModule && $__3rdparty_47_walkontable_47_src_47_selection__ || {default: $__3rdparty_47_walkontable_47_src_47_selection__}).WalkontableSelection;
 var Walkontable = ($__3rdparty_47_walkontable_47_src_47_core__ = _dereq_("3rdparty/walkontable/src/core"), $__3rdparty_47_walkontable_47_src_47_core__ && $__3rdparty_47_walkontable_47_src_47_core__.__esModule && $__3rdparty_47_walkontable_47_src_47_core__ || {default: $__3rdparty_47_walkontable_47_src_47_core__}).Walkontable;
@@ -27561,19 +29774,25 @@ function TableView(instance) {
             doNewSelection = coordsNotInSelection;
           }
         }
-        if (event.button === 0 || (event.button === 2 && doNewSelection)) {
-          if (coords.row < 0 && coords.col >= 0) {
-            selection.setSelectedHeaders(false, true);
+        var rightClick = isRightClick(event);
+        var leftClick = isLeftClick(event);
+        if (coords.row < 0 && coords.col >= 0) {
+          selection.setSelectedHeaders(false, true);
+          if (leftClick || (rightClick && doNewSelection)) {
             selection.setRangeStartOnly(new WalkontableCellCoords(0, coords.col));
-            selection.setRangeEnd(new WalkontableCellCoords(instance.countRows() - 1, coords.col), false);
-          } else if (coords.col < 0 && coords.row >= 0) {
-            selection.setSelectedHeaders(true, false);
+            selection.setRangeEnd(new WalkontableCellCoords(Math.max(instance.countRows() - 1, 0), coords.col), false);
+          }
+        } else if (coords.col < 0 && coords.row >= 0) {
+          selection.setSelectedHeaders(true, false);
+          if (leftClick || (rightClick && doNewSelection)) {
             selection.setRangeStartOnly(new WalkontableCellCoords(coords.row, 0));
-            selection.setRangeEnd(new WalkontableCellCoords(coords.row, instance.countCols() - 1), false);
-          } else {
-            coords.row = coords.row < 0 ? 0 : coords.row;
-            coords.col = coords.col < 0 ? 0 : coords.col;
-            selection.setSelectedHeaders(false, false);
+            selection.setRangeEnd(new WalkontableCellCoords(coords.row, Math.max(instance.countCols() - 1, 0)), false);
+          }
+        } else {
+          selection.setSelectedHeaders(false, false, coords.col < 0 && coords.row < 0);
+          coords.row = coords.row < 0 ? 0 : coords.row;
+          coords.col = coords.col < 0 ? 0 : coords.col;
+          if (leftClick || (rightClick && doNewSelection)) {
             selection.setRangeStart(coords);
           }
         }
@@ -27588,6 +29807,9 @@ function TableView(instance) {
       };
       that.activeWt = wt;
       Handsontable.hooks.run(instance, 'beforeOnCellMouseOver', event, coords, TD, blockCalculations);
+      if (isImmediatePropagationStopped(event)) {
+        return;
+      }
       if (event.button === 0) {
         if (coords.row >= 0 && coords.col >= 0) {
           if (isMouseDown) {
@@ -27845,7 +30067,7 @@ TableView.prototype.destroy = function() {
 ;
 
 //# 
-},{"3rdparty/walkontable/src/cell/coords":75,"3rdparty/walkontable/src/core":77,"3rdparty/walkontable/src/selection":88,"browser":93,"eventManager":111,"helpers/dom/element":116,"helpers/dom/event":117}],174:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/cell/coords":76,"3rdparty/walkontable/src/core":78,"3rdparty/walkontable/src/selection":89,"browser":94,"eventManager":112,"helpers/dom/element":117,"helpers/dom/event":118}],187:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   GhostTable: {get: function() {
@@ -28126,7 +30348,7 @@ var GhostTable = function GhostTable(hotInstance) {
 Handsontable.utils.GhostTable = GhostTable;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],175:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/dom/element":117,"helpers/mixed":121,"helpers/number":122,"helpers/object":123}],188:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   Interval: {get: function() {
@@ -28203,7 +30425,7 @@ function parseDelay(delay) {
 Handsontable.utils.Interval = Interval;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/feature":118,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],176:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/feature":119,"helpers/mixed":121,"helpers/number":122,"helpers/object":123}],189:[function(_dereq_,module,exports){
 "use strict";
 var $__8;
 Object.defineProperties(exports, {
@@ -28340,7 +30562,7 @@ var $SamplesGenerator = SamplesGenerator;
 Handsontable.utils.SamplesGenerator = SamplesGenerator;
 
 //# 
-},{"browser":93,"helpers/array":112,"helpers/dom/element":116,"helpers/mixed":120,"helpers/number":121,"helpers/object":122}],177:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/array":113,"helpers/dom/element":117,"helpers/mixed":121,"helpers/number":122,"helpers/object":123}],190:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__,
     $___46__46__47_helpers_47_mixed__;
@@ -28384,7 +30606,7 @@ function process(value, callback) {
 }
 
 //# 
-},{"browser":93,"helpers/mixed":120}],178:[function(_dereq_,module,exports){
+},{"browser":94,"helpers/mixed":121}],191:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__,
     $__moment__,
@@ -28438,7 +30660,7 @@ var correctFormat = function correctFormat(value, dateFormat) {
 };
 
 //# 
-},{"../helpers/date":115,"browser":93,"editors":99,"moment":"moment"}],179:[function(_dereq_,module,exports){
+},{"../helpers/date":116,"browser":94,"editors":100,"moment":"moment"}],192:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
@@ -28456,7 +30678,7 @@ Handsontable.NumericValidator = function(value, callback) {
 };
 
 //# 
-},{"browser":93}],180:[function(_dereq_,module,exports){
+},{"browser":94}],193:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__,
     $__moment__;
@@ -28500,7 +30722,7 @@ Handsontable.TimeValidator = function(value, callback) {
 };
 
 //# 
-},{"browser":93,"moment":"moment"}],"SheetClip":[function(_dereq_,module,exports){
+},{"browser":94,"moment":"moment"}],"SheetClip":[function(_dereq_,module,exports){
 /**
  * SheetClip - Spreadsheet Clipboard Parser
  * version 0.2
@@ -30007,7 +32229,7 @@ if (typeof exports !== "undefined") {
 
 },{}],"moment":[function(_dereq_,module,exports){
 //! moment.js
-//! version : 2.12.0
+//! version : 2.13.0
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -30084,7 +32306,9 @@ if (typeof exports !== "undefined") {
             invalidMonth    : null,
             invalidFormat   : false,
             userInvalidated : false,
-            iso             : false
+            iso             : false,
+            parsedDateParts : [],
+            meridiem        : null
         };
     }
 
@@ -30095,9 +32319,30 @@ if (typeof exports !== "undefined") {
         return m._pf;
     }
 
+    var some;
+    if (Array.prototype.some) {
+        some = Array.prototype.some;
+    } else {
+        some = function (fun) {
+            var t = Object(this);
+            var len = t.length >>> 0;
+
+            for (var i = 0; i < len; i++) {
+                if (i in t && fun.call(this, t[i], i, t)) {
+                    return true;
+                }
+            }
+
+            return false;
+        };
+    }
+
     function valid__isValid(m) {
         if (m._isValid == null) {
             var flags = getParsingFlags(m);
+            var parsedParts = some.call(flags.parsedDateParts, function (i) {
+                return i != null;
+            });
             m._isValid = !isNaN(m._d.getTime()) &&
                 flags.overflow < 0 &&
                 !flags.empty &&
@@ -30105,7 +32350,8 @@ if (typeof exports !== "undefined") {
                 !flags.invalidWeekday &&
                 !flags.nullInput &&
                 !flags.invalidFormat &&
-                !flags.userInvalidated;
+                !flags.userInvalidated &&
+                (!flags.meridiem || (flags.meridiem && parsedParts));
 
             if (m._strict) {
                 m._isValid = m._isValid &&
@@ -30248,6 +32494,9 @@ if (typeof exports !== "undefined") {
         var firstTime = true;
 
         return extend(function () {
+            if (utils_hooks__hooks.deprecationHandler != null) {
+                utils_hooks__hooks.deprecationHandler(null, msg);
+            }
             if (firstTime) {
                 warn(msg + '\nArguments: ' + Array.prototype.slice.call(arguments).join(', ') + '\n' + (new Error()).stack);
                 firstTime = false;
@@ -30259,6 +32508,9 @@ if (typeof exports !== "undefined") {
     var deprecations = {};
 
     function deprecateSimple(name, msg) {
+        if (utils_hooks__hooks.deprecationHandler != null) {
+            utils_hooks__hooks.deprecationHandler(name, msg);
+        }
         if (!deprecations[name]) {
             warn(msg);
             deprecations[name] = true;
@@ -30266,6 +32518,7 @@ if (typeof exports !== "undefined") {
     }
 
     utils_hooks__hooks.suppressDeprecationWarnings = false;
+    utils_hooks__hooks.deprecationHandler = null;
 
     function isFunction(input) {
         return input instanceof Function || Object.prototype.toString.call(input) === '[object Function]';
@@ -30313,6 +32566,22 @@ if (typeof exports !== "undefined") {
         if (config != null) {
             this.set(config);
         }
+    }
+
+    var keys;
+
+    if (Object.keys) {
+        keys = Object.keys;
+    } else {
+        keys = function (obj) {
+            var i, res = [];
+            for (i in obj) {
+                if (hasOwnProp(obj, i)) {
+                    res.push(i);
+                }
+            }
+            return res;
+        };
     }
 
     // internal storage for locale config files
@@ -30469,7 +32738,7 @@ if (typeof exports !== "undefined") {
     }
 
     function locale_locales__listLocales() {
-        return Object.keys(locales);
+        return keys(locales);
     }
 
     var aliases = {};
@@ -30548,7 +32817,7 @@ if (typeof exports !== "undefined") {
             Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
     }
 
-    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
+    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
 
     var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
 
@@ -30601,7 +32870,7 @@ if (typeof exports !== "undefined") {
         }
 
         return function (mom) {
-            var output = '';
+            var output = '', i;
             for (i = 0; i < length; i++) {
                 output += array[i] instanceof Function ? array[i].call(mom, format) : array[i];
             }
@@ -30730,6 +32999,23 @@ if (typeof exports !== "undefined") {
     var WEEK = 7;
     var WEEKDAY = 8;
 
+    var indexOf;
+
+    if (Array.prototype.indexOf) {
+        indexOf = Array.prototype.indexOf;
+    } else {
+        indexOf = function (o) {
+            // I know
+            var i;
+            for (i = 0; i < this.length; ++i) {
+                if (this[i] === o) {
+                    return i;
+                }
+            }
+            return -1;
+        };
+    }
+
     function daysInMonth(year, month) {
         return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
     }
@@ -30792,8 +33078,53 @@ if (typeof exports !== "undefined") {
             this._monthsShort[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
     }
 
+    function units_month__handleStrictParse(monthName, format, strict) {
+        var i, ii, mom, llc = monthName.toLocaleLowerCase();
+        if (!this._monthsParse) {
+            // this is not used
+            this._monthsParse = [];
+            this._longMonthsParse = [];
+            this._shortMonthsParse = [];
+            for (i = 0; i < 12; ++i) {
+                mom = create_utc__createUTC([2000, i]);
+                this._shortMonthsParse[i] = this.monthsShort(mom, '').toLocaleLowerCase();
+                this._longMonthsParse[i] = this.months(mom, '').toLocaleLowerCase();
+            }
+        }
+
+        if (strict) {
+            if (format === 'MMM') {
+                ii = indexOf.call(this._shortMonthsParse, llc);
+                return ii !== -1 ? ii : null;
+            } else {
+                ii = indexOf.call(this._longMonthsParse, llc);
+                return ii !== -1 ? ii : null;
+            }
+        } else {
+            if (format === 'MMM') {
+                ii = indexOf.call(this._shortMonthsParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._longMonthsParse, llc);
+                return ii !== -1 ? ii : null;
+            } else {
+                ii = indexOf.call(this._longMonthsParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._shortMonthsParse, llc);
+                return ii !== -1 ? ii : null;
+            }
+        }
+    }
+
     function localeMonthsParse (monthName, format, strict) {
         var i, mom, regex;
+
+        if (this._monthsParseExact) {
+            return units_month__handleStrictParse.call(this, monthName, format, strict);
+        }
 
         if (!this._monthsParse) {
             this._monthsParse = [];
@@ -30801,6 +33132,9 @@ if (typeof exports !== "undefined") {
             this._shortMonthsParse = [];
         }
 
+        // TODO: add sorting
+        // Sorting makes sure if one month (or abbr) is a prefix of another
+        // see sorting in computeMonthsParse
         for (i = 0; i < 12; i++) {
             // make the regex if we don't have it already
             mom = create_utc__createUTC([2000, i]);
@@ -30926,8 +33260,8 @@ if (typeof exports !== "undefined") {
 
         this._monthsRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
         this._monthsShortRegex = this._monthsRegex;
-        this._monthsStrictRegex = new RegExp('^(' + longPieces.join('|') + ')$', 'i');
-        this._monthsShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')$', 'i');
+        this._monthsStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
+        this._monthsShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
     }
 
     function checkOverflow (m) {
@@ -31154,7 +33488,7 @@ if (typeof exports !== "undefined") {
 
     // MOMENTS
 
-    var getSetYear = makeGetSet('FullYear', false);
+    var getSetYear = makeGetSet('FullYear', true);
 
     function getIsLeapYear () {
         return isLeapYear(this.year());
@@ -31423,6 +33757,9 @@ if (typeof exports !== "undefined") {
                 config._a[HOUR] > 0) {
             getParsingFlags(config).bigHour = undefined;
         }
+
+        getParsingFlags(config).parsedDateParts = config._a.slice(0);
+        getParsingFlags(config).meridiem = config._meridiem;
         // handle meridiem
         config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR], config._meridiem);
 
@@ -31563,7 +33900,7 @@ if (typeof exports !== "undefined") {
         if (input === undefined) {
             config._d = new Date(utils_hooks__hooks.now());
         } else if (isDate(input)) {
-            config._d = new Date(+input);
+            config._d = new Date(input.valueOf());
         } else if (typeof input === 'string') {
             configFromString(config);
         } else if (isArray(input)) {
@@ -31683,7 +34020,7 @@ if (typeof exports !== "undefined") {
         this._milliseconds = +milliseconds +
             seconds * 1e3 + // 1000
             minutes * 6e4 + // 1000 * 60
-            hours * 36e5; // 1000 * 60 * 60
+            hours * 1000 * 60 * 60; //using 1000 * 60 * 60 instead of 36e5 to avoid floating point rounding errors https://github.com/moment/moment/issues/2978
         // Because of dateAddRemove treats 24 hours as different from a
         // day when working around DST, we need to store them separately
         this._days = +days +
@@ -31753,9 +34090,9 @@ if (typeof exports !== "undefined") {
         var res, diff;
         if (model._isUTC) {
             res = model.clone();
-            diff = (isMoment(input) || isDate(input) ? +input : +local__createLocal(input)) - (+res);
+            diff = (isMoment(input) || isDate(input) ? input.valueOf() : local__createLocal(input).valueOf()) - res.valueOf();
             // Use low-level api, because this fn is low-level api.
-            res._d.setTime(+res._d + diff);
+            res._d.setTime(res._d.valueOf() + diff);
             utils_hooks__hooks.updateOffset(res, false);
             return res;
         } else {
@@ -31916,7 +34253,7 @@ if (typeof exports !== "undefined") {
     // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
     // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
     // and further modified to allow for strings containing both week and day
-    var isoRegex = /^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$/;
+    var isoRegex = /^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;
 
     function create__createDuration (input, key) {
         var duration = input,
@@ -32060,7 +34397,7 @@ if (typeof exports !== "undefined") {
         updateOffset = updateOffset == null ? true : updateOffset;
 
         if (milliseconds) {
-            mom._d.setTime(+mom._d + milliseconds * isAdding);
+            mom._d.setTime(mom._d.valueOf() + milliseconds * isAdding);
         }
         if (days) {
             get_set__set(mom, 'Date', get_set__get(mom, 'Date') + days * isAdding);
@@ -32105,9 +34442,9 @@ if (typeof exports !== "undefined") {
         }
         units = normalizeUnits(!isUndefined(units) ? units : 'millisecond');
         if (units === 'millisecond') {
-            return +this > +localInput;
+            return this.valueOf() > localInput.valueOf();
         } else {
-            return +localInput < +this.clone().startOf(units);
+            return localInput.valueOf() < this.clone().startOf(units).valueOf();
         }
     }
 
@@ -32118,14 +34455,16 @@ if (typeof exports !== "undefined") {
         }
         units = normalizeUnits(!isUndefined(units) ? units : 'millisecond');
         if (units === 'millisecond') {
-            return +this < +localInput;
+            return this.valueOf() < localInput.valueOf();
         } else {
-            return +this.clone().endOf(units) < +localInput;
+            return this.clone().endOf(units).valueOf() < localInput.valueOf();
         }
     }
 
-    function isBetween (from, to, units) {
-        return this.isAfter(from, units) && this.isBefore(to, units);
+    function isBetween (from, to, units, inclusivity) {
+        inclusivity = inclusivity || '()';
+        return (inclusivity[0] === '(' ? this.isAfter(from, units) : !this.isBefore(from, units)) &&
+            (inclusivity[1] === ')' ? this.isBefore(to, units) : !this.isAfter(to, units));
     }
 
     function isSame (input, units) {
@@ -32136,10 +34475,10 @@ if (typeof exports !== "undefined") {
         }
         units = normalizeUnits(units || 'millisecond');
         if (units === 'millisecond') {
-            return +this === +localInput;
+            return this.valueOf() === localInput.valueOf();
         } else {
-            inputMs = +localInput;
-            return +(this.clone().startOf(units)) <= inputMs && inputMs <= +(this.clone().endOf(units));
+            inputMs = localInput.valueOf();
+            return this.clone().startOf(units).valueOf() <= inputMs && inputMs <= this.clone().endOf(units).valueOf();
         }
     }
 
@@ -32206,10 +34545,12 @@ if (typeof exports !== "undefined") {
             adjust = (b - anchor) / (anchor2 - anchor);
         }
 
-        return -(wholeMonthDiff + adjust);
+        //check for negative zero, return zero if negative zero
+        return -(wholeMonthDiff + adjust) || 0;
     }
 
     utils_hooks__hooks.defaultFormat = 'YYYY-MM-DDTHH:mm:ssZ';
+    utils_hooks__hooks.defaultFormatUtc = 'YYYY-MM-DDTHH:mm:ss[Z]';
 
     function toString () {
         return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
@@ -32230,7 +34571,10 @@ if (typeof exports !== "undefined") {
     }
 
     function format (inputString) {
-        var output = formatMoment(this, inputString || utils_hooks__hooks.defaultFormat);
+        if (!inputString) {
+            inputString = this.isUtc() ? utils_hooks__hooks.defaultFormatUtc : utils_hooks__hooks.defaultFormat;
+        }
+        var output = formatMoment(this, inputString);
         return this.localeData().postformat(output);
     }
 
@@ -32309,6 +34653,7 @@ if (typeof exports !== "undefined") {
         case 'week':
         case 'isoWeek':
         case 'day':
+        case 'date':
             this.hours(0);
             /* falls through */
         case 'hour':
@@ -32342,19 +34687,25 @@ if (typeof exports !== "undefined") {
         if (units === undefined || units === 'millisecond') {
             return this;
         }
+
+        // 'date' is an alias for 'day', so it should be considered as such.
+        if (units === 'date') {
+            units = 'day';
+        }
+
         return this.startOf(units).add(1, (units === 'isoWeek' ? 'week' : units)).subtract(1, 'ms');
     }
 
     function to_type__valueOf () {
-        return +this._d - ((this._offset || 0) * 60000);
+        return this._d.valueOf() - ((this._offset || 0) * 60000);
     }
 
     function unix () {
-        return Math.floor(+this / 1000);
+        return Math.floor(this.valueOf() / 1000);
     }
 
     function toDate () {
-        return this._offset ? new Date(+this) : this._d;
+        return this._offset ? new Date(this.valueOf()) : this._d;
     }
 
     function toArray () {
@@ -32623,9 +34974,15 @@ if (typeof exports !== "undefined") {
     addRegexToken('d',    match1to2);
     addRegexToken('e',    match1to2);
     addRegexToken('E',    match1to2);
-    addRegexToken('dd',   matchWord);
-    addRegexToken('ddd',  matchWord);
-    addRegexToken('dddd', matchWord);
+    addRegexToken('dd',   function (isStrict, locale) {
+        return locale.weekdaysMinRegex(isStrict);
+    });
+    addRegexToken('ddd',   function (isStrict, locale) {
+        return locale.weekdaysShortRegex(isStrict);
+    });
+    addRegexToken('dddd',   function (isStrict, locale) {
+        return locale.weekdaysRegex(isStrict);
+    });
 
     addWeekParseToken(['dd', 'ddd', 'dddd'], function (input, week, config, token) {
         var weekday = config._locale.weekdaysParse(input, token, config._strict);
@@ -32678,8 +35035,76 @@ if (typeof exports !== "undefined") {
         return this._weekdaysMin[m.day()];
     }
 
+    function day_of_week__handleStrictParse(weekdayName, format, strict) {
+        var i, ii, mom, llc = weekdayName.toLocaleLowerCase();
+        if (!this._weekdaysParse) {
+            this._weekdaysParse = [];
+            this._shortWeekdaysParse = [];
+            this._minWeekdaysParse = [];
+
+            for (i = 0; i < 7; ++i) {
+                mom = create_utc__createUTC([2000, 1]).day(i);
+                this._minWeekdaysParse[i] = this.weekdaysMin(mom, '').toLocaleLowerCase();
+                this._shortWeekdaysParse[i] = this.weekdaysShort(mom, '').toLocaleLowerCase();
+                this._weekdaysParse[i] = this.weekdays(mom, '').toLocaleLowerCase();
+            }
+        }
+
+        if (strict) {
+            if (format === 'dddd') {
+                ii = indexOf.call(this._weekdaysParse, llc);
+                return ii !== -1 ? ii : null;
+            } else if (format === 'ddd') {
+                ii = indexOf.call(this._shortWeekdaysParse, llc);
+                return ii !== -1 ? ii : null;
+            } else {
+                ii = indexOf.call(this._minWeekdaysParse, llc);
+                return ii !== -1 ? ii : null;
+            }
+        } else {
+            if (format === 'dddd') {
+                ii = indexOf.call(this._weekdaysParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._shortWeekdaysParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._minWeekdaysParse, llc);
+                return ii !== -1 ? ii : null;
+            } else if (format === 'ddd') {
+                ii = indexOf.call(this._shortWeekdaysParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._weekdaysParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._minWeekdaysParse, llc);
+                return ii !== -1 ? ii : null;
+            } else {
+                ii = indexOf.call(this._minWeekdaysParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._weekdaysParse, llc);
+                if (ii !== -1) {
+                    return ii;
+                }
+                ii = indexOf.call(this._shortWeekdaysParse, llc);
+                return ii !== -1 ? ii : null;
+            }
+        }
+    }
+
     function localeWeekdaysParse (weekdayName, format, strict) {
         var i, mom, regex;
+
+        if (this._weekdaysParseExact) {
+            return day_of_week__handleStrictParse.call(this, weekdayName, format, strict);
+        }
 
         if (!this._weekdaysParse) {
             this._weekdaysParse = [];
@@ -32691,7 +35116,7 @@ if (typeof exports !== "undefined") {
         for (i = 0; i < 7; i++) {
             // make the regex if we don't have it already
 
-            mom = local__createLocal([2000, 1]).day(i);
+            mom = create_utc__createUTC([2000, 1]).day(i);
             if (strict && !this._fullWeekdaysParse[i]) {
                 this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
                 this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
@@ -32747,6 +35172,99 @@ if (typeof exports !== "undefined") {
         return input == null ? this.day() || 7 : this.day(this.day() % 7 ? input : input - 7);
     }
 
+    var defaultWeekdaysRegex = matchWord;
+    function weekdaysRegex (isStrict) {
+        if (this._weekdaysParseExact) {
+            if (!hasOwnProp(this, '_weekdaysRegex')) {
+                computeWeekdaysParse.call(this);
+            }
+            if (isStrict) {
+                return this._weekdaysStrictRegex;
+            } else {
+                return this._weekdaysRegex;
+            }
+        } else {
+            return this._weekdaysStrictRegex && isStrict ?
+                this._weekdaysStrictRegex : this._weekdaysRegex;
+        }
+    }
+
+    var defaultWeekdaysShortRegex = matchWord;
+    function weekdaysShortRegex (isStrict) {
+        if (this._weekdaysParseExact) {
+            if (!hasOwnProp(this, '_weekdaysRegex')) {
+                computeWeekdaysParse.call(this);
+            }
+            if (isStrict) {
+                return this._weekdaysShortStrictRegex;
+            } else {
+                return this._weekdaysShortRegex;
+            }
+        } else {
+            return this._weekdaysShortStrictRegex && isStrict ?
+                this._weekdaysShortStrictRegex : this._weekdaysShortRegex;
+        }
+    }
+
+    var defaultWeekdaysMinRegex = matchWord;
+    function weekdaysMinRegex (isStrict) {
+        if (this._weekdaysParseExact) {
+            if (!hasOwnProp(this, '_weekdaysRegex')) {
+                computeWeekdaysParse.call(this);
+            }
+            if (isStrict) {
+                return this._weekdaysMinStrictRegex;
+            } else {
+                return this._weekdaysMinRegex;
+            }
+        } else {
+            return this._weekdaysMinStrictRegex && isStrict ?
+                this._weekdaysMinStrictRegex : this._weekdaysMinRegex;
+        }
+    }
+
+
+    function computeWeekdaysParse () {
+        function cmpLenRev(a, b) {
+            return b.length - a.length;
+        }
+
+        var minPieces = [], shortPieces = [], longPieces = [], mixedPieces = [],
+            i, mom, minp, shortp, longp;
+        for (i = 0; i < 7; i++) {
+            // make the regex if we don't have it already
+            mom = create_utc__createUTC([2000, 1]).day(i);
+            minp = this.weekdaysMin(mom, '');
+            shortp = this.weekdaysShort(mom, '');
+            longp = this.weekdays(mom, '');
+            minPieces.push(minp);
+            shortPieces.push(shortp);
+            longPieces.push(longp);
+            mixedPieces.push(minp);
+            mixedPieces.push(shortp);
+            mixedPieces.push(longp);
+        }
+        // Sorting makes sure if one weekday (or abbr) is a prefix of another it
+        // will match the longer piece.
+        minPieces.sort(cmpLenRev);
+        shortPieces.sort(cmpLenRev);
+        longPieces.sort(cmpLenRev);
+        mixedPieces.sort(cmpLenRev);
+        for (i = 0; i < 7; i++) {
+            shortPieces[i] = regexEscape(shortPieces[i]);
+            longPieces[i] = regexEscape(longPieces[i]);
+            mixedPieces[i] = regexEscape(mixedPieces[i]);
+        }
+
+        this._weekdaysRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
+        this._weekdaysShortRegex = this._weekdaysRegex;
+        this._weekdaysMinRegex = this._weekdaysRegex;
+
+        this._weekdaysStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
+        this._weekdaysShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
+        this._weekdaysMinStrictRegex = new RegExp('^(' + minPieces.join('|') + ')', 'i');
+    }
+
     // FORMATTING
 
     addFormatToken('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear');
@@ -32778,8 +35296,13 @@ if (typeof exports !== "undefined") {
         return this.hours() % 12 || 12;
     }
 
+    function kFormat() {
+        return this.hours() || 24;
+    }
+
     addFormatToken('H', ['HH', 2], 0, 'hour');
     addFormatToken('h', ['hh', 2], 0, hFormat);
+    addFormatToken('k', ['kk', 2], 0, kFormat);
 
     addFormatToken('hmm', 0, 0, function () {
         return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2);
@@ -33240,6 +35763,13 @@ if (typeof exports !== "undefined") {
     prototype__proto._weekdaysShort = defaultLocaleWeekdaysShort;
     prototype__proto.weekdaysParse  =        localeWeekdaysParse;
 
+    prototype__proto._weekdaysRegex      = defaultWeekdaysRegex;
+    prototype__proto.weekdaysRegex       =        weekdaysRegex;
+    prototype__proto._weekdaysShortRegex = defaultWeekdaysShortRegex;
+    prototype__proto.weekdaysShortRegex  =        weekdaysShortRegex;
+    prototype__proto._weekdaysMinRegex   = defaultWeekdaysMinRegex;
+    prototype__proto.weekdaysMinRegex    =        weekdaysMinRegex;
+
     // Hours
     prototype__proto.isPM = localeIsPM;
     prototype__proto._meridiemParse = defaultLocaleMeridiemParse;
@@ -33251,7 +35781,7 @@ if (typeof exports !== "undefined") {
         return locale[field](utc, format);
     }
 
-    function list (format, index, field, count, setter) {
+    function listMonthsImpl (format, index, field) {
         if (typeof format === 'number') {
             index = format;
             format = undefined;
@@ -33260,35 +35790,79 @@ if (typeof exports !== "undefined") {
         format = format || '';
 
         if (index != null) {
-            return lists__get(format, index, field, setter);
+            return lists__get(format, index, field, 'month');
         }
 
         var i;
         var out = [];
-        for (i = 0; i < count; i++) {
-            out[i] = lists__get(format, i, field, setter);
+        for (i = 0; i < 12; i++) {
+            out[i] = lists__get(format, i, field, 'month');
+        }
+        return out;
+    }
+
+    // ()
+    // (5)
+    // (fmt, 5)
+    // (fmt)
+    // (true)
+    // (true, 5)
+    // (true, fmt, 5)
+    // (true, fmt)
+    function listWeekdaysImpl (localeSorted, format, index, field) {
+        if (typeof localeSorted === 'boolean') {
+            if (typeof format === 'number') {
+                index = format;
+                format = undefined;
+            }
+
+            format = format || '';
+        } else {
+            format = localeSorted;
+            index = format;
+            localeSorted = false;
+
+            if (typeof format === 'number') {
+                index = format;
+                format = undefined;
+            }
+
+            format = format || '';
+        }
+
+        var locale = locale_locales__getLocale(),
+            shift = localeSorted ? locale._week.dow : 0;
+
+        if (index != null) {
+            return lists__get(format, (index + shift) % 7, field, 'day');
+        }
+
+        var i;
+        var out = [];
+        for (i = 0; i < 7; i++) {
+            out[i] = lists__get(format, (i + shift) % 7, field, 'day');
         }
         return out;
     }
 
     function lists__listMonths (format, index) {
-        return list(format, index, 'months', 12, 'month');
+        return listMonthsImpl(format, index, 'months');
     }
 
     function lists__listMonthsShort (format, index) {
-        return list(format, index, 'monthsShort', 12, 'month');
+        return listMonthsImpl(format, index, 'monthsShort');
     }
 
-    function lists__listWeekdays (format, index) {
-        return list(format, index, 'weekdays', 7, 'day');
+    function lists__listWeekdays (localeSorted, format, index) {
+        return listWeekdaysImpl(localeSorted, format, index, 'weekdays');
     }
 
-    function lists__listWeekdaysShort (format, index) {
-        return list(format, index, 'weekdaysShort', 7, 'day');
+    function lists__listWeekdaysShort (localeSorted, format, index) {
+        return listWeekdaysImpl(localeSorted, format, index, 'weekdaysShort');
     }
 
-    function lists__listWeekdaysMin (format, index) {
-        return list(format, index, 'weekdaysMin', 7, 'day');
+    function lists__listWeekdaysMin (localeSorted, format, index) {
+        return listWeekdaysImpl(localeSorted, format, index, 'weekdaysMin');
     }
 
     locale_locales__getSetGlobalLocale('en', {
@@ -33659,7 +36233,7 @@ if (typeof exports !== "undefined") {
     // Side effect imports
 
 
-    utils_hooks__hooks.version = '2.12.0';
+    utils_hooks__hooks.version = '2.13.0';
 
     setHookCallback(local__createLocal);
 
@@ -33694,7 +36268,1273 @@ if (typeof exports !== "undefined") {
     return _moment;
 
 }));
-},{}],"numeral":[function(_dereq_,module,exports){
+},{}],"numbro":[function(_dereq_,module,exports){
+/*!
+ * numbro.js
+ * version : 1.8.0
+ * author : Företagsplatsen AB
+ * license : MIT
+ * http://www.foretagsplatsen.se
+ */
+
+(function () {
+    'use strict';
+
+    /************************************
+        Constants
+    ************************************/
+
+    var numbro,
+        VERSION = '1.8.0',
+        binarySuffixes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'],
+        decimalSuffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        bytes = {
+            general: { scale: 1024, suffixes: decimalSuffixes, marker: 'bd' },
+            binary:  { scale: 1024, suffixes: binarySuffixes, marker: 'b' },
+            decimal: { scale: 1000, suffixes: decimalSuffixes, marker: 'd' }
+        },
+        // general must be before the others because it reuses their characters!
+        byteFormatOrder = [ bytes.general, bytes.binary, bytes.decimal ],
+    // internal storage for culture config files
+        cultures = {},
+    // Todo: Remove in 2.0.0
+        languages = cultures,
+        currentCulture = 'en-US',
+        zeroFormat = null,
+        defaultFormat = '0,0',
+        defaultCurrencyFormat = '0$',
+        // check for nodeJS
+        hasModule = (typeof module !== 'undefined' && module.exports),
+    // default culture
+        enUS = {
+            delimiters: {
+                thousands: ',',
+                decimal: '.'
+            },
+            abbreviations: {
+                thousand: 'k',
+                million: 'm',
+                billion: 'b',
+                trillion: 't'
+            },
+            ordinal: function(number) {
+                var b = number % 10;
+                return (~~(number % 100 / 10) === 1) ? 'th' :
+                    (b === 1) ? 'st' :
+                        (b === 2) ? 'nd' :
+                            (b === 3) ? 'rd' : 'th';
+            },
+            currency: {
+                symbol: '$',
+                position: 'prefix'
+            },
+            defaults: {
+                currencyFormat: ',0000 a'
+            },
+            formats: {
+                fourDigits: '0000 a',
+                fullWithTwoDecimals: '$ ,0.00',
+                fullWithTwoDecimalsNoCurrency: ',0.00'
+            }
+        };
+
+    /************************************
+        Constructors
+    ************************************/
+
+
+    // Numbro prototype object
+    function Numbro(number) {
+        this._value = number;
+    }
+
+    function zeroes(count) {
+        var i, ret = '';
+
+        for (i = 0; i < count; i++) {
+            ret += '0';
+        }
+
+        return ret;
+    }
+    /**
+     * Implementation of toFixed() for numbers with exponents
+     * This function may return negative representations for zero values e.g. "-0.0"
+     */
+    function toFixedLargeSmall(value, precision) {
+        var mantissa,
+            beforeDec,
+            afterDec,
+            exponent,
+            prefix,
+            endStr,
+            zerosStr,
+            str;
+
+        str = value.toString();
+
+        mantissa = str.split('e')[0];
+        exponent = str.split('e')[1];
+
+        beforeDec = mantissa.split('.')[0];
+        afterDec = mantissa.split('.')[1] || '';
+
+        if (+exponent > 0) {
+            // exponent is positive - add zeros after the numbers
+            str = beforeDec + afterDec + zeroes(exponent - afterDec.length);
+        } else {
+            // exponent is negative
+
+            if (+beforeDec < 0) {
+                prefix = '-0';
+            } else {
+                prefix = '0';
+            }
+
+            // tack on the decimal point if needed
+            if (precision > 0) {
+                prefix += '.';
+            }
+
+            zerosStr = zeroes((-1 * exponent) - 1);
+            // substring off the end to satisfy the precision
+            endStr = (zerosStr + Math.abs(beforeDec) + afterDec).substr(0, precision);
+            str = prefix + endStr;
+        }
+
+        // only add percision 0's if the exponent is positive
+        if (+exponent > 0 && precision > 0) {
+            str += '.' + zeroes(precision);
+        }
+
+        return str;
+    }
+
+    /**
+     * Implementation of toFixed() that treats floats more like decimals
+     *
+     * Fixes binary rounding issues (eg. (0.615).toFixed(2) === '0.61') that present
+     * problems for accounting- and finance-related software.
+     *
+     * Also removes negative signs for zero-formatted numbers. e.g. -0.01 w/ precision 1 -> 0.0
+     */
+    function toFixed(value, precision, roundingFunction, optionals) {
+        var power = Math.pow(10, precision),
+            optionalsRegExp,
+            output;
+
+        if (value.toString().indexOf('e') > -1) {
+            // toFixed returns scientific notation for numbers above 1e21 and below 1e-7
+            output = toFixedLargeSmall(value, precision);
+            // remove the leading negative sign if it exists and should not be present (e.g. -0.00)
+            if (output.charAt(0) === '-' && +output >= 0) {
+                output = output.substr(1); // chop off the '-'
+            }
+        }
+        else {
+            // Multiply up by precision, round accurately, then divide and use native toFixed():
+            output = (roundingFunction(value + 'e+' + precision) / power).toFixed(precision);
+        }
+
+        if (optionals) {
+            optionalsRegExp = new RegExp('0{1,' + optionals + '}$');
+            output = output.replace(optionalsRegExp, '');
+        }
+
+        return output;
+    }
+
+    /************************************
+        Formatting
+    ************************************/
+
+    // determine what type of formatting we need to do
+    function formatNumbro(n, format, roundingFunction) {
+        var output,
+            escapedFormat = format.replace(/\{[^\{\}]*\}/g, '');
+
+        // figure out what kind of format we are dealing with
+        if (escapedFormat.indexOf('$') > -1) { // currency!!!!!
+            output = formatCurrency(n, format, roundingFunction);
+        } else if (escapedFormat.indexOf('%') > -1) { // percentage
+            output = formatPercentage(n, format, roundingFunction);
+        } else if (escapedFormat.indexOf(':') > -1) { // time
+            output = formatTime(n, format);
+        } else { // plain ol' numbers or bytes
+            output = formatNumber(n._value, format, roundingFunction);
+        }
+
+        // return string
+        return output;
+    }
+
+    // revert to number
+    function unformatNumbro(n, string) {
+        var stringOriginal = string,
+            thousandRegExp,
+            millionRegExp,
+            billionRegExp,
+            trillionRegExp,
+            bytesMultiplier = false,
+            power;
+
+        if (string.indexOf(':') > -1) {
+            n._value = unformatTime(string);
+        } else {
+            if (string === zeroFormat) {
+                n._value = 0;
+            } else {
+                if (cultures[currentCulture].delimiters.decimal !== '.') {
+                    string = string.replace(/\./g, '').replace(cultures[currentCulture].delimiters.decimal, '.');
+                }
+
+                // see if abbreviations are there so that we can multiply to the correct number
+                thousandRegExp = new RegExp('[^a-zA-Z]' + cultures[currentCulture].abbreviations.thousand +
+                    '(?:\\)|(\\' + cultures[currentCulture].currency.symbol + ')?(?:\\))?)?$');
+                millionRegExp = new RegExp('[^a-zA-Z]' + cultures[currentCulture].abbreviations.million +
+                    '(?:\\)|(\\' + cultures[currentCulture].currency.symbol + ')?(?:\\))?)?$');
+                billionRegExp = new RegExp('[^a-zA-Z]' + cultures[currentCulture].abbreviations.billion +
+                    '(?:\\)|(\\' + cultures[currentCulture].currency.symbol + ')?(?:\\))?)?$');
+                trillionRegExp = new RegExp('[^a-zA-Z]' + cultures[currentCulture].abbreviations.trillion +
+                    '(?:\\)|(\\' + cultures[currentCulture].currency.symbol + ')?(?:\\))?)?$');
+
+                // see if bytes are there so that we can multiply to the correct number
+                for (power = 1; power < binarySuffixes.length && !bytesMultiplier; ++power) {
+                    if (string.indexOf(binarySuffixes[power]) > -1) {
+                        bytesMultiplier = Math.pow(1024, power);
+                    } else if (string.indexOf(decimalSuffixes[power]) > -1) {
+                        bytesMultiplier = Math.pow(1000, power);
+                    }
+                }
+
+                var str = string.replace(/[^0-9\.]+/g, '');
+                if (str === '') {
+                    // An empty string is not a number.
+                    n._value = NaN;
+
+                } else {
+                    // do some math to create our number
+                    n._value = ((bytesMultiplier) ? bytesMultiplier : 1) *
+                        ((stringOriginal.match(thousandRegExp)) ? Math.pow(10, 3) : 1) *
+                        ((stringOriginal.match(millionRegExp)) ? Math.pow(10, 6) : 1) *
+                        ((stringOriginal.match(billionRegExp)) ? Math.pow(10, 9) : 1) *
+                        ((stringOriginal.match(trillionRegExp)) ? Math.pow(10, 12) : 1) *
+                        ((string.indexOf('%') > -1) ? 0.01 : 1) *
+                        (((string.split('-').length +
+                            Math.min(string.split('(').length - 1, string.split(')').length - 1)) % 2) ? 1 : -1) *
+                        Number(str);
+
+                    // round if we are talking about bytes
+                    n._value = (bytesMultiplier) ? Math.ceil(n._value) : n._value;
+                }
+            }
+        }
+        return n._value;
+    }
+
+    function formatCurrency(n, originalFormat, roundingFunction) {
+        var format = originalFormat,
+            symbolIndex = format.indexOf('$'),
+            openParenIndex = format.indexOf('('),
+            plusSignIndex = format.indexOf('+'),
+            minusSignIndex = format.indexOf('-'),
+            space = '',
+            decimalSeparator = '',
+            spliceIndex,
+            output;
+
+        if(format.indexOf('$') === -1){
+            // Use defaults instead of the format provided
+            if (cultures[currentCulture].currency.position === 'infix') {
+                decimalSeparator = cultures[currentCulture].currency.symbol;
+                if (cultures[currentCulture].currency.spaceSeparated) {
+                    decimalSeparator = ' ' + decimalSeparator + ' ';
+                }
+            } else if (cultures[currentCulture].currency.spaceSeparated) {
+                space = ' ';
+            }
+        } else {
+            // check for space before or after currency
+            if (format.indexOf(' $') > -1) {
+                space = ' ';
+                format = format.replace(' $', '');
+            } else if (format.indexOf('$ ') > -1) {
+                space = ' ';
+                format = format.replace('$ ', '');
+            } else {
+                format = format.replace('$', '');
+            }
+        }
+
+        // Format The Number
+        output = formatNumber(n._value, format, roundingFunction, decimalSeparator);
+
+        if (originalFormat.indexOf('$') === -1) {
+            // Use defaults instead of the format provided
+            switch (cultures[currentCulture].currency.position) {
+                case 'postfix':
+                    if (output.indexOf(')') > -1) {
+                        output = output.split('');
+                        output.splice(-1, 0, space + cultures[currentCulture].currency.symbol);
+                        output = output.join('');
+                    } else {
+                        output = output + space + cultures[currentCulture].currency.symbol;
+                    }
+                    break;
+                case 'infix':
+                    break;
+                case 'prefix':
+                    if (output.indexOf('(') > -1 || output.indexOf('-') > -1) {
+                        output = output.split('');
+                        spliceIndex = Math.max(openParenIndex, minusSignIndex) + 1;
+
+                        output.splice(spliceIndex, 0, cultures[currentCulture].currency.symbol + space);
+                        output = output.join('');
+                    } else {
+                        output = cultures[currentCulture].currency.symbol + space + output;
+                    }
+                    break;
+                default:
+                    throw Error('Currency position should be among ["prefix", "infix", "postfix"]');
+            }
+        } else {
+            // position the symbol
+            if (symbolIndex <= 1) {
+                if (output.indexOf('(') > -1 || output.indexOf('+') > -1 || output.indexOf('-') > -1) {
+                    output = output.split('');
+                    spliceIndex = 1;
+                    if (symbolIndex < openParenIndex || symbolIndex < plusSignIndex || symbolIndex < minusSignIndex) {
+                        // the symbol appears before the "(", "+" or "-"
+                        spliceIndex = 0;
+                    }
+                    output.splice(spliceIndex, 0, cultures[currentCulture].currency.symbol + space);
+                    output = output.join('');
+                } else {
+                    output = cultures[currentCulture].currency.symbol + space + output;
+                }
+            } else {
+                if (output.indexOf(')') > -1) {
+                    output = output.split('');
+                    output.splice(-1, 0, space + cultures[currentCulture].currency.symbol);
+                    output = output.join('');
+                } else {
+                    output = output + space + cultures[currentCulture].currency.symbol;
+                }
+            }
+        }
+
+        return output;
+    }
+
+    function formatPercentage(n, format, roundingFunction) {
+        var space = '',
+            output,
+            value = n._value * 100;
+
+        // check for space before %
+        if (format.indexOf(' %') > -1) {
+            space = ' ';
+            format = format.replace(' %', '');
+        } else {
+            format = format.replace('%', '');
+        }
+
+        output = formatNumber(value, format, roundingFunction);
+
+        if (output.indexOf(')') > -1) {
+            output = output.split('');
+            output.splice(-1, 0, space + '%');
+            output = output.join('');
+        } else {
+            output = output + space + '%';
+        }
+
+        return output;
+    }
+
+    function formatTime(n) {
+        var hours = Math.floor(n._value / 60 / 60),
+            minutes = Math.floor((n._value - (hours * 60 * 60)) / 60),
+            seconds = Math.round(n._value - (hours * 60 * 60) - (minutes * 60));
+        return hours + ':' +
+            ((minutes < 10) ? '0' + minutes : minutes) + ':' +
+            ((seconds < 10) ? '0' + seconds : seconds);
+    }
+
+    function unformatTime(string) {
+        var timeArray = string.split(':'),
+            seconds = 0;
+        // turn hours and minutes into seconds and add them all up
+        if (timeArray.length === 3) {
+            // hours
+            seconds = seconds + (Number(timeArray[0]) * 60 * 60);
+            // minutes
+            seconds = seconds + (Number(timeArray[1]) * 60);
+            // seconds
+            seconds = seconds + Number(timeArray[2]);
+        } else if (timeArray.length === 2) {
+            // minutes
+            seconds = seconds + (Number(timeArray[0]) * 60);
+            // seconds
+            seconds = seconds + Number(timeArray[1]);
+        }
+        return Number(seconds);
+    }
+
+    function formatByteUnits (value, suffixes, scale) {
+        var suffix = suffixes[0],
+            power,
+            min,
+            max,
+            abs = Math.abs(value);
+
+        if (abs >= scale) {
+            for (power = 1; power < suffixes.length; ++power) {
+                min = Math.pow(scale, power);
+                max = Math.pow(scale, power + 1);
+
+                if (abs >= min && abs < max) {
+                    suffix = suffixes[power];
+                    value = value / min;
+                    break;
+                }
+            }
+
+            // values greater than or equal to [scale] YB never set the suffix
+            if (suffix === suffixes[0]) {
+                value = value / Math.pow(scale, suffixes.length - 1);
+                suffix = suffixes[suffixes.length - 1];
+            }
+        }
+
+        return { value: value, suffix: suffix };
+    }
+
+    function formatNumber (value, format, roundingFunction, sep) {
+        var negP = false,
+            signed = false,
+            optDec = false,
+            abbr = '',
+            abbrK = false, // force abbreviation to thousands
+            abbrM = false, // force abbreviation to millions
+            abbrB = false, // force abbreviation to billions
+            abbrT = false, // force abbreviation to trillions
+            abbrForce = false, // force abbreviation
+            bytes = '',
+            byteFormat,
+            units,
+            ord = '',
+            abs = Math.abs(value),
+            totalLength,
+            length,
+            minimumPrecision,
+            pow,
+            w,
+            intPrecision,
+            precision,
+            prefix,
+            postfix,
+            thousands,
+            d = '',
+            forcedNeg = false,
+            neg = false,
+            indexOpenP,
+            size,
+            indexMinus,
+            paren = '',
+            minlen,
+            i;
+
+        // check if number is zero and a custom zero format has been set
+        if (value === 0 && zeroFormat !== null) {
+            return zeroFormat;
+        }
+
+        if (!isFinite(value)) {
+            return '' + value;
+        }
+
+        if (format.indexOf('{') === 0) {
+            var end = format.indexOf('}');
+            if (end === -1) {
+                throw Error('Format should also contain a "}"');
+            }
+            prefix = format.slice(1, end);
+            format = format.slice(end + 1);
+        } else {
+            prefix = '';
+        }
+
+        if (format.indexOf('}') === format.length - 1) {
+            var start = format.indexOf('{');
+            if (start === -1) {
+                throw Error('Format should also contain a "{"');
+            }
+            postfix = format.slice(start + 1, -1);
+            format = format.slice(0, start + 1);
+        } else {
+            postfix = '';
+        }
+
+        // check for min length
+        var info;
+        if (format.indexOf('.') === -1) {
+            info = format.match(/([0-9]+).*/);
+        } else {
+            info = format.match(/([0-9]+)\..*/);
+        }
+        minlen = info === null ? -1 : info[1].length;
+
+        // see if we should use parentheses for negative number or if we should prefix with a sign
+        // if both are present we default to parentheses
+        if (format.indexOf('-') !== -1) {
+            forcedNeg = true;
+        }
+        if (format.indexOf('(') > -1) {
+            negP = true;
+            format = format.slice(1, -1);
+        } else if (format.indexOf('+') > -1) {
+            signed = true;
+            format = format.replace(/\+/g, '');
+        }
+
+        // see if abbreviation is wanted
+        if (format.indexOf('a') > -1) {
+            intPrecision = format.split('.')[0].match(/[0-9]+/g) || ['0'];
+            intPrecision = parseInt(intPrecision[0], 10);
+
+            // check if abbreviation is specified
+            abbrK = format.indexOf('aK') >= 0;
+            abbrM = format.indexOf('aM') >= 0;
+            abbrB = format.indexOf('aB') >= 0;
+            abbrT = format.indexOf('aT') >= 0;
+            abbrForce = abbrK || abbrM || abbrB || abbrT;
+
+            // check for space before abbreviation
+            if (format.indexOf(' a') > -1) {
+                abbr = ' ';
+                format = format.replace(' a', '');
+            } else {
+                format = format.replace('a', '');
+            }
+
+            totalLength = Math.floor(Math.log(abs) / Math.LN10) + 1;
+
+            minimumPrecision = totalLength % 3;
+            minimumPrecision = minimumPrecision === 0 ? 3 : minimumPrecision;
+
+            if (intPrecision && abs !== 0) {
+
+                length = Math.floor(Math.log(abs) / Math.LN10) + 1 - intPrecision;
+
+                pow = 3 * ~~((Math.min(intPrecision, totalLength) - minimumPrecision) / 3);
+
+                abs = abs / Math.pow(10, pow);
+
+                if (format.indexOf('.') === -1 && intPrecision > 3) {
+                    format += '[.]';
+
+                    size = length === 0 ? 0 : 3 * ~~(length / 3) - length;
+                    size = size < 0 ? size + 3 : size;
+
+                    format += zeroes(size);
+                }
+            }
+
+            if (Math.floor(Math.log(Math.abs(value)) / Math.LN10) + 1 !== intPrecision) {
+                if (abs >= Math.pow(10, 12) && !abbrForce || abbrT) {
+                    // trillion
+                    abbr = abbr + cultures[currentCulture].abbreviations.trillion;
+                    value = value / Math.pow(10, 12);
+                } else if (abs < Math.pow(10, 12) && abs >= Math.pow(10, 9) && !abbrForce || abbrB) {
+                    // billion
+                    abbr = abbr + cultures[currentCulture].abbreviations.billion;
+                    value = value / Math.pow(10, 9);
+                } else if (abs < Math.pow(10, 9) && abs >= Math.pow(10, 6) && !abbrForce || abbrM) {
+                    // million
+                    abbr = abbr + cultures[currentCulture].abbreviations.million;
+                    value = value / Math.pow(10, 6);
+                } else if (abs < Math.pow(10, 6) && abs >= Math.pow(10, 3) && !abbrForce || abbrK) {
+                    // thousand
+                    abbr = abbr + cultures[currentCulture].abbreviations.thousand;
+                    value = value / Math.pow(10, 3);
+                }
+            }
+        }
+
+        // see if we are formatting
+        //   binary-decimal bytes (1024 MB), binary bytes (1024 MiB), or decimal bytes (1000 MB)
+        for (i = 0; i < byteFormatOrder.length; ++i) {
+            byteFormat = byteFormatOrder[i];
+
+            if (format.indexOf(byteFormat.marker) > -1) {
+                // check for space before
+                if (format.indexOf(' ' + byteFormat.marker) >-1) {
+                    bytes = ' ';
+                }
+
+                // remove the marker (with the space if it had one)
+                format = format.replace(bytes + byteFormat.marker, '');
+
+                units = formatByteUnits(value, byteFormat.suffixes, byteFormat.scale);
+
+                value = units.value;
+                bytes = bytes + units.suffix;
+
+                break;
+            }
+        }
+
+        // see if ordinal is wanted
+        if (format.indexOf('o') > -1) {
+            // check for space before
+            if (format.indexOf(' o') > -1) {
+                ord = ' ';
+                format = format.replace(' o', '');
+            } else {
+                format = format.replace('o', '');
+            }
+
+            if (cultures[currentCulture].ordinal) {
+                ord = ord + cultures[currentCulture].ordinal(value);
+            }
+        }
+
+        if (format.indexOf('[.]') > -1) {
+            optDec = true;
+            format = format.replace('[.]', '.');
+        }
+
+        w = value.toString().split('.')[0];
+        precision = format.split('.')[1];
+        thousands = format.indexOf(',');
+
+        if (precision) {
+            if (precision.indexOf('*') !== -1) {
+                d = toFixed(value, value.toString().split('.')[1].length, roundingFunction);
+            } else {
+                if (precision.indexOf('[') > -1) {
+                    precision = precision.replace(']', '');
+                    precision = precision.split('[');
+                    d = toFixed(value, (precision[0].length + precision[1].length), roundingFunction,
+                        precision[1].length);
+                } else {
+                    d = toFixed(value, precision.length, roundingFunction);
+                }
+            }
+
+            w = d.split('.')[0];
+
+            if (d.split('.')[1].length) {
+                var p = sep ? abbr + sep : cultures[currentCulture].delimiters.decimal;
+                d = p + d.split('.')[1];
+            } else {
+                d = '';
+            }
+
+            if (optDec && Number(d.slice(1)) === 0) {
+                d = '';
+            }
+        } else {
+            w = toFixed(value, 0, roundingFunction);
+        }
+
+        // format number
+        if (w.indexOf('-') > -1) {
+            w = w.slice(1);
+            neg = true;
+        }
+
+        if (w.length < minlen) {
+            w = zeroes(minlen - w.length) + w;
+        }
+
+        if (thousands > -1) {
+            w = w.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' +
+                cultures[currentCulture].delimiters.thousands);
+        }
+
+        if (format.indexOf('.') === 0) {
+            w = '';
+        }
+
+        indexOpenP = format.indexOf('(');
+        indexMinus = format.indexOf('-');
+
+        if (indexOpenP < indexMinus) {
+            paren = ((negP && neg) ? '(' : '') + (((forcedNeg && neg) || (!negP && neg)) ? '-' : '');
+        } else {
+            paren = (((forcedNeg && neg) || (!negP && neg)) ? '-' : '') + ((negP && neg) ? '(' : '');
+        }
+
+        return prefix +
+            paren + ((!neg && signed && value !== 0) ? '+' : '') +
+            w + d +
+            ((ord) ? ord : '') +
+            ((abbr && !sep) ? abbr : '') +
+            ((bytes) ? bytes : '') +
+            ((negP && neg) ? ')' : '') +
+            postfix;
+    }
+
+    /************************************
+        Top Level Functions
+    ************************************/
+
+    numbro = function(input) {
+        if (numbro.isNumbro(input)) {
+            input = input.value();
+        } else if (input === 0 || typeof input === 'undefined') {
+            input = 0;
+        } else if (!Number(input)) {
+            input = numbro.fn.unformat(input);
+        }
+
+        return new Numbro(Number(input));
+    };
+
+    // version number
+    numbro.version = VERSION;
+
+    // compare numbro object
+    numbro.isNumbro = function(obj) {
+        return obj instanceof Numbro;
+    };
+
+    /**
+     * This function allow the user to set a new language with a fallback if
+     * the language does not exist. If no fallback language is provided,
+     * it fallbacks to english.
+     *
+     * @deprecated Since in version 1.6.0. It will be deleted in version 2.0
+     * `setCulture` should be used instead.
+     */
+    numbro.setLanguage = function(newLanguage, fallbackLanguage) {
+        console.warn('`setLanguage` is deprecated since version 1.6.0. Use `setCulture` instead');
+        var key = newLanguage,
+            prefix = newLanguage.split('-')[0],
+            matchingLanguage = null;
+        if (!languages[key]) {
+            Object.keys(languages).forEach(function(language) {
+                if (!matchingLanguage && language.split('-')[0] === prefix) {
+                    matchingLanguage = language;
+                }
+            });
+            key = matchingLanguage || fallbackLanguage || 'en-US';
+        }
+        chooseCulture(key);
+    };
+
+    /**
+     * This function allow the user to set a new culture with a fallback if
+     * the culture does not exist. If no fallback culture is provided,
+     * it falls back to "en-US".
+     */
+    numbro.setCulture = function(newCulture, fallbackCulture) {
+        var key = newCulture,
+            suffix = newCulture.split('-')[1],
+            matchingCulture = null;
+        if (!cultures[key]) {
+            if (suffix) {
+                Object.keys(cultures).forEach(function(language) {
+                    if (!matchingCulture && language.split('-')[1] === suffix) {
+                        matchingCulture = language;
+                    }
+                });
+            }
+
+            key = matchingCulture || fallbackCulture || 'en-US';
+        }
+        chooseCulture(key);
+    };
+
+    /**
+     * This function will load languages and then set the global language.  If
+     * no arguments are passed in, it will simply return the current global
+     * language key.
+     *
+     * @deprecated Since in version 1.6.0. It will be deleted in version 2.0
+     * `culture` should be used instead.
+     */
+    numbro.language = function(key, values) {
+        console.warn('`language` is deprecated since version 1.6.0. Use `culture` instead');
+
+        if (!key) {
+            return currentCulture;
+        }
+
+        if (key && !values) {
+            if (!languages[key]) {
+                throw new Error('Unknown language : ' + key);
+            }
+            chooseCulture(key);
+        }
+
+        if (values || !languages[key]) {
+            setCulture(key, values);
+        }
+
+        return numbro;
+    };
+
+    /**
+     * This function will load cultures and then set the global culture.  If
+     * no arguments are passed in, it will simply return the current global
+     * culture code.
+     */
+    numbro.culture = function(code, values) {
+        if (!code) {
+            return currentCulture;
+        }
+
+        if (code && !values) {
+            if (!cultures[code]) {
+                throw new Error('Unknown culture : ' + code);
+            }
+            chooseCulture(code);
+        }
+
+        if (values || !cultures[code]) {
+            setCulture(code, values);
+        }
+
+        return numbro;
+    };
+
+    /**
+     * This function provides access to the loaded language data.  If
+     * no arguments are passed in, it will simply return the current
+     * global language object.
+     *
+     * @deprecated Since in version 1.6.0. It will be deleted in version 2.0
+     * `culture` should be used instead.
+     */
+    numbro.languageData = function(key) {
+        console.warn('`languageData` is deprecated since version 1.6.0. Use `cultureData` instead');
+
+        if (!key) {
+            return languages[currentCulture];
+        }
+
+        if (!languages[key]) {
+            throw new Error('Unknown language : ' + key);
+        }
+
+        return languages[key];
+    };
+
+    /**
+     * This function provides access to the loaded culture data.  If
+     * no arguments are passed in, it will simply return the current
+     * global culture object.
+     */
+    numbro.cultureData = function(code) {
+        if (!code) {
+            return cultures[currentCulture];
+        }
+
+        if (!cultures[code]) {
+            throw new Error('Unknown culture : ' + code);
+        }
+
+        return cultures[code];
+    };
+
+    numbro.culture('en-US', enUS);
+
+    /**
+     * @deprecated Since in version 1.6.0. It will be deleted in version 2.0
+     * `cultures` should be used instead.
+     */
+    numbro.languages = function() {
+        console.warn('`languages` is deprecated since version 1.6.0. Use `cultures` instead');
+
+        return languages;
+    };
+
+    numbro.cultures = function() {
+        return cultures;
+    };
+
+    numbro.zeroFormat = function(format) {
+        zeroFormat = typeof(format) === 'string' ? format : null;
+    };
+
+    numbro.defaultFormat = function(format) {
+        defaultFormat = typeof(format) === 'string' ? format : '0.0';
+    };
+
+    numbro.defaultCurrencyFormat = function (format) {
+        defaultCurrencyFormat = typeof(format) === 'string' ? format : '0$';
+    };
+
+    numbro.validate = function(val, culture) {
+
+        var _decimalSep,
+            _thousandSep,
+            _currSymbol,
+            _valArray,
+            _abbrObj,
+            _thousandRegEx,
+            cultureData,
+            temp;
+
+        //coerce val to string
+        if (typeof val !== 'string') {
+            val += '';
+            if (console.warn) {
+                console.warn('Numbro.js: Value is not string. It has been co-erced to: ', val);
+            }
+        }
+
+        //trim whitespaces from either sides
+        val = val.trim();
+
+        //if val is just digits return true
+        if ( !! val.match(/^\d+$/)) {
+            return true;
+        }
+
+        //if val is empty return false
+        if (val === '') {
+            return false;
+        }
+
+        //get the decimal and thousands separator from numbro.cultureData
+        try {
+            //check if the culture is understood by numbro. if not, default it to current culture
+            cultureData = numbro.cultureData(culture);
+        } catch (e) {
+            cultureData = numbro.cultureData(numbro.culture());
+        }
+
+        //setup the delimiters and currency symbol based on culture
+        _currSymbol = cultureData.currency.symbol;
+        _abbrObj = cultureData.abbreviations;
+        _decimalSep = cultureData.delimiters.decimal;
+        if (cultureData.delimiters.thousands === '.') {
+            _thousandSep = '\\.';
+        } else {
+            _thousandSep = cultureData.delimiters.thousands;
+        }
+
+        // validating currency symbol
+        temp = val.match(/^[^\d]+/);
+        if (temp !== null) {
+            val = val.substr(1);
+            if (temp[0] !== _currSymbol) {
+                return false;
+            }
+        }
+
+        //validating abbreviation symbol
+        temp = val.match(/[^\d]+$/);
+        if (temp !== null) {
+            val = val.slice(0, -1);
+            if (temp[0] !== _abbrObj.thousand && temp[0] !== _abbrObj.million &&
+                    temp[0] !== _abbrObj.billion && temp[0] !== _abbrObj.trillion) {
+                return false;
+            }
+        }
+
+        _thousandRegEx = new RegExp(_thousandSep + '{2}');
+
+        if (!val.match(/[^\d.,]/g)) {
+            _valArray = val.split(_decimalSep);
+            if (_valArray.length > 2) {
+                return false;
+            } else {
+                if (_valArray.length < 2) {
+                    return ( !! _valArray[0].match(/^\d+.*\d$/) && !_valArray[0].match(_thousandRegEx));
+                } else {
+                    if (_valArray[0].length === 1) {
+                        return ( !! _valArray[0].match(/^\d+$/) &&
+                            !_valArray[0].match(_thousandRegEx) &&
+                            !! _valArray[1].match(/^\d+$/));
+                    } else {
+                        return ( !! _valArray[0].match(/^\d+.*\d$/) &&
+                            !_valArray[0].match(_thousandRegEx) &&
+                            !! _valArray[1].match(/^\d+$/));
+                    }
+                }
+            }
+        }
+
+        return false;
+    };
+
+    /**
+     * * @deprecated Since in version 1.6.0. It will be deleted in version 2.0
+     * `loadCulturesInNode` should be used instead.
+     */
+    numbro.loadLanguagesInNode = function() {
+        console.warn('`loadLanguagesInNode` is deprecated since version 1.6.0. Use `loadCulturesInNode` instead');
+
+        numbro.loadCulturesInNode();
+    };
+
+    numbro.loadCulturesInNode = function() {
+        // TODO: Rename the folder in 2.0.0
+        var cultures = _dereq_('./languages');
+
+        for(var langLocaleCode in cultures) {
+            if(langLocaleCode) {
+                numbro.culture(langLocaleCode, cultures[langLocaleCode]);
+            }
+        }
+    };
+
+    /************************************
+        Helpers
+    ************************************/
+
+    function setCulture(code, values) {
+        cultures[code] = values;
+    }
+
+    function chooseCulture(code) {
+        currentCulture = code;
+        var defaults = cultures[code].defaults;
+        if (defaults && defaults.format) {
+            numbro.defaultFormat(defaults.format);
+        }
+        if (defaults && defaults.currencyFormat) {
+            numbro.defaultCurrencyFormat(defaults.currencyFormat);
+        }
+    }
+
+    function inNodejsRuntime() {
+        return (typeof process !== 'undefined') &&
+            (process.browser === undefined) &&
+            (process.title.indexOf('node') === 0 || process.title === 'grunt' || process.title === 'gulp') &&
+            (typeof _dereq_ !== 'undefined');
+    }
+
+    /************************************
+        Floating-point helpers
+    ************************************/
+
+    // The floating-point helper functions and implementation
+    // borrows heavily from sinful.js: http://guipn.github.io/sinful.js/
+
+    /**
+     * Array.prototype.reduce for browsers that don't support it
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#Compatibility
+     */
+    if ('function' !== typeof Array.prototype.reduce) {
+        Array.prototype.reduce = function(callback, optInitialValue) {
+
+            if (null === this || 'undefined' === typeof this) {
+                // At the moment all modern browsers, that support strict mode, have
+                // native implementation of Array.prototype.reduce. For instance, IE8
+                // does not support strict mode, so this check is actually useless.
+                throw new TypeError('Array.prototype.reduce called on null or undefined');
+            }
+
+            if ('function' !== typeof callback) {
+                throw new TypeError(callback + ' is not a function');
+            }
+
+            var index,
+                value,
+                length = this.length >>> 0,
+                isValueSet = false;
+
+            if (1 < arguments.length) {
+                value = optInitialValue;
+                isValueSet = true;
+            }
+
+            for (index = 0; length > index; ++index) {
+                if (this.hasOwnProperty(index)) {
+                    if (isValueSet) {
+                        value = callback(value, this[index], index, this);
+                    } else {
+                        value = this[index];
+                        isValueSet = true;
+                    }
+                }
+            }
+
+            if (!isValueSet) {
+                throw new TypeError('Reduce of empty array with no initial value');
+            }
+
+            return value;
+        };
+    }
+
+
+    /**
+     * Computes the multiplier necessary to make x >= 1,
+     * effectively eliminating miscalculations caused by
+     * finite precision.
+     */
+    function multiplier(x) {
+        var parts = x.toString().split('.');
+        if (parts.length < 2) {
+            return 1;
+        }
+        return Math.pow(10, parts[1].length);
+    }
+
+    /**
+     * Given a variable number of arguments, returns the maximum
+     * multiplier that must be used to normalize an operation involving
+     * all of them.
+     */
+    function correctionFactor() {
+        var args = Array.prototype.slice.call(arguments);
+        return args.reduce(function(prev, next) {
+            var mp = multiplier(prev),
+                mn = multiplier(next);
+            return mp > mn ? mp : mn;
+        }, -Infinity);
+    }
+
+    /************************************
+        Numbro Prototype
+    ************************************/
+
+
+    numbro.fn = Numbro.prototype = {
+
+        clone: function() {
+            return numbro(this);
+        },
+
+        format: function(inputString, roundingFunction) {
+            return formatNumbro(this,
+                inputString ? inputString : defaultFormat,
+                (roundingFunction !== undefined) ? roundingFunction : Math.round
+            );
+        },
+
+        formatCurrency: function(inputString, roundingFunction) {
+            return formatCurrency(this,
+                inputString ? inputString : defaultCurrencyFormat,
+                (roundingFunction !== undefined) ? roundingFunction : Math.round
+            );
+        },
+
+        unformat: function(inputString) {
+            if (typeof inputString === 'number') {
+                return inputString;
+            } else if (typeof inputString === 'string') {
+                var result = unformatNumbro(this, inputString);
+
+                // Any unparseable string (represented as NaN in the result) is
+                // converted into undefined.
+                return isNaN(result) ? undefined : result;
+            } else {
+                return undefined;
+            }
+        },
+
+        binaryByteUnits: function() {
+            return formatByteUnits(this._value, bytes.binary.suffixes, bytes.binary.scale).suffix;
+        },
+
+        byteUnits: function() {
+            return formatByteUnits(this._value, bytes.general.suffixes, bytes.general.scale).suffix;
+        },
+
+        decimalByteUnits: function() {
+            return formatByteUnits(this._value, bytes.decimal.suffixes, bytes.decimal.scale).suffix;
+        },
+
+        value: function() {
+            return this._value;
+        },
+
+        valueOf: function() {
+            return this._value;
+        },
+
+        set: function(value) {
+            this._value = Number(value);
+            return this;
+        },
+
+        add: function(value) {
+            var corrFactor = correctionFactor.call(null, this._value, value);
+
+            function cback(accum, curr) {
+                return accum + corrFactor * curr;
+            }
+            this._value = [this._value, value].reduce(cback, 0) / corrFactor;
+            return this;
+        },
+
+        subtract: function(value) {
+            var corrFactor = correctionFactor.call(null, this._value, value);
+
+            function cback(accum, curr) {
+                return accum - corrFactor * curr;
+            }
+            this._value = [value].reduce(cback, this._value * corrFactor) / corrFactor;
+            return this;
+        },
+
+        multiply: function(value) {
+            function cback(accum, curr) {
+                var corrFactor = correctionFactor(accum, curr),
+                    result = accum * corrFactor;
+                result *= curr * corrFactor;
+                result /= corrFactor * corrFactor;
+                return result;
+            }
+            this._value = [this._value, value].reduce(cback, 1);
+            return this;
+        },
+
+        divide: function(value) {
+            function cback(accum, curr) {
+                var corrFactor = correctionFactor(accum, curr);
+                return (accum * corrFactor) / (curr * corrFactor);
+            }
+            this._value = [this._value, value].reduce(cback);
+            return this;
+        },
+
+        difference: function(value) {
+            return Math.abs(numbro(this._value).subtract(value).value());
+        }
+
+    };
+
+    /************************************
+        Exposing Numbro
+    ************************************/
+
+    if (inNodejsRuntime()) {
+        //Todo: Rename the folder in 2.0.0
+        numbro.loadCulturesInNode();
+    }
+
+    // CommonJS module is defined
+    if (hasModule) {
+        module.exports = numbro;
+    } else {
+        /*global ender:false */
+        if (typeof ender === 'undefined') {
+            // here, `this` means `window` in the browser, or `global` on the server
+            // add `numbro` as a global object via a string identifier,
+            // for Closure Compiler 'advanced' mode
+            this.numbro = numbro;
+        }
+
+        /*global define:false */
+        if (typeof define === 'function' && define.amd) {
+            define([], function() {
+                return numbro;
+            });
+        }
+    }
+
+}.call(typeof window === 'undefined' ? this : window));
+
+},{"languages":71}],"numeral":[function(_dereq_,module,exports){
 /*!
  * numeral.js
  * version : 1.5.3
@@ -38143,5 +41983,5 @@ if (typeof exports !== "undefined") {
 })(function() {
   return this || window;
 }());
-},{}]},{},[3,133,135,134,136,157,158,159,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,160,161,162,163,177,178,179,180,166,167,168,169,170,171,101,105,102,103,110,104,106,107,108,109,4,5,6,7,8,62,56,57,58,9,10,11,12,13,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,48,49,50,51,52,53,54,55,59,60,61,63,64,66,67,68,69,70])(93)
+},{}]},{},[3,134,136,135,137,170,171,172,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,173,174,175,176,190,191,192,193,179,180,181,182,183,184,102,106,103,104,111,105,107,108,109,110,4,5,6,7,8,62,56,57,58,9,10,11,12,13,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,48,49,50,51,52,53,54,55,59,60,61,63,64,66,67,68,69,70])(94)
 });
