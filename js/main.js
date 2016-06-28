@@ -425,7 +425,8 @@ var hot;
     colWidths: [130, 60, 50, 50, 50, 65, 50, 65, 110, 50, 150, 50, 50, 50],
     manualColumnResize: true,
     manualRowResize: true,
-    bindRowsWithHeaders: true
+    bindRowsWithHeaders: true,
+    contextMenu: true
   });
 
   bindButtons();
