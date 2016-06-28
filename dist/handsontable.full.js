@@ -7088,7 +7088,7 @@ var ContextMenuUI = function ContextMenuUI(nestedRowsPlugin, hotInstance) {
 var $ContextMenuUI = ContextMenuUI;
 ($traceurRuntime.createClass)(ContextMenuUI, {appendOptions: function(defaultOptions) {
     var $__3 = this;
-    var newEntries = [Handsontable.plugins.ContextMenu.SEPARATOR, {
+    var newEntries = [{
       key: 'add_child',
       name: (function() {
         return 'Insert child row';
@@ -7110,9 +7110,15 @@ var $ContextMenuUI = ContextMenuUI;
         var parent = $__3.dataManager.getRowParent($__3.hot.getSelected()[0]);
         return !parent;
       })
-    }];
+    }, Handsontable.plugins.ContextMenu.SEPARATOR];
+    rangeEach(0, defaultOptions.items.length - 2, (function(i) {
+      if (defaultOptions.items[i].key === 'row_above' || defaultOptions.items[i].key === 'row_below') {
+        defaultOptions.items.splice(i, 1);
+      }
+    }));
+    defaultOptions.items.splice(0, 1);
     rangeEach(0, defaultOptions.items.length - 1, (function(i) {
-      if (defaultOptions.items[i].name === Handsontable.plugins.ContextMenu.SEPARATOR.name && (i > 0 && defaultOptions.items[i - 1].key === 'row_below')) {
+      if (i === 0) {
         arrayEach(newEntries, (function(val, j) {
           defaultOptions.items.splice(i + j, 0, val);
         }));
@@ -13426,7 +13432,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Tue Jun 28 2016 10:31:34 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Tue Jun 28 2016 11:38:39 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';

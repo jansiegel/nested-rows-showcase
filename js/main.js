@@ -3,7 +3,7 @@ var hot;
   var data = [{
     wbsSummary: '0000.11.2222.00.2',
     bldgLvl: '0000',
-    aera: '00',
+    Area: '00',
     disc: '2222',
     skill: '00',
     costCat: '2',
@@ -19,7 +19,7 @@ var hot;
       {
         wbsSummary: '',
         bldgLvl: '',
-        aera: '',
+        Area: '',
         disc: '',
         skill: '',
         costCat: '',
@@ -35,7 +35,7 @@ var hot;
       {
         wbsSummary: '',
         bldgLvl: '',
-        aera: '',
+        Area: '',
         disc: '',
         skill: '',
         costCat: '',
@@ -51,7 +51,7 @@ var hot;
       {
         wbsSummary: '',
         bldgLvl: '',
-        aera: '',
+        Area: '',
         disc: '',
         skill: '',
         costCat: '',
@@ -67,7 +67,7 @@ var hot;
       {
         wbsSummary: '',
         bldgLvl: '',
-        aera: '',
+        Area: '',
         disc: '',
         skill: '',
         costCat: '',
@@ -83,7 +83,7 @@ var hot;
       {
         wbsSummary: '',
         bldgLvl: '',
-        aera: '',
+        Area: '',
         disc: '',
         skill: '',
         costCat: '',
@@ -99,7 +99,7 @@ var hot;
       {
         wbsSummary: '',
         bldgLvl: '',
-        aera: '',
+        Area: '',
         disc: '',
         skill: '',
         costCat: '',
@@ -117,7 +117,7 @@ var hot;
     {
       wbsSummary: '0000.22.3333.00.3',
       bldgLvl: '1111',
-      aera: '11',
+      Area: '11',
       disc: '3333',
       skill: '11',
       costCat: '3',
@@ -133,7 +133,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -149,7 +149,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -165,7 +165,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -181,7 +181,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -197,7 +197,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -213,7 +213,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -231,7 +231,7 @@ var hot;
     {
       wbsSummary: '0000.33.4444.00.4',
       bldgLvl: '2222',
-      aera: '22',
+      Area: '22',
       disc: '4444',
       skill: '22',
       costCat: '4',
@@ -247,7 +247,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -263,7 +263,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -279,7 +279,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -295,7 +295,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -311,7 +311,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -327,7 +327,7 @@ var hot;
         {
           wbsSummary: '',
           bldgLvl: '',
-          aera: '',
+          Area: '',
           disc: '',
           skill: '',
           costCat: '',
@@ -345,7 +345,7 @@ var hot;
   var columnHeaders = [
     'WBS Code Sumarry',
     'Bldg-Lvl',
-    'Aera',
+    'Area',
     'Disc',
     'Skill',
     'Cost Cat',
