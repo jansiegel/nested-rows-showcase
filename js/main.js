@@ -62,7 +62,61 @@ var hot;
         description: 'Sample description 3.',
         qty: 13,
         cost: 52,
-        hours: 2.55
+        hours: 2.55,
+        //
+        // //test
+        // __children: [{
+        //   wbsSummary: '',
+        //   bldgLvl: '',
+        //   Area: 'a',
+        //   disc: 'a',
+        //   skill: 'a',
+        //   costCat: '',
+        //   units: '',
+        //   unitCost: '',
+        //   wbsCode: '0000.00.2222.4',
+        //   size: '10x10',
+        //   description: 't1',
+        //   qty: 13,
+        //   cost: 52,
+        //   hours: 2.55,
+        // },
+        //   {
+        //     wbsSummary: '',
+        //     bldgLvl: '',
+        //     Area: 'b',
+        //     disc: 'b',
+        //     skill: 'b',
+        //     costCat: '',
+        //     units: '',
+        //     unitCost: '',
+        //     wbsCode: '0000.00.2222.4',
+        //     size: '10x10',
+        //     description: 't2',
+        //     qty: 13,
+        //     cost: 52,
+        //     hours: 2.55,
+        //     __children: [
+        //       {
+        //         wbsSummary: '',
+        //         bldgLvl: '',
+        //         Area: 'c',
+        //         disc: 'c',
+        //         skill: 'c',
+        //         costCat: '',
+        //         units: '',
+        //         unitCost: '',
+        //         wbsCode: '0000.00.2222.4',
+        //         size: '10x10',
+        //         description: 't3',
+        //         qty: 13,
+        //         cost: 52,
+        //         hours: 2.55,
+        //       }
+        //     ]
+        //   }
+        //
+        // ]
       },
       {
         wbsSummary: '',
@@ -376,21 +430,21 @@ var hot;
       rowIndex = rowIndex - 1;
 
       if (plugin.dataManager.hasChildren(rowIndex)) {
-        if (plugin.collapsingUI.areChildrenHidden(rowIndex)) {
-          plugin.collapsingUI.showChildren(rowIndex);
+        if (plugin.collapsingUI.areChildrenCollapsed(rowIndex)) {
+          plugin.collapsingUI.expandChildren(rowIndex);
         } else {
-          plugin.collapsingUI.hideChildren(rowIndex);
+          plugin.collapsingUI.collapseChildren(rowIndex);
         }
       }
 
     });
 
     collapseAll.addEventListener('mouseup', function(e) {
-      plugin.collapsingUI.hideAll();
+      plugin.collapsingUI.collapseAll();
     });
 
     expandAll.addEventListener('mouseup', function(e) {
-      plugin.collapsingUI.showAll();
+      plugin.collapsingUI.expandAll();
     });
 
     input.addEventListener('input', function(e) {
