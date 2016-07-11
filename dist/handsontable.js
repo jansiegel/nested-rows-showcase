@@ -4273,7 +4273,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Thu Jul 07 2016 12:31:52 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Mon Jul 11 2016 12:06:33 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';
@@ -28036,12 +28036,48 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
   this.data = sourceData;
   this.plugin = nestedRowsPlugin;
   this.parentReference = new WeakMap();
-  this.levelCache = null;
+  this.cache = {
+    levels: [],
+    levelCount: 0,
+    rows: [],
+    nodeInfo: new WeakMap()
+  };
+  this.rowCounter = 0;
 };
 ($traceurRuntime.createClass)(DataManager, {
+  rewriteCache: function() {
+    var $__3 = this;
+    this.cache = {
+      levels: [],
+      levelCount: 0,
+      rows: [],
+      nodeInfo: new WeakMap()
+    };
+    rangeEach(0, this.data.length - 1, (function(i) {
+      $__3.cacheNode($__3.data[i], 0, null);
+    }));
+  },
+  cacheNode: function(node, level, parent) {
+    var $__3 = this;
+    if (!this.cache.levels[level]) {
+      this.cache.levels[level] = [];
+      this.cache.levelCount++;
+    }
+    this.cache.levels[level].push(node);
+    this.cache.rows.push(node);
+    this.cache.nodeInfo.set(node, {
+      parent: parent,
+      row: this.cache.rows.length - 1,
+      level: level
+    });
+    if (this.hasChildren(node)) {
+      arrayEach(node.__children, (function(elem, i) {
+        $__3.cacheNode(elem, level + 1, node);
+      }));
+    }
+  },
   getDataObject: function(row) {
-    var rowObjData = this.readTreeNodes(null, 0, row, null);
-    return rowObjData ? rowObjData.result : null;
+    return row == null ? null : this.cache.rows[row];
   },
   readTreeNodes: function(parent, readCount, neededIndex, neededObject) {
     var $__3 = this;
@@ -28082,7 +28118,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     this.readTreeNodes({__children: this.data}, 0, this.hot.countRows());
   },
   getRowIndex: function(rowObj) {
-    return this.readTreeNodes(null, 0, null, rowObj).result;
+    return rowObj == null ? null : this.cache.nodeInfo.get(rowObj).row;
   },
   getRowIndexWithinParent: function(row) {
     var rowObj = null;
@@ -28132,7 +28168,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     if (typeof rowObject !== 'object') {
       return null;
     }
-    return this.parentReference.get(rowObject);
+    return this.cache.nodeInfo.get(rowObject).parent;
   },
   getRowLevel: function(row) {
     var rowObject = null;
@@ -28144,16 +28180,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     return rowObject ? this.getRowObjectLevel(rowObject) : null;
   },
   getRowObjectLevel: function(rowObject) {
-    var parentNode = this.getRowObjectParent(rowObject);
-    var levelCount = 0;
-    if (parentNode === null) {
-      return 0;
-    }
-    while (parentNode != null) {
-      parentNode = this.getRowObjectParent(parentNode);
-      levelCount++;
-    }
-    return levelCount;
+    return rowObject == null ? null : this.cache.nodeInfo.get(rowObject).level;
   },
   hasChildren: function(row) {
     if (!isNaN(row)) {
@@ -28172,7 +28199,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
       }));
     }
     parent.__children.push(element);
-    this.refreshLevelCache();
+    this.rewriteCache();
     var newRowIndex = this.getRowIndex(element);
     this.hot.runHooks('afterCreateRow', newRowIndex, 1);
     this.hot.runHooks('afterAddChild', parent, element);
@@ -28205,11 +28232,10 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
         this.data.push(element);
       }
     }
+    this.rewriteCache();
     if (forceRender) {
-      this.refreshLevelCache();
       this.hot.render();
     }
-    this.updateParentReference();
     this.hot.runHooks('afterDetachChild', parent, element);
   },
   filterData: function(index, amount, logicRows) {
@@ -28227,6 +28253,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
         tempParent.__children.splice(indexWithinParent, 1);
       }
     }));
+    this.rewriteCache();
   },
   spliceData: function(index, amount, element) {
     index = this.translateTrimmedRow(index);
@@ -28245,13 +28272,7 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
     } else {
       this.data.splice(indexWithinParent, amount, element);
     }
-  },
-  refreshLevelCache: function() {
-    var $__3 = this;
-    this.levelCache = [];
-    rangeEach(0, this.countAllRows(), (function(i) {
-      $__3.levelCache[i] = $__3.getRowLevel(i);
-    }));
+    this.rewriteCache();
   },
   translateTrimmedRow: function(row) {
     if (this.plugin.collapsingUI) {
@@ -28310,6 +28331,7 @@ var $NestedRows = NestedRows;
     this.collapsingUI = new CollapsingUI(this, this.hot, this.trimRowsPlugin);
     this.headersUI = new HeadersUI(this, this.hot);
     this.contextMenuUI = new ContextMenuUI(this, this.hot);
+    this.dataManager.rewriteCache();
     this.addHook('modifyRowData', (function(row) {
       return $__8.onModifyRowData(row);
     }));
@@ -28374,12 +28396,10 @@ var $NestedRows = NestedRows;
   },
   onBeforeDataSplice: function(index, amount, element) {
     this.dataManager.spliceData(index, amount, element);
-    this.dataManager.refreshLevelCache();
     return false;
   },
   onBeforeDataFilter: function(index, amount, logicRows) {
     this.dataManager.filterData(index, amount, logicRows);
-    this.dataManager.refreshLevelCache();
     return false;
   },
   onAfterContextMenuDefaultOptions: function(defaultOptions) {
@@ -28436,11 +28456,10 @@ var $NestedRows = NestedRows;
   },
   onAfterInit: function() {
     var $__10;
-    this.dataManager.refreshLevelCache();
     if (this.bindRowsWithHeadersPlugin.bindStrategy.strategy) {
       this.bindRowsWithHeadersPlugin.bindStrategy.createMap(this.hot.countSourceRows());
     }
-    var deepestLevel = ($__10 = Math).max.apply($__10, $traceurRuntime.spread(this.dataManager.levelCache));
+    var deepestLevel = ($__10 = Math).max.apply($__10, $traceurRuntime.spread(this.dataManager.cache.levels));
     if (deepestLevel > 0) {
       this.headersUI.updateRowHeaderWidth(deepestLevel);
     }
@@ -28536,12 +28555,15 @@ var $CollapsingUI = CollapsingUI;
     var forceRender = arguments[1] !== (void 0) ? arguments[1] : true;
     var $__6 = this;
     var rowObject = null;
+    var rowIndex = null;
     if (isNaN(row)) {
       rowObject = row;
+      rowIndex = this.dataManager.getRowIndex(row);
     } else {
       rowObject = this.dataManager.getDataObject(row);
+      rowIndex = row;
     }
-    this.collapsedRows.splice(this.collapsedRows.indexOf(row), 1);
+    this.collapsedRows.splice(this.collapsedRows.indexOf(rowIndex), 1);
     if (this.dataManager.hasChildren(rowObject)) {
       arrayEach(rowObject.__children, (function(elem, i) {
         $__6.expandNode(elem);
@@ -28572,15 +28594,12 @@ var $CollapsingUI = CollapsingUI;
     this.renderAndAdjust();
   },
   expandNode: function(rowObj) {
-    var $__6 = this;
     var rowIndex = this.dataManager.getRowIndex(rowObj);
     if (!this.isAnyParentCollapsed(rowObj)) {
       this.trimRowsPlugin.untrimRow(rowIndex);
     }
     if (this.dataManager.hasChildren(rowObj)) {
-      arrayEach(rowObj.__children, (function(elem, i) {
-        $__6.expandNode(elem);
-      }));
+      this.expandChildren(rowObj);
     }
   },
   areChildrenCollapsed: function(row) {
@@ -28720,7 +28739,6 @@ var addClass = ($__handsontable_47_helpers_47_dom_47_element__ = _dereq_("../../
 var HeadersUI = function HeadersUI(nestedRowsPlugin, hotInstance) {
   $traceurRuntime.superConstructor($HeadersUI).call(this, nestedRowsPlugin, hotInstance);
   this.dataManager = this.plugin.dataManager;
-  this.levelCache = this.dataManager.levelCache;
   this.collapsingUI = this.plugin.collapsingUI;
   this.rowHeaderWidthCache = null;
   this.trimRowsPlugin = nestedRowsPlugin.trimRowsPlugin;
@@ -28729,7 +28747,7 @@ var $HeadersUI = HeadersUI;
 ($traceurRuntime.createClass)(HeadersUI, {
   appendLevelIndicators: function(row, TH) {
     row = this.trimRowsPlugin.rowsMapper.getValueByIndex(row);
-    var rowLevel = this.levelCache ? this.levelCache[row] : this.dataManager.getRowLevel(row);
+    var rowLevel = this.dataManager.getRowLevel(row);
     var rowObject = this.dataManager.getDataObject(row);
     var innerDiv = TH.getElementsByTagName('DIV')[0];
     var innerSpan = innerDiv.querySelector('span.rowHeader');
@@ -28764,7 +28782,7 @@ var $HeadersUI = HeadersUI;
   updateRowHeaderWidth: function(deepestLevel) {
     var $__5;
     if (!deepestLevel) {
-      deepestLevel = ($__5 = Math).max.apply($__5, $traceurRuntime.spread(this.dataManager.levelCache));
+      deepestLevel = ($__5 = Math).max.apply($__5, $traceurRuntime.spread(this.dataManager.cache.levels));
     }
     this.rowHeaderWidthCache = Math.max(50, 11 + 10 * deepestLevel + 20);
     this.hot.render();
