@@ -57,4 +57,9 @@
 
     return pt_br;
 
+}));º'
+    });
+
+    return pt_br;
+
 }));

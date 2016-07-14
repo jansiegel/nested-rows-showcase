@@ -144,7 +144,8 @@ var generateData;
     manualColumnResize: true,
     manualRowResize: true,
     bindRowsWithHeaders: true,
-    contextMenu: true
+    contextMenu: true,
+    autoWrapRow: true
   });
 
   bindButtons();
