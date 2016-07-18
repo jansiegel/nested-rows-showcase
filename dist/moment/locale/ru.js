@@ -31,17 +31,20 @@
             return number + ' ' + plural(format[key], +number);
         }
     }
-    var monthsParse = [/^янв/i, /^фев/i, /^мар/i, /^апр/i, /^ма[й|я]/i, /^июн/i, /^июл/i, /^авг/i, /^сен/i, /^окт/i, /^ноя/i, /^дек/i];
+    var monthsParse = [/^янв/i, /^фев/i, /^мар/i, /^апр/i, /^ма[йя]/i, /^июн/i, /^июл/i, /^авг/i, /^сен/i, /^окт/i, /^ноя/i, /^дек/i];
 
     // http://new.gramota.ru/spravka/rules/139-prop : § 103
+    // Сокращения месяцев: http://new.gramota.ru/spravka/buro/search-answer?s=242637
+    // CLDR data:          http://www.unicode.org/cldr/charts/28/summary/ru.html#1753
     var ru = moment.defineLocale('ru', {
         months : {
             format: 'января_февраля_марта_апреля_мая_июня_июля_августа_сентября_октября_ноября_декабря'.split('_'),
             standalone: 'январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь'.split('_')
         },
         monthsShort : {
-            format: 'янв_фев_мар_апр_мая_июня_июля_авг_сен_окт_ноя_дек'.split('_'),
-            standalone: 'янв_фев_март_апр_май_июнь_июль_авг_сен_окт_ноя_дек'.split('_')
+            // по CLDR именно "июл." и "июн.", но какой смысл менять букву на точку ?
+            format: 'янв._февр._мар._апр._мая_июня_июля_авг._сент._окт._нояб._дек.'.split('_'),
+            standalone: 'янв._февр._март_апр._май_июнь_июль_авг._сент._окт._нояб._дек.'.split('_')
         },
         weekdays : {
             standalone: 'воскресенье_понедельник_вторник_среда_четверг_пятница_суббота'.split('_'),
@@ -53,6 +56,10 @@
         monthsParse : monthsParse,
         longMonthsParse : monthsParse,
         shortMonthsParse : monthsParse,
+        monthsRegex: /^(сентябр[яь]|октябр[яь]|декабр[яь]|феврал[яь]|январ[яь]|апрел[яь]|августа?|ноябр[яь]|сент\.|февр\.|нояб\.|июнь|янв.|июль|дек.|авг.|апр.|марта|мар[.т]|окт.|июн[яь]|июл[яь]|ма[яй])/i,
+        monthsShortRegex: /^(сентябр[яь]|октябр[яь]|декабр[яь]|феврал[яь]|январ[яь]|апрел[яь]|августа?|ноябр[яь]|сент\.|февр\.|нояб\.|июнь|янв.|июль|дек.|авг.|апр.|марта|мар[.т]|окт.|июн[яь]|июл[яь]|ма[яй])/i,
+        monthsStrictRegex: /^(сентябр[яь]|октябр[яь]|декабр[яь]|феврал[яь]|январ[яь]|апрел[яь]|августа?|ноябр[яь]|марта?|июн[яь]|июл[яь]|ма[яй])/i,
+        monthsShortStrictRegex: /^(нояб\.|февр\.|сент\.|июль|янв\.|июн[яь]|мар[.т]|авг\.|апр\.|окт\.|дек\.|ма[яй])/i,
         longDateFormat : {
             LT : 'HH:mm',
             LTS : 'HH:mm:ss',
@@ -119,53 +126,6 @@
             mm : relativeTimeWithPlural,
             h : 'час',
             hh : relativeTimeWithPlural,
-            d : 'день',
-            dd : relativeTimeWithPlural,
-            M : 'месяц',
-            MM : relativeTimeWithPlural,
-            y : 'год',
-            yy : relativeTimeWithPlural
-        },
-        meridiemParse: /ночи|утра|дня|вечера/i,
-        isPM : function (input) {
-            return /^(дня|вечера)$/.test(input);
-        },
-        meridiem : function (hour, minute, isLower) {
-            if (hour < 4) {
-                return 'ночи';
-            } else if (hour < 12) {
-                return 'утра';
-            } else if (hour < 17) {
-                return 'дня';
-            } else {
-                return 'вечера';
-            }
-        },
-        ordinalParse: /\d{1,2}-(й|го|я)/,
-        ordinal: function (number, period) {
-            switch (period) {
-            case 'M':
-            case 'd':
-            case 'DDD':
-                return number + '-й';
-            case 'D':
-                return number + '-го';
-            case 'w':
-            case 'W':
-                return number + '-я';
-            default:
-                return number;
-            }
-        },
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 7  // The week that contains Jan 1st is the first week of the year.
-        }
-    });
-
-    return ru;
-
-}));hPlural,
             d : 'день',
             dd : relativeTimeWithPlural,
             M : 'месяц',

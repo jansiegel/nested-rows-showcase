@@ -16,6 +16,7 @@
         weekdays : 'Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado'.split('_'),
         weekdaysShort : 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
         weekdaysMin : 'Dom_2ª_3ª_4ª_5ª_6ª_Sáb'.split('_'),
+        weekdaysParseExact : true,
         longDateFormat : {
             LT : 'HH:mm',
             LTS : 'HH:mm:ss',
@@ -53,11 +54,6 @@
         },
         ordinalParse: /\d{1,2}º/,
         ordinal : '%dº'
-    });
-
-    return pt_br;
-
-}));�'
     });
 
     return pt_br;

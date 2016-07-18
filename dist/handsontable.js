@@ -6611,6 +6611,18 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
   updateParentReference: function() {
     this.readTreeNodes({__children: this.data}, 0, this.hot.countRows());
   },
+  mockParent: function() {
+    var fakeParent = this.mockNode();
+    fakeParent.__children = this.data;
+    return fakeParent;
+  },
+  mockNode: function() {
+    var fakeNode = {};
+    objectEach(this.data[0], (function(val, key) {
+      fakeNode[key] = null;
+    }));
+    return fakeNode;
+  },
   getRowIndex: function(rowObj) {
     return rowObj == null ? null : this.cache.nodeInfo.get(rowObj).row;
   },
@@ -6684,20 +6696,52 @@ var DataManager = function DataManager(nestedRowsPlugin, hotInstance, sourceData
   },
   addChild: function(parent, element) {
     this.hot.runHooks('beforeAddChild', parent, element);
-    if (!parent.__children) {
-      parent.__children = [];
+    var functionalParent = parent;
+    if (!parent) {
+      functionalParent = this.mockParent();
+    }
+    if (!functionalParent.__children) {
+      functionalParent.__children = [];
     }
     if (!element) {
-      element = {};
-      objectEach(parent, (function(val, prop) {
-        element[prop] = null;
-      }));
+      element = this.mockNode();
     }
-    parent.__children.push(element);
+    functionalParent.__children.push(element);
     this.rewriteCache();
     var newRowIndex = this.getRowIndex(element);
     this.hot.runHooks('afterCreateRow', newRowIndex, 1);
     this.hot.runHooks('afterAddChild', parent, element);
+  },
+  addChildAtIndex: function(parent, index, element) {
+    this.hot.runHooks('beforeAddChild', parent, element, index);
+    var functionalParent = parent;
+    if (!parent) {
+      functionalParent = this.mockParent();
+    }
+    if (!functionalParent.__children) {
+      functionalParent.__children = [];
+    }
+    if (!element) {
+      element = this.mockNode();
+    }
+    functionalParent.__children.splice(index, null, element);
+    this.rewriteCache();
+    this.hot.runHooks('afterCreateRow', index + 1, 1);
+    this.hot.runHooks('afterAddChild', parent, element, index);
+  },
+  addSibling: function(index) {
+    var where = arguments[1] !== (void 0) ? arguments[1] : 'below';
+    var translatedIndex = this.translateTrimmedRow(index);
+    var parent = this.getRowParent(translatedIndex);
+    var indexWithinParent = this.getRowIndexWithinParent(translatedIndex);
+    switch (where) {
+      case 'below':
+        this.addChildAtIndex(parent, indexWithinParent + 1);
+        break;
+      case 'above':
+        this.addChildAtIndex(parent, indexWithinParent);
+        break;
+    }
   },
   detachFromParent: function(elements) {
     var forceRender = arguments[1] !== (void 0) ? arguments[1] : true;
@@ -6851,8 +6895,8 @@ var $NestedRows = NestedRows;
     this.addHook('beforeOnCellMouseDown', (function(event, coords, TD) {
       return $__8.onBeforeOnCellMouseDown(event, coords, TD);
     }));
-    this.addHook('beforeRemoveRow', (function(index, amount) {
-      return $__8.onBeforeRemoveRow(index, amount);
+    this.addHook('afterRemoveRow', (function(index, amount) {
+      return $__8.onAfterRemoveRow(index, amount);
     }));
     this.addHook('modifyRemovedAmount', (function(amount, index) {
       return $__8.onModifyRemovedAmount(amount, index);
@@ -6903,7 +6947,14 @@ var $NestedRows = NestedRows;
     return false;
   },
   onBeforeDataFilter: function(index, amount, logicRows) {
-    this.dataManager.filterData(index, amount, logicRows);
+    var realLogicRows = [];
+    var startIndex = this.dataManager.translateTrimmedRow(index);
+    rangeEach(startIndex, startIndex + amount - 1, (function(i) {
+      realLogicRows.push(i);
+    }));
+    this.collapsingUI.collapsedRowsStash.stash();
+    this.collapsingUI.collapsedRowsStash.trimStash(startIndex, amount);
+    this.dataManager.filterData(index, amount, realLogicRows);
     return false;
   },
   onAfterContextMenuDefaultOptions: function(defaultOptions) {
@@ -6915,15 +6966,9 @@ var $NestedRows = NestedRows;
   onModifyRowHeaderWidth: function(rowHeaderWidth) {
     return this.headersUI.rowHeaderWidthCache || rowHeaderWidth;
   },
-  onBeforeRemoveRow: function(index, amount) {
-    index = this.collapsingUI.translateTrimmedRow(index);
-    if (index != null) {
-      var rowsToRemove = [];
-      rangeEach(index, index + amount - 1, (function(i) {
-        rowsToRemove.push(i);
-      }));
-      this.collapsingUI.expandRows(rowsToRemove);
-    }
+  onBeforeRemoveRow: function(index, amount) {},
+  onAfterRemoveRow: function(index, amount) {
+    this.collapsingUI.collapsedRowsStash.applyStash();
   },
   onModifyRemovedAmount: function(amount, index) {
     var $__8 = this;
@@ -6959,45 +7004,19 @@ var $NestedRows = NestedRows;
     return amount + childrenCount;
   },
   onBeforeAddChild: function(parent, element) {
-    var $__8 = this;
-    this.lastCollapsedRows = this.collapsingUI.collapsedRows.slice(0);
-    arrayEach(this.lastCollapsedRows, (function(elem, i) {
-      $__8.collapsingUI.expandChildren(elem, false);
-    }));
+    this.collapsingUI.collapsedRowsStash.stash();
   },
   onAfterAddChild: function(parent, element) {
-    var $__8 = this;
-    var parentIndex = this.dataManager.getRowIndex(parent);
-    arrayEach(this.lastCollapsedRows, (function(elem, i) {
-      if (elem > parentIndex) {
-        $__8.lastCollapsedRows[i] = elem + 1;
-      }
-    }));
-    arrayEach(this.lastCollapsedRows, (function(elem, i) {
-      $__8.collapsingUI.collapseChildren(elem, false);
-    }));
-    this.lastCollapsedRows = void 0;
+    this.collapsingUI.collapsedRowsStash.shiftStash(this.dataManager.getRowIndex(element));
+    this.collapsingUI.collapsedRowsStash.applyStash();
     this.headersUI.updateRowHeaderWidth();
   },
   onBeforeDetachChild: function(parent, element) {
-    var $__8 = this;
-    this.lastCollapsedRows = this.collapsingUI.collapsedRows.slice(0);
-    arrayEach(this.lastCollapsedRows, (function(elem, i) {
-      $__8.collapsingUI.expandChildren(elem, false);
-    }));
+    this.collapsingUI.collapsedRowsStash.stash();
   },
   onAfterDetachChild: function(parent, element) {
-    var $__8 = this;
-    var parentIndex = this.dataManager.getRowIndex(parent);
-    arrayEach(this.lastCollapsedRows, (function(elem, i) {
-      if (elem > parentIndex) {
-        $__8.lastCollapsedRows[i] = elem - 1;
-      }
-    }));
-    arrayEach(this.lastCollapsedRows, (function(elem, i) {
-      $__8.collapsingUI.collapseChildren(elem, false);
-    }));
-    this.lastCollapsedRows = void 0;
+    this.collapsingUI.collapsedRowsStash.shiftStash(this.dataManager.getRowIndex(element));
+    this.collapsingUI.collapsedRowsStash.applyStash();
     this.headersUI.updateRowHeaderWidth();
   },
   onAfterInit: function() {
@@ -7052,10 +7071,49 @@ var rangeEach = ($__handsontable_47_helpers_47_number__ = _dereq_("../../../../n
 var hasClass = ($__handsontable_47_helpers_47_dom_47_element__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/dom/element"), $__handsontable_47_helpers_47_dom_47_element__ && $__handsontable_47_helpers_47_dom_47_element__.__esModule && $__handsontable_47_helpers_47_dom_47_element__ || {default: $__handsontable_47_helpers_47_dom_47_element__}).hasClass;
 var HeadersUI = ($__headers__ = _dereq_("headers"), $__headers__ && $__headers__.__esModule && $__headers__ || {default: $__headers__}).HeadersUI;
 var CollapsingUI = function CollapsingUI(nestedRowsPlugin, hotInstance) {
+  var $__6 = this;
   $traceurRuntime.superConstructor($CollapsingUI).call(this, nestedRowsPlugin, hotInstance);
   this.trimRowsPlugin = nestedRowsPlugin.trimRowsPlugin;
   this.dataManager = this.plugin.dataManager;
   this.collapsedRows = [];
+  this.collapsedRowsStash = {
+    stash: (function() {
+      $__6.lastCollapsedRows = $__6.collapsedRows.slice(0);
+      arrayEach($__6.lastCollapsedRows, (function(elem, i) {
+        $__6.expandChildren(elem, false);
+      }));
+    }),
+    shiftStash: (function(elementIndex) {
+      arrayEach($__6.lastCollapsedRows, (function(elem, i) {
+        if (elem > elementIndex - 1) {
+          $__6.lastCollapsedRows[i] = elem + 1;
+        }
+      }));
+    }),
+    applyStash: (function() {
+      arrayEach($__6.lastCollapsedRows, (function(elem, i) {
+        $__6.collapseChildren(elem, false);
+      }));
+      $__6.lastCollapsedRows = void 0;
+    }),
+    trimStash: (function(realElementIndex, amount) {
+      var tempStash = $__6.lastCollapsedRows.slice(0);
+      rangeEach(realElementIndex, realElementIndex + amount - 1, (function(i) {
+        var indexWithin = $__6.lastCollapsedRows.indexOf(i);
+        if (indexWithin > -1) {
+          var removedItemChildren = $__6.dataManager.getDataObject(i).__children;
+          var removedItemChildrenCount = removedItemChildren ? removedItemChildren.length : 0;
+          if (removedItemChildrenCount > 0) {
+            rangeEach(indexWithin + 1, $__6.lastCollapsedRows.length - 1, (function(j) {
+              tempStash[j] = $__6.lastCollapsedRows[j] - removedItemChildrenCount - 1;
+            }));
+          }
+          tempStash.splice(indexWithin, 1);
+        }
+      }));
+      $__6.lastCollapsedRows = tempStash.slice(0);
+    })
+  };
 };
 var $CollapsingUI = CollapsingUI;
 ($traceurRuntime.createClass)(CollapsingUI, {
@@ -7093,6 +7151,44 @@ var $CollapsingUI = CollapsingUI;
       }));
     }
   },
+  collapseRows: function(rowIndexes) {
+    var recursive = arguments[1] !== (void 0) ? arguments[1] : true;
+    var $__6 = this;
+    var rowsToTrim = [];
+    arrayEach(rowIndexes, (function(elem, i) {
+      rowsToTrim.push(elem);
+      if (recursive) {
+        $__6.collapseChildRows(elem, rowsToTrim);
+      }
+    }));
+    this.trimRowsPlugin.trimRows(rowsToTrim);
+  },
+  collapseChildRows: function(parentIndex) {
+    var rowsToTrim = arguments[1] !== (void 0) ? arguments[1] : [];
+    var recursive = arguments[2] !== (void 0) ? arguments[2] : true;
+    var doTrimming = arguments[3] !== (void 0) ? arguments[3] : false;
+    var $__6 = this;
+    if (this.dataManager.hasChildren(parentIndex)) {
+      var parentObject = this.dataManager.getDataObject(parentIndex);
+      arrayEach(parentObject.__children, (function(elem, i) {
+        var elemIndex = $__6.dataManager.getRowIndex(elem);
+        rowsToTrim.push(elemIndex);
+        $__6.collapseChildRows(elemIndex, rowsToTrim);
+      }));
+    }
+    if (doTrimming) {
+      this.trimRowsPlugin.trimRows(rowsToTrim);
+    }
+  },
+  collapseNodes: function(rowObjects) {
+    var $__6 = this;
+    this.trimRowsPlugin.trimRow(rowIndex);
+    if (this.dataManager.hasChildren(rowObj)) {
+      arrayEach(rowObj.__children, (function(elem, i) {
+        $__6.collapseNode(elem);
+      }));
+    }
+  },
   expandRows: function(rows) {
     var $__6 = this;
     arrayEach(rows, (function(elem, i) {
@@ -7101,16 +7197,6 @@ var $CollapsingUI = CollapsingUI;
         rowObj = $__6.dataManager.getDataObject(elem);
       }
       $__6.expandNode(rowObj);
-    }));
-  },
-  collapseRows: function(rows) {
-    var $__6 = this;
-    arrayEach(rows, (function(elem, i) {
-      var rowObj = elem;
-      if (!isNaN(elem)) {
-        rowObj = $__6.dataManager.getDataObject(elem);
-      }
-      $__6.collapseNode(rowObj);
     }));
   },
   expandChildren: function(row) {
@@ -7234,12 +7320,25 @@ var $___95_base__,
 var BaseUI = ($___95_base__ = _dereq_("_base"), $___95_base__ && $___95_base__.__esModule && $___95_base__ || {default: $___95_base__}).BaseUI;
 var rangeEach = ($__handsontable_47_helpers_47_number__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/number"), $__handsontable_47_helpers_47_number__ && $__handsontable_47_helpers_47_number__.__esModule && $__handsontable_47_helpers_47_number__ || {default: $__handsontable_47_helpers_47_number__}).rangeEach;
 var arrayEach = ($__handsontable_47_helpers_47_array__ = _dereq_("../../../../node_modules/hot-builder/node_modules/handsontable/src/helpers/array"), $__handsontable_47_helpers_47_array__ && $__handsontable_47_helpers_47_array__.__esModule && $__handsontable_47_helpers_47_array__ || {default: $__handsontable_47_helpers_47_array__}).arrayEach;
+var privatePool = new WeakMap();
 var ContextMenuUI = function ContextMenuUI(nestedRowsPlugin, hotInstance) {
+  var $__3 = this;
+  privatePool.set(this, {
+    row_above: (function(key, selection) {
+      console.log('insert above');
+      $__3.dataManager.addSibling(selection.start.row, 'above');
+    }),
+    row_below: (function(key, selection) {
+      console.log('insert below');
+      $__3.dataManager.addSibling(selection.start.row, 'below');
+    })
+  });
   $traceurRuntime.superConstructor($ContextMenuUI).call(this, nestedRowsPlugin, hotInstance);
   this.dataManager = this.plugin.dataManager;
 };
 var $ContextMenuUI = ContextMenuUI;
-($traceurRuntime.createClass)(ContextMenuUI, {appendOptions: function(defaultOptions) {
+($traceurRuntime.createClass)(ContextMenuUI, {
+  appendOptions: function(defaultOptions) {
     var $__3 = this;
     var newEntries = [{
       key: 'add_child',
@@ -7280,8 +7379,19 @@ var $ContextMenuUI = ContextMenuUI;
         return false;
       }
     }));
+    defaultOptions = this.modifyRowInsertingOptions(defaultOptions);
     return defaultOptions;
-  }}, {}, BaseUI);
+  },
+  modifyRowInsertingOptions: function(defaultOptions) {
+    var priv = privatePool.get(this);
+    rangeEach(0, defaultOptions.items.length - 1, (function(i) {
+      if (priv[defaultOptions.items[i].key] != null) {
+        defaultOptions.items[i].callback = priv[defaultOptions.items[i].key];
+      }
+    }));
+    return defaultOptions;
+  }
+}, {}, BaseUI);
 ;
 
 //# 
@@ -11759,7 +11869,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Thu Jul 14 2016 11:37:05 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Mon Jul 18 2016 15:36:27 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';

@@ -86,7 +86,7 @@ section {
 }
 
 .handsontable .ht_nestingParent ~ TD {
-    background: #f7f5f5;
+    background-color: #f7f5f5;
 }
 
 div.third {
