@@ -6977,6 +6977,7 @@ var $NestedRows = NestedRows;
     var $__8 = this;
     setTimeout((function() {
       $__8.skipRender = null;
+      $__8.headersUI.updateRowHeaderWidth();
       $__8.collapsingUI.collapsedRowsStash.applyStash();
     }), 0);
   },
@@ -13760,7 +13761,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Thu Jul 21 2016 15:42:05 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Fri Jul 22 2016 12:49:55 GMT+0200 (CEST)';
 Handsontable.packageName = 'handsontable-pro';
 Handsontable.version = '1.4.1';
 var baseVersion = '0.25.1';
