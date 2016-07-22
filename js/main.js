@@ -142,9 +142,7 @@ var generateData;
     nestedRows: true,
     colWidths: [130, 60, 50, 50, 50, 65, 50, 65, 110, 50, 150, 50, 50, 50],
     manualColumnResize: true,
-    manualRowResize: true,
     bindRowsWithHeaders: true,
-    // contextMenu: ['add_child', 'detach_from_parent', Handsontable.plugins.ContextMenu.SEPARATOR, 'row_above', 'row_below', Handsontable.plugins.ContextMenu.SEPARATOR, 'col_left', 'col_right', Handsontable.plugins.ContextMenu.SEPARATOR, 'undo', 'redo', Handsontable.plugins.ContextMenu.SEPARATOR, 'alignment'],
     contextMenu: true,
     autoWrapRow: true
   });
