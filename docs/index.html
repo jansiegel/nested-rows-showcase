@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nested Rows documentation</title>
+  <link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div class="container"><h1 id="nested-rows-plugin">Nested Rows plugin</h1>
+
+  <ol>
+    <li><a href="#plugin-description">Plugin description</a></li>
+    <li><a href="#quickstart-enabling-the-plugin">Quickstart (enabling the plugin)</a></li>
+    <li><a href="#preparing-the-data-source">Preparing the data source</a></li>
+    <li><a href="#user-interface">User interface </a></li>
+    <li><a href="#plugin-configuration">Plugin configuration</a></li>
+    <li><a href="#api">API</a></li>
+  </ol>
+
+  <hr>
+
+  <h3 id="plugin-description">Plugin description</h3>
+
+  <p>The Nested Rows plugin extends Handsontable with a new functionality - displaying nested structures in a
+    two-dimensional data table.</p>
+
+
+  <h3 id="quickstart-enabling-the-plugin">Quickstart (enabling the plugin)</h3>
+
+  <p>Enabling the plugin requires some changes to be made in the Handsontable configuration object.</p>
+
+  <p>To enable the plugin, set the <code>nestedRows</code> property to <code>true</code>.</p>
+
+
+  <pre class="prettyprint"><code class="language-js hljs ">hot = <span class="hljs-keyword">new</span> Handsontable(container, {
+    data: sourceDataObject,
+    rowHeaders: <span class="hljs-literal">true</span>,
+    colHeaders: <span class="hljs-literal">true</span>,
+    nestedRows: <span class="hljs-literal">true</span>,
+    contextMenu: <span class="hljs-literal">true</span>
+  });</code></pre>
+
+  <p>Note, that using all the functionalities provided with the plugin requires setting <code>rowHeaders</code> (enables
+    the row headers) and <code>contextMenu</code> (enables the Handsontable’s context menu) to <code>true</code>, as the
+    “collapse”/”expand” buttons are located in the row headers and row modification options (“add row”, “insert child”
+    etc.) are in the Context Menu. <br>
+    The <code>colHeaders</code> options was enabled for better data readability. (it enables the column headers)</p>
+
+  <p>You can find a simple example of this setup in this demo: <a href="http://jsfiddle.net/js_ziggle/2nkcj9fm/">http://jsfiddle.net/js_ziggle/2nkcj9fm/</a>
+  </p>
+
+
+  <h3 id="preparing-the-data-source">Preparing the data source</h3>
+
+  <p>The data source has the have a certain structure to be used with the <code>Nested Headers</code> plugin. As the
+    demo above shows, the <em>data object</em> provided to Handsontable has to be <strong>an array of objects</strong>.
+  </p>
+
+  <p>Each object in the array represents a single <em>0-level</em> entry. By <em>0-level</em> I mean an entry which is
+    not a child to any other entry.</p>
+
+  <p>If an entry has any <em>child entries</em>, we need to declare them (again) as an <strong>array of objects</strong>.
+    To assign them to a row, we need to create a <code>__children</code> property in the <em>parent element</em>.</p>
+
+  <p>In the example above (<a href="http://jsfiddle.net/js_ziggle/2nkcj9fm/">http://jsfiddle.net/js_ziggle/2nkcj9fm/</a>),
+    I’ve created a data object consisting of 2016’s Grammy nominees of the “Rock” genre. As you can see, each <em>0-level</em>
+    entry declares a category, while their children declare nominees - they’re assigned under the
+    <code>__children</code> properties.</p>
+
+  <p>Another thing to mention - the first <em>0-level</em> object in the array needs to have all columns defined to
+    display the table properly. They can be declared as <code>null</code> or <code>''</code> (an empty string), but they
+    need to be defined. This is optional for the other objects.</p>
+
+
+  <h3 id="user-interface">User interface</h3>
+
+  <p>The <em>Nested Rows plugin</em> user interface is placed in the <em>row headers</em> and the <em>Handsontable’s
+    context menu</em>.</p>
+
+
+  <h4 id="row-headers">Row headers</h4>
+
+  <p>Each <em>parent</em> row header contains a <code>+</code>/<code>-</code> button. It is used to <em>collapse</em> or
+    <em>expand</em> its child rows.</p>
+
+  <p>Moreover, the child rows’ headers had been given a bigger indentation, so the user can clearly recognize the child
+    and parent elements.</p>
+
+
+  <h4 id="context-menu">Context Menu</h4>
+
+  <p>The context menu had been extended with a few <em>Nested Rows</em>-related options, such as: <br>
+    * Insert child row <br>
+    * Detach from parent</p>
+
+  <p>Moreover, the “Insert row above” and “Insert row below” options were modified to work properly with the nested data
+    structure.</p>
+
+
+  <h3 id="plugin-configuration">Plugin configuration</h3>
+
+  <p>Currently, the plugin should be fully configured when enabled with <code>true</code>. However, we can add some
+    tweaks to customize its look and behaviour, for example:</p>
+
+
+  <h4 id="marking-the-parents">Marking the <em>parents</em></h4>
+
+  <p>To mark the parents (for example with a different background color) like in the “Nested headers showcase” demo (<a
+          href="http://jansiegel.github.io/nested-rows-showcase/">http://jansiegel.github.io/nested-rows-showcase/</a>),
+    we’ll need to apply some <em>css</em> styling to the table.</p>
+
+  <p>The <em>css</em> class responsible for styling the <em>parents</em> is <code>.ht_nestingParent</code>. It’s added
+    to every <code>TH</code> element which represents  the row header of the parent entry.</p>
+
+  <p>For example - if we want to mark all the cells in the parent row light grey, we can assign this style to the
+    table:</p>
+
+
+  <pre class="prettyprint"><code class="language-css hljs "><span class="hljs-class">.handsontable</span> <span
+          class="hljs-class">.ht_nestingParent</span> ~ <span class="hljs-tag">TD</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span
+            class="hljs-hexcolor">#f7f5f5</span></span></span>;
+<span class="hljs-rule">}</span></span></code></pre>
+
+  <p>See the demo for a live example: <a href="http://jsfiddle.net/js_ziggle/2nkcj9fm/1/">http://jsfiddle.net/js_ziggle/2nkcj9fm/1/</a>
+  </p>
+
+
+  <h4 id="fixing-the-column-widths">Fixing the column widths</h4>
+
+  <p>As you can see in the demo, collapsing and expanding parent rows can cause some columns to resize. This is caused
+    by different content length in the “child” rows - when they get collapsed, they are no longer rendered, so the table
+    shrinks.</p>
+
+  <p>To fix this, we can provide column widths in the Handsontable configuration, for example:</p>
+
+
+  <pre class="prettyprint"><code class="language-js hljs ">  hot = <span class="hljs-keyword">new</span> Handsontable(container, {
+    data: sourceDataObject,
+    rowHeaders: <span class="hljs-literal">true</span>,
+    colHeaders: [<span class="hljs-string">'Category'</span>, <span class="hljs-string">'Artist'</span>, <span
+            class="hljs-string">'Title'</span>, <span class="hljs-string">'Album'</span>, <span class="hljs-string">'Label'</span>],
+    colWidths: [<span class="hljs-number">167</span>, <span class="hljs-number">175</span>, <span class="hljs-number">177</span>, <span
+            class="hljs-number">163</span>],
+    nestedRows: <span class="hljs-literal">true</span>,
+    contextMenu: <span class="hljs-literal">true</span>,
+  });</code></pre>
+
+  <p>The <code>colWidths</code>, provided as an array of numbers, declares each column's width in pixels.</p>
+
+  <p>As you can see in the updated example, the table resizing should no longer be an issue: <a
+          href="http://jsfiddle.net/js_ziggle/2nkcj9fm/2/">http://jsfiddle.net/js_ziggle/2nkcj9fm/2/</a></p>
+
+
+  <h3 id="api">API</h3>
+
+  <p>You can browse the JSDoc-generated API reference here: <a href="jsdoc/index.html">JSDoc-generated Documentation</a>.</p>
+
+  <h4>The most useful API methods are:</h4>
+  <hr>
+  <a href="jsdoc/CollapsingUI.html#collapseAll">collapseAll</a><br>
+  <p>Collapses all collapsable rows.</p>
+  Usage: <code>plugin.collapsingUI.collapseAll();</code>
+  <hr>
+  <a href="jsdoc/CollapsingUI.html#collapseChildren">collapseChildren(row, forceRender)</a><br>
+  <p>Collapses children of the provided row.</p>
+  Usage: <code>plugin.collapsingUI.collapseChildren(4);</code>
+  <hr>
+  <a href="jsdoc/CollapsingUI.html#expandAll">expandAll()</a><br>
+  <p>Expands all rows.</p>
+  Usage: <code>plugin.collapsingUI.expandAll();</code>
+  <hr>
+  <a href="jsdoc/CollapsingUI.html#expandChildren">expandChildren(row, forceRender)</a><br>
+  <p>Expands children of the provided row.</p>
+  Usage: <code>plugin.collapsingUI.expandChildren(4);</code>
+  <hr>
+
+  <strong>Notes:</strong>
+  <ul>
+    <li><code>plugin</code> in the usage examples references <code>handsontableInstance.getPlugin('nestedRows')</code></li>
+    <li>These methods will be probably moved to the main <code>plugin</code> object, to simplify it a little.</li>
+  </ul>
+</div>
+
+</body>
+</html>
