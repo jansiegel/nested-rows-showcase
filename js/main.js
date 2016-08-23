@@ -144,7 +144,7 @@ var generateData;
     stretchH: 'all',
     manualColumnResize: true,
     bindRowsWithHeaders: true,
-    contextMenu: true,
+    //contextMenu: true,
     autoWrapRow: true
   });
 
