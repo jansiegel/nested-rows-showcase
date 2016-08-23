@@ -4,6 +4,7 @@
 
 body {
     font-family: "Lato", "Open Sans",Helvetica,Arial,sans-serif;
+    padding-bottom: 100px;
 }
 
 .handsontable {
@@ -79,8 +80,10 @@ section {
 
 #example {
     /*width: 690px;*/
-    width: 895px;
+    width: 918px;
+    /*width: 81%;*/
     height: 364px;
+    /*height: 764px;*/
     overflow: hidden;
     margin: 0 auto;
 }
