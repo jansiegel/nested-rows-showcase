@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link href="./dist/handsontable.full.min.css" rel="stylesheet" type="text/css">
+  <!--<link href="./dist/handsontable.full.min.css" rel="stylesheet" type="text/css">-->
+  <link href="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.css" rel="stylesheet" type="text/css">
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
   <link href="./css/main.css" rel="stylesheet" type="text/css">
@@ -14,7 +15,8 @@
     if (window.location.search.indexOf('?version=old') === 0) {
       hotSrc = 'https://cdn.rawgit.com/jansiegel/nested-rows-showcase/e99f931b0711bf86c7b7276feebf13ef691287f6/dist/handsontable.full.min.js';
     } else {
-      hotSrc = './dist/handsontable.full.min.js';
+//      hotSrc = './dist/handsontable.full.min.js';
+        hotSrc = 'http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.js';
     }
 
     document.write('<script src="' + hotSrc + '">\x3C/script>');
